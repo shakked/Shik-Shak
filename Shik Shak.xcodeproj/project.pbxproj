@@ -11,6 +11,8 @@
 		4A09FE261A7541D800158152 /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE241A7541D800158152 /* ZSSShak.m */; };
 		4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */; };
 		4A09FE2A1A7557D500158152 /* ZSSCloudQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */; };
+		4A09FE2C1A75614200158152 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A09FE2B1A75614200158152 /* Keys.plist */; };
+		4A09FE2D1A75614200158152 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A09FE2B1A75614200158152 /* Keys.plist */; };
 		4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */; };
 		4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B34981A6F538100D27143 /* UIWaveView.m */; };
 		4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45811A6D88DD00C28755 /* ZSSCreateShakViewController.m */; };
@@ -75,6 +77,7 @@
 		4A09FE241A7541D800158152 /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZSSShak.m; path = ../ZSSShak.m; sourceTree = "<group>"; };
 		4A09FE271A7557D500158152 /* ZSSCloudQuerier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSCloudQuerier.h; sourceTree = "<group>"; };
 		4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSCloudQuerier.m; sourceTree = "<group>"; };
+		4A09FE2B1A75614200158152 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = "Shik ShakTests/Keys.plist"; sourceTree = SOURCE_ROOT; };
 		4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocationQuerier.m; sourceTree = "<group>"; };
 		4A3B34971A6F538100D27143 /* UIWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWaveView.h; sourceTree = "<group>"; };
 		4A3B34981A6F538100D27143 /* UIWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWaveView.m; sourceTree = "<group>"; };
@@ -239,6 +242,7 @@
 				4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */,
 				4A8CDE211A6D7DF700044CF8 /* Info.plist */,
 				4A8CDE221A6D7DF700044CF8 /* main.m */,
+				4A09FE2B1A75614200158152 /* Keys.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A09FE2C1A75614200158152 /* Keys.plist in Resources */,
 				4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */,
 				4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */,
 				4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */,
@@ -386,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A09FE2D1A75614200158152 /* Keys.plist in Resources */,
 				4A6E459D1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */,
 				4A6E45861A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */,
 				4A6E45951A6D915C00C28755 /* ZSSShakCell.xib in Resources */,
