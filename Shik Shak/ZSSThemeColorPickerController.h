@@ -1,5 +1,5 @@
 //
-//  ZSSHomeViewController.h
+//  ZSSThemeColorPickerController.h
 //  Shik Shak
 //
 //  Created by Zachary Shakked on 1/19/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZSSHomeViewController : UIViewController
+@interface ZSSThemeColorPickerController : UIViewController
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ZSSHomeTableViewController.h"
+#import "ZSSThemeColorPickerController.h"
+#import "ZSSLocalQuerier.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +21,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    BOOL userExists = [[ZSSLocalQuerier sharedQuerier] userExists];
+    
+    if (userExists) {
+        ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
+        self.window.rootViewController = nav;
+    } else {
+        ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
+        self.window.rootViewController = tcpc;
+    }
+    
+    ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
+    self.window.rootViewController = tcpc;
     [self.window makeKeyAndVisible];
     
     return YES;

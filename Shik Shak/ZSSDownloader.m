@@ -10,4 +10,25 @@
 
 @implementation ZSSDownloader
 
+    
+- (void)getShaksNearMeWithCompletion:(void (^)(NSError *, NSArray *))completion {
+    completion(nil, @[]);
+}
+
+- (instancetype)initPrivate {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"Singleton"
+                                   reason:@"Use + [ZSSDownloader sharedDownloader]"
+                                 userInfo:nil];
+    return nil;
+}
+
 @end

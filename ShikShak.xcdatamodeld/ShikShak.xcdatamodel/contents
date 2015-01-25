@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A343f" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="ZSSShak" representedClassName="ZSSShak" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="handle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="karma" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pitch" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="shakText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="voice" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZSSUser" inverseName="createdShaks" inverseEntity="ZSSUser" syncable="YES"/>
+    </entity>
+    <entity name="ZSSUser" representedClassName="ZSSUser" syncable="YES">
+        <attribute name="themeColor" optional="YES" attributeType="Transformable" valueTransformerName="NSValueTransformer" syncable="YES"/>
+        <relationship name="createdShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="creator" inverseEntity="ZSSShak" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ZSSShak" positionX="-54" positionY="-9" width="128" height="195"/>
+        <element name="ZSSUser" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
 </model>

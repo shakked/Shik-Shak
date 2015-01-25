@@ -7,17 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A09FE251A7541D800158152 /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE241A7541D800158152 /* ZSSShak.m */; };
+		4A09FE261A7541D800158152 /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE241A7541D800158152 /* ZSSShak.m */; };
+		4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */; };
+		4A09FE2A1A7557D500158152 /* ZSSCloudQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */; };
+		4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */; };
+		4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B34981A6F538100D27143 /* UIWaveView.m */; };
+		4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45811A6D88DD00C28755 /* ZSSCreateShakViewController.m */; };
+		4A6E45841A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45811A6D88DD00C28755 /* ZSSCreateShakViewController.m */; };
+		4A6E45851A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45821A6D88DD00C28755 /* ZSSCreateShakViewController.xib */; };
+		4A6E45861A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45821A6D88DD00C28755 /* ZSSCreateShakViewController.xib */; };
+		4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */; };
+		4A6E458A1A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */; };
+		4A6E458D1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E458C1A6D8DC600C28755 /* ZSSHomeTableViewController.m */; };
+		4A6E458E1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E458C1A6D8DC600C28755 /* ZSSHomeTableViewController.m */; };
+		4A6E45921A6D915C00C28755 /* ZSSShakCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45901A6D915C00C28755 /* ZSSShakCell.m */; };
+		4A6E45931A6D915C00C28755 /* ZSSShakCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45901A6D915C00C28755 /* ZSSShakCell.m */; };
+		4A6E45941A6D915C00C28755 /* ZSSShakCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45911A6D915C00C28755 /* ZSSShakCell.xib */; };
+		4A6E45951A6D915C00C28755 /* ZSSShakCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45911A6D915C00C28755 /* ZSSShakCell.xib */; };
+		4A6E459A1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */; };
+		4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */; };
+		4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
+		4A6E459D1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
 		4A8CDE231A6D7DF700044CF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE221A6D7DF700044CF8 /* main.m */; };
 		4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE251A6D7DF700044CF8 /* AppDelegate.m */; };
 		4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */; };
 		4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE2F1A6D7DF700044CF8 /* LaunchScreen.xib */; };
 		4A8CDE3D1A6D7DF700044CF8 /* Shik_ShakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE3C1A6D7DF700044CF8 /* Shik_ShakTests.m */; };
-		4A8CDE491A6D7E3300044CF8 /* ZSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE471A6D7E3300044CF8 /* ZSSHomeViewController.m */; };
-		4A8CDE4A1A6D7E3300044CF8 /* ZSSHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE481A6D7E3300044CF8 /* ZSSHomeViewController.xib */; };
 		4A8CDE4D1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */; };
 		4A8CDE4E1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */; };
-		4A8CDE551A6D7E8600044CF8 /* ShikShak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE531A6D7E8600044CF8 /* ShikShak.xcdatamodeld */; };
-		4A8CDE561A6D7E8600044CF8 /* ShikShak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE531A6D7E8600044CF8 /* ShikShak.xcdatamodeld */; };
+		4A98D8481A73610A00893961 /* testZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8471A73610A00893961 /* testZSSLocalFactory.m */; };
+		4A98D84A1A73626800893961 /* testZSSLocalQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8491A73626800893961 /* testZSSLocalQuerier.m */; };
+		4A98D84C1A73670000893961 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A98D84B1A73670000893961 /* CoreLocation.framework */; };
+		4A98D84D1A73670900893961 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A98D84B1A73670000893961 /* CoreLocation.framework */; };
+		4A98D8531A73689E00893961 /* ZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8521A73689E00893961 /* ZSSLocationQuerier.m */; };
+		4A98D8541A73689E00893961 /* ZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8521A73689E00893961 /* ZSSLocationQuerier.m */; };
+		4AA0FF211A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF1F1A6D82BD003EEC88 /* ShikShak.xcdatamodeld */; };
+		4AA0FF221A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF1F1A6D82BD003EEC88 /* ShikShak.xcdatamodeld */; };
+		4AA0FF251A6D835C003EEC88 /* ZSSLocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */; };
+		4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */; };
+		4AA0FF321A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */; };
+		4AA0FF331A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */; };
+		4AA0FF361A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */; };
+		4AA0FF371A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */; };
+		4AC990D01A74C4F900134BFB /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC990CF1A74C4F900134BFB /* ZSSUser.m */; };
+		4AC990D11A74C4F900134BFB /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC990CF1A74C4F900134BFB /* ZSSUser.m */; };
+		4AEC44591A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */; };
+		4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */; };
+		4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC446C1A6E1F54003E2D98 /* testZSSLocalStore.m */; };
+		64F6F925A5972FC8D88263A4 /* libPods-Shik Shak.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52913044ED5187C7C5D2F2C8 /* libPods-Shik Shak.a */; };
+		F43D911D689341A7538E4068 /* libPods-Shik ShakTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE80DCEE19BC16DB259636E4 /* libPods-Shik ShakTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +70,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B5CAC1F5B4EED3E49374919 /* Pods-Shik ShakTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shik ShakTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shik ShakTests/Pods-Shik ShakTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A09FE231A7541D800158152 /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZSSShak.h; path = ../ZSSShak.h; sourceTree = "<group>"; };
+		4A09FE241A7541D800158152 /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZSSShak.m; path = ../ZSSShak.m; sourceTree = "<group>"; };
+		4A09FE271A7557D500158152 /* ZSSCloudQuerier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSCloudQuerier.h; sourceTree = "<group>"; };
+		4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSCloudQuerier.m; sourceTree = "<group>"; };
+		4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocationQuerier.m; sourceTree = "<group>"; };
+		4A3B34971A6F538100D27143 /* UIWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWaveView.h; sourceTree = "<group>"; };
+		4A3B34981A6F538100D27143 /* UIWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWaveView.m; sourceTree = "<group>"; };
+		4A6E45801A6D88DD00C28755 /* ZSSCreateShakViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSCreateShakViewController.h; sourceTree = "<group>"; };
+		4A6E45811A6D88DD00C28755 /* ZSSCreateShakViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSCreateShakViewController.m; sourceTree = "<group>"; };
+		4A6E45821A6D88DD00C28755 /* ZSSCreateShakViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSCreateShakViewController.xib; sourceTree = "<group>"; };
+		4A6E45871A6D8D5C00C28755 /* RKDropdownAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKDropdownAlert.h; sourceTree = "<group>"; };
+		4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKDropdownAlert.m; sourceTree = "<group>"; };
+		4A6E458B1A6D8DC600C28755 /* ZSSHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSHomeTableViewController.h; sourceTree = "<group>"; };
+		4A6E458C1A6D8DC600C28755 /* ZSSHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSHomeTableViewController.m; sourceTree = "<group>"; };
+		4A6E458F1A6D915C00C28755 /* ZSSShakCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShakCell.h; sourceTree = "<group>"; };
+		4A6E45901A6D915C00C28755 /* ZSSShakCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShakCell.m; sourceTree = "<group>"; };
+		4A6E45911A6D915C00C28755 /* ZSSShakCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSShakCell.xib; sourceTree = "<group>"; };
+		4A6E45971A6D948900C28755 /* ZSSThemeColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSThemeColorPickerController.h; sourceTree = "<group>"; };
+		4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSThemeColorPickerController.m; sourceTree = "<group>"; };
+		4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSThemeColorPickerController.xib; sourceTree = "<group>"; };
 		4A8CDE1D1A6D7DF700044CF8 /* Shik Shak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shik Shak.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8CDE211A6D7DF700044CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8CDE221A6D7DF700044CF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,12 +101,30 @@
 		4A8CDE361A6D7DF700044CF8 /* Shik ShakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shik ShakTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8CDE3B1A6D7DF700044CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8CDE3C1A6D7DF700044CF8 /* Shik_ShakTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shik_ShakTests.m; sourceTree = "<group>"; };
-		4A8CDE461A6D7E3300044CF8 /* ZSSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSHomeViewController.h; sourceTree = "<group>"; };
-		4A8CDE471A6D7E3300044CF8 /* ZSSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSHomeViewController.m; sourceTree = "<group>"; };
-		4A8CDE481A6D7E3300044CF8 /* ZSSHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSHomeViewController.xib; sourceTree = "<group>"; };
 		4A8CDE4B1A6D7E4800044CF8 /* ZSSDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSDownloader.h; sourceTree = "<group>"; };
 		4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSDownloader.m; sourceTree = "<group>"; };
-		4A8CDE541A6D7E8600044CF8 /* ShikShak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShikShak.xcdatamodel; sourceTree = "<group>"; };
+		4A98D8471A73610A00893961 /* testZSSLocalFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalFactory.m; sourceTree = "<group>"; };
+		4A98D8491A73626800893961 /* testZSSLocalQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalQuerier.m; sourceTree = "<group>"; };
+		4A98D84B1A73670000893961 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4A98D8511A73689E00893961 /* ZSSLocationQuerier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocationQuerier.h; sourceTree = "<group>"; };
+		4A98D8521A73689E00893961 /* ZSSLocationQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocationQuerier.m; sourceTree = "<group>"; };
+		4AA0FF201A6D82BD003EEC88 /* ShikShak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShikShak.xcdatamodel; sourceTree = "<group>"; };
+		4AA0FF231A6D835C003EEC88 /* ZSSLocalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocalStore.h; sourceTree = "<group>"; };
+		4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalStore.m; sourceTree = "<group>"; };
+		4AA0FF301A6D8503003EEC88 /* ZSSLocalQuerier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocalQuerier.h; sourceTree = "<group>"; };
+		4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalQuerier.m; sourceTree = "<group>"; };
+		4AA0FF341A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Shik_Shak_Colors.h"; sourceTree = "<group>"; };
+		4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Shik_Shak_Colors.m"; sourceTree = "<group>"; };
+		4AC990CE1A74C4F900134BFB /* ZSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZSSUser.h; path = ../ZSSUser.h; sourceTree = "<group>"; };
+		4AC990CF1A74C4F900134BFB /* ZSSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZSSUser.m; path = ../ZSSUser.m; sourceTree = "<group>"; };
+		4AEC44571A6E085F003E2D98 /* ZSSLocalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocalFactory.h; sourceTree = "<group>"; };
+		4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalFactory.m; sourceTree = "<group>"; };
+		4AEC446C1A6E1F54003E2D98 /* testZSSLocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalStore.m; sourceTree = "<group>"; };
+		52913044ED5187C7C5D2F2C8 /* libPods-Shik Shak.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shik Shak.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0924EA5987E4D434A4C9A04 /* Pods-Shik Shak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shik Shak.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shik Shak/Pods-Shik Shak.release.xcconfig"; sourceTree = "<group>"; };
+		AB7E0661D4B6F76FE5545B39 /* Pods-Shik Shak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shik Shak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shik Shak/Pods-Shik Shak.debug.xcconfig"; sourceTree = "<group>"; };
+		AD0F88CD28C64AAE41A199D2 /* Pods-Shik ShakTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shik ShakTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shik ShakTests/Pods-Shik ShakTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE80DCEE19BC16DB259636E4 /* libPods-Shik ShakTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shik ShakTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A98D84C1A73670000893961 /* CoreLocation.framework in Frameworks */,
+				64F6F925A5972FC8D88263A4 /* libPods-Shik Shak.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,19 +141,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A98D84D1A73670900893961 /* CoreLocation.framework in Frameworks */,
+				F43D911D689341A7538E4068 /* libPods-Shik ShakTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3698FB8750A8AF0CED44675B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB7E0661D4B6F76FE5545B39 /* Pods-Shik Shak.debug.xcconfig */,
+				A0924EA5987E4D434A4C9A04 /* Pods-Shik Shak.release.xcconfig */,
+				2B5CAC1F5B4EED3E49374919 /* Pods-Shik ShakTests.debug.xcconfig */,
+				AD0F88CD28C64AAE41A199D2 /* Pods-Shik ShakTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DC3D11A710ABE7D038F910C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A98D84B1A73670000893961 /* CoreLocation.framework */,
+				52913044ED5187C7C5D2F2C8 /* libPods-Shik Shak.a */,
+				DE80DCEE19BC16DB259636E4 /* libPods-Shik ShakTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A6E45961A6D919300C28755 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4A8CDE4B1A6D7E4800044CF8 /* ZSSDownloader.h */,
+				4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */,
+				4A09FE271A7557D500158152 /* ZSSCloudQuerier.h */,
+				4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		4A8CDE141A6D7DF700044CF8 = {
 			isa = PBXGroup;
 			children = (
-				4A8CDE531A6D7E8600044CF8 /* ShikShak.xcdatamodeld */,
+				4AA0FF1F1A6D82BD003EEC88 /* ShikShak.xcdatamodeld */,
 				4A8CDE1F1A6D7DF700044CF8 /* Shik Shak */,
 				4A8CDE391A6D7DF700044CF8 /* Shik ShakTests */,
 				4A8CDE1E1A6D7DF700044CF8 /* Products */,
+				3698FB8750A8AF0CED44675B /* Pods */,
+				3DC3D11A710ABE7D038F910C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,14 +205,25 @@
 		4A8CDE1F1A6D7DF700044CF8 /* Shik Shak */ = {
 			isa = PBXGroup;
 			children = (
+				4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */,
 				4A8CDE241A6D7DF700044CF8 /* AppDelegate.h */,
 				4A8CDE251A6D7DF700044CF8 /* AppDelegate.m */,
-				4A8CDE461A6D7E3300044CF8 /* ZSSHomeViewController.h */,
-				4A8CDE471A6D7E3300044CF8 /* ZSSHomeViewController.m */,
-				4A8CDE481A6D7E3300044CF8 /* ZSSHomeViewController.xib */,
-				4A8CDE4B1A6D7E4800044CF8 /* ZSSDownloader.h */,
-				4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */,
-				4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */,
+				4A6E458B1A6D8DC600C28755 /* ZSSHomeTableViewController.h */,
+				4A6E458C1A6D8DC600C28755 /* ZSSHomeTableViewController.m */,
+				4A6E45971A6D948900C28755 /* ZSSThemeColorPickerController.h */,
+				4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */,
+				4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */,
+				4A6E45801A6D88DD00C28755 /* ZSSCreateShakViewController.h */,
+				4A6E45811A6D88DD00C28755 /* ZSSCreateShakViewController.m */,
+				4A6E45821A6D88DD00C28755 /* ZSSCreateShakViewController.xib */,
+				4A6E458F1A6D915C00C28755 /* ZSSShakCell.h */,
+				4A6E45901A6D915C00C28755 /* ZSSShakCell.m */,
+				4A6E45911A6D915C00C28755 /* ZSSShakCell.xib */,
+				4A3B34971A6F538100D27143 /* UIWaveView.h */,
+				4A3B34981A6F538100D27143 /* UIWaveView.m */,
+				4A98D8551A7368A700893961 /* Location */,
+				4AA0FF2F1A6D83D9003EEC88 /* CoreData */,
+				4A6E45961A6D919300C28755 /* Networking */,
 				4A8CDE2F1A6D7DF700044CF8 /* LaunchScreen.xib */,
 				4A8CDE201A6D7DF700044CF8 /* Supporting Files */,
 			);
@@ -106,6 +233,10 @@
 		4A8CDE201A6D7DF700044CF8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A6E45871A6D8D5C00C28755 /* RKDropdownAlert.h */,
+				4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */,
+				4AA0FF341A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.h */,
+				4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */,
 				4A8CDE211A6D7DF700044CF8 /* Info.plist */,
 				4A8CDE221A6D7DF700044CF8 /* main.m */,
 			);
@@ -116,6 +247,10 @@
 			isa = PBXGroup;
 			children = (
 				4A8CDE3C1A6D7DF700044CF8 /* Shik_ShakTests.m */,
+				4AEC446C1A6E1F54003E2D98 /* testZSSLocalStore.m */,
+				4A98D8471A73610A00893961 /* testZSSLocalFactory.m */,
+				4A98D8491A73626800893961 /* testZSSLocalQuerier.m */,
+				4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */,
 				4A8CDE3A1A6D7DF700044CF8 /* Supporting Files */,
 			);
 			path = "Shik ShakTests";
@@ -129,6 +264,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4A98D8551A7368A700893961 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4A98D8511A73689E00893961 /* ZSSLocationQuerier.h */,
+				4A98D8521A73689E00893961 /* ZSSLocationQuerier.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
+		4AA0FF2F1A6D83D9003EEC88 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0FF231A6D835C003EEC88 /* ZSSLocalStore.h */,
+				4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */,
+				4AA0FF301A6D8503003EEC88 /* ZSSLocalQuerier.h */,
+				4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */,
+				4AEC44571A6E085F003E2D98 /* ZSSLocalFactory.h */,
+				4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */,
+				4AC990CE1A74C4F900134BFB /* ZSSUser.h */,
+				4AC990CF1A74C4F900134BFB /* ZSSUser.m */,
+				4A09FE231A7541D800158152 /* ZSSShak.h */,
+				4A09FE241A7541D800158152 /* ZSSShak.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,9 +297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A8CDE401A6D7DF700044CF8 /* Build configuration list for PBXNativeTarget "Shik Shak" */;
 			buildPhases = (
+				1548D980204C22782ED42705 /* Check Pods Manifest.lock */,
 				4A8CDE191A6D7DF700044CF8 /* Sources */,
 				4A8CDE1A1A6D7DF700044CF8 /* Frameworks */,
 				4A8CDE1B1A6D7DF700044CF8 /* Resources */,
+				0E219D20AB154E2FFA987571 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,9 +316,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A8CDE431A6D7DF700044CF8 /* Build configuration list for PBXNativeTarget "Shik ShakTests" */;
 			buildPhases = (
+				AE851EFC22C0C08C2039674E /* Check Pods Manifest.lock */,
 				4A8CDE321A6D7DF700044CF8 /* Sources */,
 				4A8CDE331A6D7DF700044CF8 /* Frameworks */,
 				4A8CDE341A6D7DF700044CF8 /* Resources */,
+				CA79CD7EBAF2E72E7854FF1B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,9 +374,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */,
 				4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */,
 				4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */,
-				4A8CDE4A1A6D7E3300044CF8 /* ZSSHomeViewController.xib in Resources */,
+				4A6E45851A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */,
+				4A6E45941A6D915C00C28755 /* ZSSShakCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,21 +386,100 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6E459D1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */,
+				4A6E45861A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */,
+				4A6E45951A6D915C00C28755 /* ZSSShakCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E219D20AB154E2FFA987571 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shik Shak/Pods-Shik Shak-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1548D980204C22782ED42705 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE851EFC22C0C08C2039674E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA79CD7EBAF2E72E7854FF1B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shik ShakTests/Pods-Shik ShakTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A8CDE191A6D7DF700044CF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A8CDE491A6D7E3300044CF8 /* ZSSHomeViewController.m in Sources */,
+				4AA0FF251A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
+				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
+				4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */,
 				4A8CDE4D1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */,
-				4A8CDE551A6D7E8600044CF8 /* ShikShak.xcdatamodeld in Sources */,
+				4A09FE251A7541D800158152 /* ZSSShak.m in Sources */,
+				4AA0FF211A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
+				4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
 				4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */,
 				4A8CDE231A6D7DF700044CF8 /* main.m in Sources */,
+				4AC990D01A74C4F900134BFB /* ZSSUser.m in Sources */,
+				4AA0FF321A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */,
+				4A6E45921A6D915C00C28755 /* ZSSShakCell.m in Sources */,
+				4A6E459A1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
+				4AA0FF361A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */,
+				4A98D8531A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
+				4AEC44591A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
+				4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */,
+				4A6E458D1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,9 +487,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A8CDE561A6D7E8600044CF8 /* ShikShak.xcdatamodeld in Sources */,
+				4A98D8541A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
+				4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */,
+				4AA0FF221A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
 				4A8CDE3D1A6D7DF700044CF8 /* Shik_ShakTests.m in Sources */,
+				4A09FE2A1A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
+				4A6E45931A6D915C00C28755 /* ZSSShakCell.m in Sources */,
+				4A6E45841A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */,
+				4A6E458A1A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
+				4AA0FF371A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */,
+				4A6E458E1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */,
+				4A98D84A1A73626800893961 /* testZSSLocalQuerier.m in Sources */,
+				4AA0FF331A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */,
+				4AC990D11A74C4F900134BFB /* ZSSUser.m in Sources */,
+				4A09FE261A7541D800158152 /* ZSSShak.m in Sources */,
+				4A98D8481A73610A00893961 /* testZSSLocalFactory.m in Sources */,
+				4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
+				4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
 				4A8CDE4E1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */,
+				4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */,
+				4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +610,7 @@
 		};
 		4A8CDE411A6D7DF700044CF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7E0661D4B6F76FE5545B39 /* Pods-Shik Shak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Shik Shak/Info.plist";
@@ -357,6 +621,7 @@
 		};
 		4A8CDE421A6D7DF700044CF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0924EA5987E4D434A4C9A04 /* Pods-Shik Shak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Shik Shak/Info.plist";
@@ -367,6 +632,7 @@
 		};
 		4A8CDE441A6D7DF700044CF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5CAC1F5B4EED3E49374919 /* Pods-Shik ShakTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -386,6 +652,7 @@
 		};
 		4A8CDE451A6D7DF700044CF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD0F88CD28C64AAE41A199D2 /* Pods-Shik ShakTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -418,6 +685,7 @@
 				4A8CDE421A6D7DF700044CF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A8CDE431A6D7DF700044CF8 /* Build configuration list for PBXNativeTarget "Shik ShakTests" */ = {
 			isa = XCConfigurationList;
@@ -426,16 +694,17 @@
 				4A8CDE451A6D7DF700044CF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4A8CDE531A6D7E8600044CF8 /* ShikShak.xcdatamodeld */ = {
+		4AA0FF1F1A6D82BD003EEC88 /* ShikShak.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4A8CDE541A6D7E8600044CF8 /* ShikShak.xcdatamodel */,
+				4AA0FF201A6D82BD003EEC88 /* ShikShak.xcdatamodel */,
 			);
-			currentVersion = 4A8CDE541A6D7E8600044CF8 /* ShikShak.xcdatamodel */;
+			currentVersion = 4AA0FF201A6D82BD003EEC88 /* ShikShak.xcdatamodel */;
 			path = ShikShak.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

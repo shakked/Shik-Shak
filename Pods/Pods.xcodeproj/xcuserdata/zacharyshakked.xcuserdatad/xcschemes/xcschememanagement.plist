@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Shik Shak-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shik Shak-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shik Shak-RKNotificationHub.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shik Shak.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shik ShakTests-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Shik ShakTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>10FFABDA6D461EC906975AAF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5B7F39AED1D09442C380187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B645B233EDB6D044DB7DE0F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D12E2EB53BD0F1814F40AFF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC05AAEECFD3DF7F32F66380</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED93A4F34D5C59921DC65220</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

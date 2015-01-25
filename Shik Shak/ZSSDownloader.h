@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ZSSDownloader : NSObject
+
+- (void)getShaksNear:(CLLocation *)location withCompletion:(void (^)(NSError *, NSArray *))completion;
++ (instancetype)sharedDownloader;
 
 @end

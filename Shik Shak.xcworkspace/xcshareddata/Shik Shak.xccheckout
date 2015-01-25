@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>592AA601-973E-4F34-978A-A8977ADDC4E2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Shik Shak</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C97601D453796E1BE8D56F9B7B0B865E2FF2D592</key>
+		<string>https://github.com/shakked/Shik-Shak.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Shik Shak.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C97601D453796E1BE8D56F9B7B0B865E2FF2D592</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shakked/Shik-Shak.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C97601D453796E1BE8D56F9B7B0B865E2FF2D592</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C97601D453796E1BE8D56F9B7B0B865E2FF2D592</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Shik%20Shak</string>
+		</dict>
+	</array>
+</dict>
+</plist>
