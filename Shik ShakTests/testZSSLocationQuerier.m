@@ -31,12 +31,20 @@
 }
 
 - (void)testCurrentLocation {
-    XCTAssertNoThrow([[ZSSLocationQuerier sharedQuerier] currentLocation]);
+
+    XCTestExpectation *currentLocationExpectation = [self expectationWithDescription:@"currentLocation"];
+    [[ZSSLocationQuerier sharedQuerier] findCurrentLocaitonWithCompletion:^(CLLocation *location, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssert(location);
+        XCTAssert(location.coordinate.latitude);
+        XCTAssert(location.coordinate.longitude);
+        [currentLocationExpectation fulfill];
+    }];
     
-    CLLocation *currentLocation = [[ZSSLocationQuerier sharedQuerier] currentLocation];
-    XCTAssertNotNil(currentLocation);
-    
-    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
+        
+    }];
+
 }
 
 - (void)testPerformanceExample {

@@ -6,6 +6,7 @@ target 'Shik Shak' do
 pod "AFNetworking", "~> 2.0"
 pod 'RKNotificationHub'
 pod 'DateTools'
+pod 'AAPullToRefresh'
 
 end
 

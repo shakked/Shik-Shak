@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Shik Shak-AAPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Shik Shak-AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10FFABDA6D461EC906975AAF</key>
+		<key>00D0286ADB6CEE3572004F66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5B7F39AED1D09442C380187</key>
+		<key>188B78D7A33CE73864926EAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B645B233EDB6D044DB7DE0F0</key>
+		<key>4A9C94ED27FB436D38AD84EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D12E2EB53BD0F1814F40AFF3</key>
+		<key>91946E8B5727FA18601B0A8F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC05AAEECFD3DF7F32F66380</key>
+		<key>BE698A5AA7A2C245C705D96F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED93A4F34D5C59921DC65220</key>
+		<key>DE6A7309C31AACFD6A3467A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3D26E92693976E6822A3A30</key>
 		<dict>
 			<key>primary</key>
 			<true/>

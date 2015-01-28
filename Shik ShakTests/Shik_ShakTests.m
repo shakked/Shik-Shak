@@ -24,7 +24,11 @@
 }
 
 - (void)testExample {
-    XCTAssert(YES, @"Pass");
+    UIColor *red = [UIColor redColor];
+    
+    
+    
+    
 }
 
 - (void)testPerformanceExample {

@@ -10,9 +10,14 @@
 
 @interface UIColor (Shik_Shak_Colors)
 
++ (UIColor *)themeColor;
++ (UIColor *)themeColorTranslucent;
+
 + (UIColor *)charcoalColor;
 + (UIColor *)lighterGrayColor;
 + (UIColor *)salmonColor;
 + (UIColor *)turquoiseColor;
 + (UIColor *)pumpkinColor;
++ (UIColor *)colorWithOpacityFromColor:(UIColor *)color;
+
 @end

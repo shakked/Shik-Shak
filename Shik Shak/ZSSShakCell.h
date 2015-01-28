@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ZSSShakCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shakTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *clockImage;

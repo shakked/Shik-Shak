@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
 @property (weak, nonatomic) IBOutlet UIWaveView *sineWave;
+@property (nonatomic, strong) UIColor *lastPressedColor;
+
 @end
 
 
@@ -54,17 +56,22 @@
     UIButton *buttonPressed = (UIButton *)sender;
     UIColor *themeColor = buttonPressed.backgroundColor;
     self.view.backgroundColor = themeColor;
+    self.lastPressedColor = themeColor;
     self.continueButton.hidden = NO;
     self.continueButton.titleLabel.textColor = themeColor;
 }
 
+
+
 - (IBAction)continueButtonPressed:(id)sender {
-    UIButton *colorButton = (UIButton *)sender;
-    UIColor *themeColor = colorButton.backgroundColor;
+    UIView *colorButton = (UIButton *)sender;
+    UIColor *themeColor = self.lastPressedColor;
+    
     [self createAndConfigureUserWithThemeColor:themeColor];
     
     ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
+    nav.navigationBar.barTintColor = themeColor;
     [self presentViewController:nav animated:YES completion:nil];
 }
 

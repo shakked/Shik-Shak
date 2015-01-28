@@ -12,6 +12,7 @@
 @interface ZSSLocationQuerier () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, copy) void (^locationFoundHandler)(CLLocation *location, NSError *);
 
 @end
 
@@ -27,22 +28,25 @@
     return sharedQuerier;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = [locations lastObject];
-    NSDate *eventDate = location.timestamp;
-    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-    if (abs(howRecent) < 15.0) {
-        self.currentLocation = [locations lastObject];
-        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-              location.coordinate.latitude,
-              location.coordinate.longitude);
-    }
+- (void)findCurrentLocaitonWithCompletion:(void (^)(CLLocation *, NSError *))completionBlock {
+    self.locationFoundHandler = completionBlock;
+    [self.locationManager startUpdatingLocation];
 }
 
-- (CLLocation *)currentLocation {
-    //if location was less than a second ago...
-    [self.locationManager stopUpdatingLocation];
-    return self.currentLocation;
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *location = [locations lastObject];
+    if (self.locationFoundHandler) {
+        self.locationFoundHandler(location, nil);
+    }
+    self.locationFoundHandler = nil;
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if (self.locationFoundHandler) {
+        self.locationFoundHandler(nil, error);
+    }
+    self.locationFoundHandler = nil;
 }
 
 - (instancetype)initPrivate {

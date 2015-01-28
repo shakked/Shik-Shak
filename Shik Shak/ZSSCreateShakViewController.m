@@ -9,8 +9,11 @@
 #import "ZSSCreateShakViewController.h"
 #import "UIColor+Shik_Shak_Colors.h"
 #import "RKDropdownAlert.h"
+#import "ZSSLocalQuerier.h"
+#import "ZSSUser.h"
+#import "UIColor+Shik_Shak_Colors.h"
 
-@interface ZSSCreateShakViewController ()
+@interface ZSSCreateShakViewController () <UITextViewDelegate, UITextFieldDelegate>
 
 @end
 
@@ -18,18 +21,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureDelegates];
     [self configureViews];
+}
+
+- (void)configureDelegates {
+    self.shakTextView.delegate = self;
+    self.handleTextField.delegate = self;
+    
 }
 
 - (void)configureViews {
     [self configureNavBar];
+    [self configureShakCreationViews];
 }
 
+
 - (void)configureNavBar {
+    
+    UIColor *themeColor = [UIColor themeColor];
     self.navigationItem.title = @"Shak";
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor charcoalColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = themeColor;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
     
@@ -42,6 +56,19 @@
                                                                   action:@selector(sendShak)];
     self.navigationItem.leftBarButtonItem = cancelBarButton;
     self.navigationItem.rightBarButtonItem = sendBarButton;
+}
+
+- (void)configureShakCreationViews {
+    self.shakTextView.backgroundColor = [UIColor themeColorTranslucent];
+    self.pitchSlider.back
+}
+
+- (IBAction)voicesButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)handleTextDidChange:(id)sender {
+    
 }
 
 - (void)sendShak {

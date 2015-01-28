@@ -1,4 +1,5 @@
 PODS:
+  - AAPullToRefresh (1.0.2)
   - AFNetworking (2.5.0):
     - AFNetworking/NSURLConnection (= 2.5.0)
     - AFNetworking/NSURLSession (= 2.5.0)
@@ -24,11 +25,13 @@ PODS:
   - RKNotificationHub (1.0.2)
 
 DEPENDENCIES:
+  - AAPullToRefresh
   - AFNetworking (~> 2.0)
   - DateTools
   - RKNotificationHub
 
 SPEC CHECKSUMS:
+  AAPullToRefresh: 87c33c4e0527930ba7dcc698edce6c49c9a0b2af
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   RKNotificationHub: 0d468c504375f104709e3603f169d1d07c44e3f6

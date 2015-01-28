@@ -17,6 +17,9 @@
 #import "ZSSShak.h"
 #import "ZSSUser.h"
 #import "ZSSLocationQuerier.h"
+#import "ZSSCloudQuerier.h"
+#import "ZSSSettingsViewController.h"
+#import "AAPullToRefresh.h"
 
 static NSString *MESSAGE_CELL_CLASS = @"ZSSShakCell";
 static NSString *CELL_IDENTIFIER = @"cell";
@@ -24,6 +27,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 @interface ZSSHomeTableViewController ()
 
 @property (nonatomic,strong) NSArray *shaks;
+@property (nonatomic, strong) AAPullToRefresh *pullToRefresh;
 
 @end
 
@@ -36,13 +40,14 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (void)configureViews {
     [self configureNavBar];
+    [self configurePullToRefresh];
     [self.tableView registerNib:[UINib nibWithNibName:MESSAGE_CELL_CLASS bundle:nil] forCellReuseIdentifier:CELL_IDENTIFIER];
 }
 
 - (void)configureNavBar {
     self.navigationItem.title = @"Shik Shak";
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor charcoalColor];
+    self.navigationController.navigationBar.barTintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
@@ -50,28 +55,52 @@ static NSString *CELL_IDENTIFIER = @"cell";
     UIBarButtonItem *createShakBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
                                                                                          target:self
                                                                                          action:@selector(showCreateShakView)];
+    UISegmentedControl *hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
+    
+    UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingsButton.bounds = CGRectMake(0, 0, 30, 30);
+    [settingsButton setBackgroundImage:[UIImage imageNamed:@"SettingsIcon"] forState:UIControlStateNormal];
+    [settingsButton addTarget:self action:@selector(showSettingsView) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+
+    
+    [hotNewSegControl setSelectedSegmentIndex:1];
+    self.navigationItem.titleView = hotNewSegControl;
     self.navigationItem.rightBarButtonItem = createShakBarButton;
+    self.navigationItem.leftBarButtonItem = settingsBarButton;
+}
+
+- (void)configurePullToRefresh {
+    __weak ZSSHomeTableViewController *weakSelf = self;
+    self.pullToRefresh = [self.tableView addPullToRefreshPosition:AAPullToRefreshPositionTop ActionHandler:^(AAPullToRefresh *v){
+        ZSSHomeTableViewController *strongSelf = weakSelf;
+        
+        [v performSelector:@selector(stopIndicatorAnimation) withObject:nil afterDelay:1.0f];
+    }];
+    
+    self.pullToRefresh.imageIcon = [UIImage imageNamed:@"ShikShakRefreshIcon"];
+    self.pullToRefresh.borderColor = [UIColor whiteColor];
+    self.pullToRefresh.borderWidth = 0.0f;
+    self.pullToRefresh.threshold = 60.0f;
 }
 
 - (void)loadShakData {
     CLLocation *currentLocation = [[ZSSLocationQuerier sharedQuerier] currentLocation];
 
-    [[ZSSDownloader sharedDownloader] getShaksNear:currentLocation withCompletion:^(NSError *error, NSArray *shaks) {
-        if (!error) {
-            self.shaks = shaks;
-            [self.tableView reloadData];
-        } else {
-#warning ADD ERROR MESSAGE
-            NSLog(@"Show some sort of errror");
-        }
+    [[ZSSCloudQuerier sharedQuerier] getNewShaksWithCompletion:^(NSArray *newShaks, NSError *error) {
+        self.shaks = newShaks;
     }];
 }
-
 
 - (void)showCreateShakView {
     ZSSCreateShakViewController *csvc = [[ZSSCreateShakViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:csvc];
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)showSettingsView {
+    ZSSSettingsViewController *svc = [[ZSSSettingsViewController alloc] init];
+    [self.navigationController pushViewController:svc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,14 +120,10 @@ static NSString *CELL_IDENTIFIER = @"cell";
     return [self.shaks count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     ZSSShak *shak = self.shaks[indexPath.row];
-    
     cell.shakTextLabel.text = shak.shakText;
-
-    
     return cell;
 }
 

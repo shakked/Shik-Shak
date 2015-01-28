@@ -12,8 +12,10 @@
 
 @interface ZSSCloudQuerier : NSObject
 
-- (void)getShaksNear:(CLLocation *)location withCompletion:(void (^)(NSError *, NSArray *))completion;
+- (void)getNewShaksWithCompletion:(void (^)(NSArray *, NSError *))completion;
+- (void)getHotShaksWithCompletion:(void (^)(NSArray *, NSError *))completion;
+
 - (void)postShak:(ZSSShak *)shak withCompletion:(void (^)(NSError *, BOOL))completion;
 + (instancetype)sharedQuerier;
-
+- (void)testQuery;
 @end

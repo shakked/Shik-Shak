@@ -10,6 +10,10 @@
 #import "ZSSHomeTableViewController.h"
 #import "ZSSThemeColorPickerController.h"
 #import "ZSSLocalQuerier.h"
+#import "ZSSCloudQuerier.h"
+#import "ZSSShak.h"
+#import "ZSSLocalFactory.h"
+
 @interface AppDelegate ()
 
 @end
@@ -31,9 +35,7 @@
         ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
         self.window.rootViewController = tcpc;
     }
-    
-    ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
-    self.window.rootViewController = tcpc;
+
     [self.window makeKeyAndVisible];
     
     return YES;

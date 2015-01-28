@@ -14,5 +14,6 @@
 + (instancetype)sharedQuerier;
 
 @property (nonatomic, strong) CLLocation *currentLocation;
+- (void)findCurrentLocaitonWithCompletion:(void (^)(CLLocation *location, NSError *error))completionBlock;
 
 @end
