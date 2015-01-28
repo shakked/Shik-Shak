@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZSSCreateShakViewController">
             <connections>
                 <outlet property="charactersLeftLabel" destination="ixw-fW-9Zc" id="7mu-sI-wyZ"/>
+                <outlet property="handleBarView" destination="0O0-t3-k84" id="Wd4-Wy-oeR"/>
                 <outlet property="handleTextField" destination="0U6-YS-3Ri" id="Keg-OK-TzU"/>
                 <outlet property="pitchLabel" destination="hKX-fn-kW3" id="lyj-oG-Pyc"/>
                 <outlet property="pitchSlider" destination="Rta-T8-bzL" id="JgC-I8-hrU"/>
@@ -25,7 +26,8 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's on your mind?" translatesAutoresizingMaskIntoConstraints="NO" id="DSQ-q4-6V0">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="305"/>
                     <color key="backgroundColor" red="0.90196078430000004" green="0.4941176471" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="le5-1R-Y3a">
@@ -66,12 +68,12 @@
                                 <constraint firstAttribute="width" constant="34" id="PJu-gx-BTR"/>
                                 <constraint firstAttribute="height" constant="21" id="QZX-5C-HSH"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="20"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add A Handle" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0U6-YS-3Ri">
-                            <rect key="frame" x="46" y="3" width="504" height="30"/>
+                            <rect key="frame" x="84" y="3" width="466" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="xQD-20-bQe"/>
                             </constraints>
@@ -82,17 +84,31 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T90-mi-S8b">
-                            <rect key="frame" x="8" y="3" width="30" height="30"/>
-                            <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="8" y="5" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="6VU-B8-mUo"/>
-                                <constraint firstAttribute="height" constant="30" id="chZ-kz-lNb"/>
+                                <constraint firstAttribute="width" constant="25" id="6VU-B8-mUo"/>
+                                <constraint firstAttribute="height" constant="25" id="chZ-kz-lNb"/>
                             </constraints>
-                            <state key="normal">
+                            <state key="normal" backgroundImage="VoicesIcon">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="voicesButtonPressed:" destination="-1" eventType="touchUpInside" id="xp3-PU-R5k"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-65-phv">
+                            <rect key="frame" x="46" y="5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="AkM-OQ-lxA"/>
+                                <constraint firstAttribute="width" constant="25" id="Hog-5a-8IB"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="OxB-Sy-zaL"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="np2-6b-3WG"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="PlayIcon">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="voicesButtonPressed:" destination="-1" eventType="touchUpInside" id="73N-dj-FtN"/>
                             </connections>
                         </button>
                     </subviews>
@@ -103,9 +119,17 @@
                         <constraint firstAttribute="centerY" secondItem="T90-mi-S8b" secondAttribute="centerY" id="RYE-Xq-ZEe"/>
                         <constraint firstAttribute="centerY" secondItem="0U6-YS-3Ri" secondAttribute="centerY" id="TLI-L4-zi4"/>
                         <constraint firstAttribute="centerY" secondItem="ixw-fW-9Zc" secondAttribute="centerY" id="XWn-dg-LVS"/>
+                        <constraint firstItem="9Fe-65-phv" firstAttribute="leading" secondItem="T90-mi-S8b" secondAttribute="trailing" constant="13" id="cPd-si-ZcZ"/>
                         <constraint firstItem="0U6-YS-3Ri" firstAttribute="leading" secondItem="T90-mi-S8b" secondAttribute="trailing" constant="8" id="dnv-FU-FrE"/>
                         <constraint firstAttribute="height" constant="35" id="sNK-dz-wyT"/>
+                        <constraint firstItem="0U6-YS-3Ri" firstAttribute="leading" secondItem="9Fe-65-phv" secondAttribute="trailing" constant="13" id="u5P-qt-PsD"/>
+                        <constraint firstAttribute="centerY" secondItem="9Fe-65-phv" secondAttribute="centerY" id="zu9-XL-gdp"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="dnv-FU-FrE"/>
+                        </mask>
+                    </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXG-5q-yA2">
                     <rect key="frame" x="300" y="305" width="300" height="36"/>
@@ -155,4 +179,8 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="PlayIcon" width="30" height="30"/>
+        <image name="VoicesIcon" width="30" height="30"/>
+    </resources>
 </document>

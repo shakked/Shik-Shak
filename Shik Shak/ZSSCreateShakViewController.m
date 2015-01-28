@@ -59,9 +59,34 @@
 }
 
 - (void)configureShakCreationViews {
-    self.shakTextView.backgroundColor = [UIColor themeColorTranslucent];
-    self.pitchSlider.back
+    [self configureShakTextView];
+    [self configureSliders];
+    [self configureHandleBar];
+    
 }
+
+- (void)configureShakTextView {
+    [self.shakTextView becomeFirstResponder];
+    self.shakTextView.backgroundColor = [UIColor themeColorTranslucent];
+    self.shakTextView.tintColor = [UIColor themeColor];
+    self.shakTextView.textColor = [UIColor grayColor];
+    self.shakTextView.selectedRange = NSMakeRange(0, 0);
+}
+
+- (void)configureSliders {
+    self.pitchSlider.tintColor = [UIColor themeColor];
+    self.rateSlider.tintColor = [UIColor themeColor];
+}
+
+- (void)configureHandleBar {
+    self.charactersLeftLabel.textColor = [UIColor whiteColor];
+    self.handleTextField.textColor = [UIColor whiteColor];
+    self.handleTextField.tintColor = [UIColor whiteColor];
+    self.handleTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add A Handle" attributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5]}];
+    self.handleBarView.backgroundColor = [UIColor themeColor];
+
+}
+
 
 - (IBAction)voicesButtonPressed:(id)sender {
     
@@ -73,6 +98,34 @@
 
 - (void)sendShak {
     [RKDropdownAlert title:@"Would send messagE" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+#warning MAKE MORE READABLE
+    if (textView.text.length == 0) {
+        textView.text = @"What's on your mind?";
+        textView.textColor = [UIColor grayColor];
+        textView.selectedRange = NSMakeRange(0, 0);
+        self.charactersLeftLabel.text = @"200";
+    } else {
+        self.charactersLeftLabel.text = [NSString stringWithFormat:@"%lu", 200 - (unsigned long)[textView.text length]];
+        if (textView.text.length > 0) {
+            textView.textColor = [UIColor blackColor];
+        } else {
+            textView.text = @"What's on your mind?";
+            textView.textColor = [UIColor grayColor];
+        }
+    }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([textView.text isEqualToString:@"What's on your mind?"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    
+    return YES;
 }
 
 - (void)dismissView {

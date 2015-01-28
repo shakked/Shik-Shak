@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *charactersLeftLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *voicesButton;
+@property (weak, nonatomic) IBOutlet UIView *handleBarView;
 
 @end

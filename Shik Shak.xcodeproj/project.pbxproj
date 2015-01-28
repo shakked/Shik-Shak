@@ -39,6 +39,12 @@
 		4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */; };
 		4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
 		4A6E459D1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
+		4A8CBC731A78974600CE5EA6 /* play-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6D1A78974600CE5EA6 /* play-30.png */; };
+		4A8CBC741A78974600CE5EA6 /* play-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6E1A78974600CE5EA6 /* play-60.png */; };
+		4A8CBC751A78974600CE5EA6 /* play-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6F1A78974600CE5EA6 /* play-90.png */; };
+		4A8CBC761A78974600CE5EA6 /* voice_recognition_scan-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC701A78974600CE5EA6 /* voice_recognition_scan-30.png */; };
+		4A8CBC771A78974600CE5EA6 /* voice_recognition_scan-60-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC711A78974600CE5EA6 /* voice_recognition_scan-60-2.png */; };
+		4A8CBC781A78974600CE5EA6 /* voice_recognition_scan-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC721A78974600CE5EA6 /* voice_recognition_scan-90.png */; };
 		4A8CDE231A6D7DF700044CF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE221A6D7DF700044CF8 /* main.m */; };
 		4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE251A6D7DF700044CF8 /* AppDelegate.m */; };
 		4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */; };
@@ -115,6 +121,12 @@
 		4A6E45971A6D948900C28755 /* ZSSThemeColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSThemeColorPickerController.h; sourceTree = "<group>"; };
 		4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSThemeColorPickerController.m; sourceTree = "<group>"; };
 		4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSThemeColorPickerController.xib; sourceTree = "<group>"; };
+		4A8CBC6D1A78974600CE5EA6 /* play-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-30.png"; sourceTree = "<group>"; };
+		4A8CBC6E1A78974600CE5EA6 /* play-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-60.png"; sourceTree = "<group>"; };
+		4A8CBC6F1A78974600CE5EA6 /* play-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-90.png"; sourceTree = "<group>"; };
+		4A8CBC701A78974600CE5EA6 /* voice_recognition_scan-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_recognition_scan-30.png"; sourceTree = "<group>"; };
+		4A8CBC711A78974600CE5EA6 /* voice_recognition_scan-60-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_recognition_scan-60-2.png"; sourceTree = "<group>"; };
+		4A8CBC721A78974600CE5EA6 /* voice_recognition_scan-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_recognition_scan-90.png"; sourceTree = "<group>"; };
 		4A8CDE1D1A6D7DF700044CF8 /* Shik Shak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shik Shak.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8CDE211A6D7DF700044CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8CDE221A6D7DF700044CF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -341,6 +353,12 @@
 				4A67BF6A1A777A4B00601CA9 /* RefreshIcon.png */,
 				4A67BF6B1A777A4B00601CA9 /* RefreshIcon@2x.png */,
 				4A67BF6C1A777A4B00601CA9 /* RefreshIcon@3x.png */,
+				4A8CBC6D1A78974600CE5EA6 /* play-30.png */,
+				4A8CBC6E1A78974600CE5EA6 /* play-60.png */,
+				4A8CBC6F1A78974600CE5EA6 /* play-90.png */,
+				4A8CBC701A78974600CE5EA6 /* voice_recognition_scan-30.png */,
+				4A8CBC711A78974600CE5EA6 /* voice_recognition_scan-60-2.png */,
+				4A8CBC721A78974600CE5EA6 /* voice_recognition_scan-90.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -431,19 +449,25 @@
 			files = (
 				4A09FE2C1A75614200158152 /* Keys.plist in Resources */,
 				4AC174DC1A77642300A68263 /* settings_filled-30.png in Resources */,
+				4A8CBC741A78974600CE5EA6 /* play-60.png in Resources */,
 				4AC864AA1A776A8100FE4C43 /* ZSSThemeColorEditorViewController.xib in Resources */,
 				4A67BF6F1A777A4B00601CA9 /* RefreshIcon@3x.png in Resources */,
 				4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */,
 				4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */,
 				4A67BF571A77756700601CA9 /* left-90.png in Resources */,
 				4A67BF551A77756700601CA9 /* left-30.png in Resources */,
+				4A8CBC731A78974600CE5EA6 /* play-30.png in Resources */,
+				4A8CBC781A78974600CE5EA6 /* voice_recognition_scan-90.png in Resources */,
+				4A8CBC771A78974600CE5EA6 /* voice_recognition_scan-60-2.png in Resources */,
 				4A67BF6E1A777A4B00601CA9 /* RefreshIcon@2x.png in Resources */,
 				4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */,
 				4A67BF6D1A777A4B00601CA9 /* RefreshIcon.png in Resources */,
 				4A67BF561A77756700601CA9 /* left-60.png in Resources */,
+				4A8CBC751A78974600CE5EA6 /* play-90.png in Resources */,
 				4AC174DB1A77642300A68263 /* settings_filled-60.png in Resources */,
 				4AC174E21A77665100A68263 /* ZSSSettingsViewController.xib in Resources */,
 				4AC174DA1A77642300A68263 /* settings_filled-90.png in Resources */,
+				4A8CBC761A78974600CE5EA6 /* voice_recognition_scan-30.png in Resources */,
 				4A6E45851A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */,
 				4A6E45941A6D915C00C28755 /* ZSSShakCell.xib in Resources */,
 			);
