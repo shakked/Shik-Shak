@@ -11,10 +11,12 @@
 #import "RKDropdownAlert.h"
 #import "ZSSLocalQuerier.h"
 #import "ZSSUser.h"
+#import "ZSSShak.h"
 #import "UIColor+Shik_Shak_Colors.h"
 #import <AVFoundation/AVFoundation.h>
 #import "ActionSheetStringPicker.h"
-
+#import "ZSSLocalFactory.h"
+#import "ZSSCloudQuerier.h"
 
 @interface ZSSCreateShakViewController () <UITextViewDelegate, UITextFieldDelegate>
 
@@ -159,7 +161,36 @@
 }
 
 - (void)sendShak {
-    [RKDropdownAlert title:@"Would send messagE" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+    BOOL shakIsReadyToBeSent = [self shakIsReadyToBeSent];
+    if (shakIsReadyToBeSent) {
+        ZSSShak *shak = [[ZSSLocalFactory sharedFactory] createShak];
+        shak.creator = [[ZSSLocalQuerier sharedQuerier] currentUser];
+        shak.handle = self.handleTextField.text;
+        shak.pitch = [NSNumber numberWithFloat:self.pitchSlider.value];
+        shak.rate = [NSNumber numberWithFloat:self.rateSlider.value];
+        shak.shakText = self.shakTextView.text;
+        shak.voice = self.voice;
+        
+        [[ZSSCloudQuerier sharedQuerier] postShak:shak
+                                   withCompletion:^(NSError *error, BOOL succeeded) {
+                                       if (!error && succeeded) {
+                                           [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       } else {
+                                           [RKDropdownAlert title:@"Error sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                                       }
+                                   }];
+    }
+}
+
+- (BOOL)shakIsReadyToBeSent {
+    if (!self.shakTextView.hasText) {
+        return NO;
+    }else if ([self.shakTextView.text isEqualToString:@"What's on your mind?"]) {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 - (void)textViewDidChange:(UITextView *)textView {

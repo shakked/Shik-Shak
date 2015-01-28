@@ -112,6 +112,9 @@ static NSString * const BaseURLString = @" https://api.parse.com";
         [manager POST:@"https://api.parse.com/1/classes/ZSSShak" parameters: parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   completion(nil, YES);
+                  NSDictionary *response = (NSDictionary *)responseObject;
+                  shak.createdAt = [self dateFromString:response[@"createdAt"]];
+                  shak.objectId = response[@"objectId"];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   completion(error, NO);
@@ -129,6 +132,14 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     NSString *dateString = [dateFormatter stringFromDate:date];
     NSLog(@"dateString: %@", dateString);
     return dateString;
+}
+
+- (NSDate *)dateFromString:(NSString *)string {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.'999Z'"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    return [dateFormatter dateFromString:string];
 }
 
 - (NSDictionary *)newShaksQueryJSON {

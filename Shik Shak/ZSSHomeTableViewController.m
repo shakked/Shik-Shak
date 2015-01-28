@@ -19,6 +19,7 @@
 #import "ZSSCloudQuerier.h"
 #import "ZSSSettingsViewController.h"
 #import "AAPullToRefresh.h"
+#import "RKDropdownAlert.h"
 
 static NSString *MESSAGE_CELL_CLASS = @"ZSSShakCell";
 static NSString *CELL_IDENTIFIER = @"cell";
@@ -27,6 +28,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 @property (nonatomic,strong) NSArray *shaks;
 @property (nonatomic, strong) AAPullToRefresh *pullToRefresh;
+@property (nonatomic, strong) UISegmentedControl *hotNewSegControl;
 
 @end
 
@@ -35,6 +37,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViews];
+    [self loadShakData];
 }
 
 - (void)configureViews {
@@ -54,7 +57,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     UIBarButtonItem *createShakBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
                                                                                          target:self
                                                                                          action:@selector(showCreateShakView)];
-    UISegmentedControl *hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
+    self.hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
     
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.bounds = CGRectMake(0, 0, 30, 30);
@@ -63,8 +66,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
     UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
 
     
-    [hotNewSegControl setSelectedSegmentIndex:1];
-    self.navigationItem.titleView = hotNewSegControl;
+    [self.hotNewSegControl setSelectedSegmentIndex:1];
+    self.navigationItem.titleView = self.hotNewSegControl;
     self.navigationItem.rightBarButtonItem = createShakBarButton;
     self.navigationItem.leftBarButtonItem = settingsBarButton;
 }
@@ -84,11 +87,26 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)loadShakData {
-    CLLocation *currentLocation = [[ZSSLocationQuerier sharedQuerier] currentLocation];
-
-    [[ZSSCloudQuerier sharedQuerier] getNewShaksWithCompletion:^(NSArray *newShaks, NSError *error) {
-        self.shaks = newShaks;
-    }];
+    if (self.hotNewSegControl.selectedSegmentIndex == 0) {
+        [[ZSSCloudQuerier sharedQuerier] getNewShaksWithCompletion:^(NSArray *newShaks, NSError *error) {
+            if (!error) {
+                self.shaks = newShaks;
+                [self.tableView reloadData];
+            } else {
+                [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+            }
+        }];
+    } else {
+        [[ZSSCloudQuerier sharedQuerier] getHotShaksWithCompletion:^(NSArray *hotShaks, NSError *error) {
+            if (!error) {
+                self.shaks = hotShaks;
+                [self.tableView reloadData];
+            } else {
+                [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+            }
+        }];
+    }
+    
 }
 
 - (void)showCreateShakView {

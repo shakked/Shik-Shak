@@ -29,6 +29,7 @@
 #import "SWActionSheet.h"
 #import <objc/message.h>
 #import <sys/utsname.h>
+#import "UIColor+Shik_Shak_Colors.h"
 
 CG_INLINE BOOL isIPhone4()
 {
@@ -116,10 +117,12 @@ CG_INLINE BOOL isIPhone4()
 
         UIBarButtonItem *sysDoneButton = [self createButtonWithType:UIBarButtonSystemItemDone target:self
                                                              action:@selector(actionPickerDone:)];
+        sysDoneButton.tintColor = [UIColor themeColor];
 
         UIBarButtonItem *sysCancelButton = [self createButtonWithType:UIBarButtonSystemItemCancel target:self
                                                                action:@selector(actionPickerCancel:)];
-
+        sysCancelButton.tintColor = [UIColor themeColor];
+        
         [self setCancelBarButtonItem:sysCancelButton];
         [self setDoneBarButtonItem:sysDoneButton];
 
