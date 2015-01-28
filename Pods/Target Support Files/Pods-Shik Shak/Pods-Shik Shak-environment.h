@@ -57,8 +57,8 @@
 // DateTools
 #define COCOAPODS_POD_AVAILABLE_DateTools
 #define COCOAPODS_VERSION_MAJOR_DateTools 1
-#define COCOAPODS_VERSION_MINOR_DateTools 4
-#define COCOAPODS_VERSION_PATCH_DateTools 3
+#define COCOAPODS_VERSION_MINOR_DateTools 5
+#define COCOAPODS_VERSION_PATCH_DateTools 0
 
 // RKNotificationHub
 #define COCOAPODS_POD_AVAILABLE_RKNotificationHub

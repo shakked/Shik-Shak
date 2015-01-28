@@ -139,8 +139,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
-    ZSSShak *shak = self.shaks[indexPath.row];
-    cell.shakTextLabel.text = shak.shakText;
+    NSDictionary *shak = self.shaks[indexPath.row];
+    cell.shakTextLabel.text = shak[@"shakText"];
     return cell;
 }
 

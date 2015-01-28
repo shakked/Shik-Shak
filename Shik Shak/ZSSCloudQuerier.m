@@ -57,7 +57,7 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     }];
 }
 
-- (void)getNewShakswithCompletion:(void (^)(NSArray *, NSError *))completion {
+- (void)getNewShaksWithCompletion:(void (^)(NSArray *, NSError *))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
@@ -74,6 +74,44 @@ static NSString * const BaseURLString = @" https://api.parse.com";
             NSString *json = [self getJSONfromDictionary:jsonDictionary];
             NSDictionary *parameters = @{@"where" : json,
                                          @"order" : @"-createdAt",
+                                         @"limit" : @100};
+            
+            [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"%@", responseObject[@"results"]);
+                completion(responseObject[@"results"], nil);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                completion(nil,error);
+            }];
+            
+        } else {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+    }];
+}
+
+- (void)getHotShaksWithCompletion:(void (^)(NSArray *, NSError *))completion {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
+    [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [[ZSSLocationQuerier sharedQuerier] findCurrentLocaitonWithCompletion:^(CLLocation *location, NSError *error) {
+        if (!error) {
+            NSDate *now = [NSDate date];
+            NSDictionary *jsonDictionary = @{@"location" : @{@"$nearSphere" : @{@"__type": @"GeoPoint",
+                                                                                @"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
+                                                                                @"longitude": [NSNumber numberWithFloat:location.coordinate.longitude]},
+                                                             @"$maxDistanceInMiles" : @50.0
+                                                             },
+                                             @"createdAt" :@{@"$gt" : @{@"__type" : @"Date",
+                                                                        @"iso": [self jsonDate:[now dateBySubtractingHours:24]]
+                                                                        }
+                                                             }
+                                             
+                                             };
+            
+            NSString *json = [self getJSONfromDictionary:jsonDictionary];
+            NSDictionary *parameters = @{@"where" : json,
+                                         @"order" : @"-karma",
                                          @"limit" : @100};
             
             [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
