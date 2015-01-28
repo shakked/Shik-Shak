@@ -50,8 +50,6 @@
 		4A8CDE2E1A6D7DF700044CF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */; };
 		4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CDE2F1A6D7DF700044CF8 /* LaunchScreen.xib */; };
 		4A8CDE3D1A6D7DF700044CF8 /* Shik_ShakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE3C1A6D7DF700044CF8 /* Shik_ShakTests.m */; };
-		4A8CDE4D1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */; };
-		4A8CDE4E1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */; };
 		4A98D8481A73610A00893961 /* testZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8471A73610A00893961 /* testZSSLocalFactory.m */; };
 		4A98D84A1A73626800893961 /* testZSSLocalQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A98D8491A73626800893961 /* testZSSLocalQuerier.m */; };
 		4A98D84C1A73670000893961 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A98D84B1A73670000893961 /* CoreLocation.framework */; };
@@ -137,8 +135,6 @@
 		4A8CDE361A6D7DF700044CF8 /* Shik ShakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shik ShakTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8CDE3B1A6D7DF700044CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8CDE3C1A6D7DF700044CF8 /* Shik_ShakTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shik_ShakTests.m; sourceTree = "<group>"; };
-		4A8CDE4B1A6D7E4800044CF8 /* ZSSDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSDownloader.h; sourceTree = "<group>"; };
-		4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSDownloader.m; sourceTree = "<group>"; };
 		4A98D8471A73610A00893961 /* testZSSLocalFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalFactory.m; sourceTree = "<group>"; };
 		4A98D8491A73626800893961 /* testZSSLocalQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalQuerier.m; sourceTree = "<group>"; };
 		4A98D84B1A73670000893961 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -216,8 +212,6 @@
 		4A6E45961A6D919300C28755 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				4A8CDE4B1A6D7E4800044CF8 /* ZSSDownloader.h */,
-				4A8CDE4C1A6D7E4800044CF8 /* ZSSDownloader.m */,
 				4A09FE271A7557D500158152 /* ZSSCloudQuerier.h */,
 				4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */,
 			);
@@ -558,7 +552,6 @@
 				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
 				4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */,
 				4A09FE341A75627200158152 /* ZSSUser.m in Sources */,
-				4A8CDE4D1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */,
 				4AA0FF211A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
 				4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
 				4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */,
@@ -598,7 +591,6 @@
 				4A09FE331A75627200158152 /* ZSSShak.m in Sources */,
 				4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
 				4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
-				4A8CDE4E1A6D7E4800044CF8 /* ZSSDownloader.m in Sources */,
 				4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */,
 				4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 			);
