@@ -39,6 +39,14 @@
 		4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */; };
 		4A6E459C1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
 		4A6E459D1A6D948900C28755 /* ZSSThemeColorPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */; };
+		4A6FD3FC1A78A31000EDE95A /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3EB1A78A31000EDE95A /* AbstractActionSheetPicker.m */; };
+		4A6FD3FD1A78A31000EDE95A /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3ED1A78A31000EDE95A /* ActionSheetCustomPicker.m */; };
+		4A6FD3FE1A78A31000EDE95A /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3F01A78A31000EDE95A /* ActionSheetDatePicker.m */; };
+		4A6FD3FF1A78A31000EDE95A /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3F21A78A31000EDE95A /* ActionSheetDistancePicker.m */; };
+		4A6FD4001A78A31000EDE95A /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3F41A78A31000EDE95A /* ActionSheetLocalePicker.m */; };
+		4A6FD4011A78A31000EDE95A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3F71A78A31000EDE95A /* ActionSheetStringPicker.m */; };
+		4A6FD4021A78A31000EDE95A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3F91A78A31000EDE95A /* DistancePickerView.m */; };
+		4A6FD4031A78A31000EDE95A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FD3FB1A78A31000EDE95A /* SWActionSheet.m */; };
 		4A8CBC731A78974600CE5EA6 /* play-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6D1A78974600CE5EA6 /* play-30.png */; };
 		4A8CBC741A78974600CE5EA6 /* play-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6E1A78974600CE5EA6 /* play-60.png */; };
 		4A8CBC751A78974600CE5EA6 /* play-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CBC6F1A78974600CE5EA6 /* play-90.png */; };
@@ -119,6 +127,24 @@
 		4A6E45971A6D948900C28755 /* ZSSThemeColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSThemeColorPickerController.h; sourceTree = "<group>"; };
 		4A6E45981A6D948900C28755 /* ZSSThemeColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSThemeColorPickerController.m; sourceTree = "<group>"; };
 		4A6E45991A6D948900C28755 /* ZSSThemeColorPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSThemeColorPickerController.xib; sourceTree = "<group>"; };
+		4A6FD3EA1A78A31000EDE95A /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		4A6FD3EB1A78A31000EDE95A /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		4A6FD3EC1A78A31000EDE95A /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		4A6FD3ED1A78A31000EDE95A /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		4A6FD3EE1A78A31000EDE95A /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		4A6FD3EF1A78A31000EDE95A /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		4A6FD3F01A78A31000EDE95A /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		4A6FD3F11A78A31000EDE95A /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		4A6FD3F21A78A31000EDE95A /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		4A6FD3F31A78A31000EDE95A /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		4A6FD3F41A78A31000EDE95A /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		4A6FD3F51A78A31000EDE95A /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		4A6FD3F61A78A31000EDE95A /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		4A6FD3F71A78A31000EDE95A /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		4A6FD3F81A78A31000EDE95A /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		4A6FD3F91A78A31000EDE95A /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		4A6FD3FA1A78A31000EDE95A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		4A6FD3FB1A78A31000EDE95A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		4A8CBC6D1A78974600CE5EA6 /* play-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-30.png"; sourceTree = "<group>"; };
 		4A8CBC6E1A78974600CE5EA6 /* play-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-60.png"; sourceTree = "<group>"; };
 		4A8CBC6F1A78974600CE5EA6 /* play-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-90.png"; sourceTree = "<group>"; };
@@ -218,6 +244,31 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		4A6FD4041A78A31700EDE95A /* ActionSheets */ = {
+			isa = PBXGroup;
+			children = (
+				4A6FD3EA1A78A31000EDE95A /* AbstractActionSheetPicker.h */,
+				4A6FD3EB1A78A31000EDE95A /* AbstractActionSheetPicker.m */,
+				4A6FD3EC1A78A31000EDE95A /* ActionSheetCustomPicker.h */,
+				4A6FD3ED1A78A31000EDE95A /* ActionSheetCustomPicker.m */,
+				4A6FD3EE1A78A31000EDE95A /* ActionSheetCustomPickerDelegate.h */,
+				4A6FD3EF1A78A31000EDE95A /* ActionSheetDatePicker.h */,
+				4A6FD3F01A78A31000EDE95A /* ActionSheetDatePicker.m */,
+				4A6FD3F11A78A31000EDE95A /* ActionSheetDistancePicker.h */,
+				4A6FD3F21A78A31000EDE95A /* ActionSheetDistancePicker.m */,
+				4A6FD3F31A78A31000EDE95A /* ActionSheetLocalePicker.h */,
+				4A6FD3F41A78A31000EDE95A /* ActionSheetLocalePicker.m */,
+				4A6FD3F51A78A31000EDE95A /* ActionSheetPicker.h */,
+				4A6FD3F61A78A31000EDE95A /* ActionSheetStringPicker.h */,
+				4A6FD3F71A78A31000EDE95A /* ActionSheetStringPicker.m */,
+				4A6FD3F81A78A31000EDE95A /* DistancePickerView.h */,
+				4A6FD3F91A78A31000EDE95A /* DistancePickerView.m */,
+				4A6FD3FA1A78A31000EDE95A /* SWActionSheet.h */,
+				4A6FD3FB1A78A31000EDE95A /* SWActionSheet.m */,
+			);
+			name = ActionSheets;
+			sourceTree = "<group>";
+		};
 		4A8CDE141A6D7DF700044CF8 = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +332,7 @@
 				4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */,
 				4AA0FF341A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.h */,
 				4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */,
+				4A6FD4041A78A31700EDE95A /* ActionSheets */,
 				4A8CDE211A6D7DF700044CF8 /* Info.plist */,
 				4A8CDE221A6D7DF700044CF8 /* main.m */,
 				4A09FE2B1A75614200158152 /* Keys.plist */,
@@ -549,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA0FF251A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
+				4A6FD4011A78A31000EDE95A /* ActionSheetStringPicker.m in Sources */,
 				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
 				4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */,
 				4A09FE341A75627200158152 /* ZSSUser.m in Sources */,
@@ -557,16 +610,23 @@
 				4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */,
 				4A8CDE231A6D7DF700044CF8 /* main.m in Sources */,
 				4AA0FF321A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */,
+				4A6FD4001A78A31000EDE95A /* ActionSheetLocalePicker.m in Sources */,
 				4A6E45921A6D915C00C28755 /* ZSSShakCell.m in Sources */,
 				4A09FE321A75627200158152 /* ZSSShak.m in Sources */,
+				4A6FD3FC1A78A31000EDE95A /* AbstractActionSheetPicker.m in Sources */,
 				4A6E459A1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 				4AA0FF361A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */,
 				4A98D8531A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
+				4A6FD4021A78A31000EDE95A /* DistancePickerView.m in Sources */,
+				4A6FD3FE1A78A31000EDE95A /* ActionSheetDatePicker.m in Sources */,
 				4AEC44591A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
 				4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */,
 				4A6E458D1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */,
 				4AC864A91A776A8100FE4C43 /* ZSSThemeColorEditorViewController.m in Sources */,
+				4A6FD4031A78A31000EDE95A /* SWActionSheet.m in Sources */,
+				4A6FD3FF1A78A31000EDE95A /* ActionSheetDistancePicker.m in Sources */,
 				4AC174E11A77665100A68263 /* ZSSSettingsViewController.m in Sources */,
+				4A6FD3FD1A78A31000EDE95A /* ActionSheetCustomPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

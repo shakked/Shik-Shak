@@ -24,11 +24,7 @@
 }
 
 - (void)testExample {
-    UIColor *red = [UIColor redColor];
-    
-    
-    
-    
+
 }
 
 - (void)testPerformanceExample {

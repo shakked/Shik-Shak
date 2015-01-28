@@ -64,7 +64,6 @@
 
 
 - (IBAction)continueButtonPressed:(id)sender {
-    UIView *colorButton = (UIButton *)sender;
     UIColor *themeColor = self.lastPressedColor;
     
     [self createAndConfigureUserWithThemeColor:themeColor];

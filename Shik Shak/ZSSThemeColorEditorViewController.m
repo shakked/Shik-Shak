@@ -30,6 +30,7 @@
     self.saveButton.tintColor = themeColor;
     self.view.backgroundColor = themeColor;
     self.lastPressedColor = themeColor;
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)didReceiveMemoryWarning {

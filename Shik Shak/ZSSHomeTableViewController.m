@@ -13,7 +13,6 @@
 #import "ZSSLocalQuerier.h"
 #import "ZSSLocalStore.h"
 #import "ZSSLocalFactory.h"
-#import "ZSSDownloader.h"
 #import "ZSSShak.h"
 #import "ZSSUser.h"
 #import "ZSSLocationQuerier.h"
