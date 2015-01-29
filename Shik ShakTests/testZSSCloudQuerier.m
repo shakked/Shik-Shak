@@ -46,6 +46,26 @@
     }];
 }
 
+
+- (void)testGetHotShaks {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"hotShaks"];
+    [[ZSSCloudQuerier sharedQuerier] getHotShaksWithCompletion:^(NSArray *hotShaks, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(hotShaks);
+        for (NSDictionary *shak in hotShaks) {
+            XCTAssertNotNil(shak[@"karma"]);
+            XCTAssertNotNil(shak[@"location"]);
+            XCTAssertNotNil(shak[@"pitch"]);
+            XCTAssertNotNil(shak[@"rate"]);
+            XCTAssertNotNil(shak[@"voice"]);
+        }
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
+        
+    }];
+}
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{

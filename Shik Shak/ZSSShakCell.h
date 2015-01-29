@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *clockImage;
 @property (weak, nonatomic) IBOutlet UIButton *upVoteButton;
 @property (weak, nonatomic) IBOutlet UIButton *downVoteButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *karmaLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shakTextLabelTopContraint;

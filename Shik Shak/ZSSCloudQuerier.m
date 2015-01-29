@@ -68,7 +68,7 @@ static NSString * const BaseURLString = @" https://api.parse.com";
                                                                                 @"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
                                                                                 @"longitude": [NSNumber numberWithFloat:location.coordinate.longitude]},
                                                              @"$maxDistanceInMiles" : @50.0
-                                                     }
+                                                             }
                                              };
             
             NSString *json = [self getJSONfromDictionary:jsonDictionary];

@@ -43,6 +43,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (void)configureViews {
     [self configureNavBar];
     [self configurePullToRefresh];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerNib:[UINib nibWithNibName:MESSAGE_CELL_CLASS bundle:nil] forCellReuseIdentifier:CELL_IDENTIFIER];
 }
 
@@ -58,6 +60,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
                                                                                          target:self
                                                                                          action:@selector(showCreateShakView)];
     self.hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
+    [self.hotNewSegControl addTarget:self action:@selector(hotNewSegDidChange) forControlEvents:UIControlEventValueChanged];
     
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.bounds = CGRectMake(0, 0, 30, 30);
@@ -76,7 +79,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     __weak ZSSHomeTableViewController *weakSelf = self;
     self.pullToRefresh = [self.tableView addPullToRefreshPosition:AAPullToRefreshPositionTop ActionHandler:^(AAPullToRefresh *v){
         ZSSHomeTableViewController *strongSelf = weakSelf;
-        
+        [strongSelf loadShakData];
         [v performSelector:@selector(stopIndicatorAnimation) withObject:nil afterDelay:1.0f];
     }];
     
@@ -107,6 +110,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
         }];
     }
     
+}
+
+- (void)hotNewSegDidChange {
+    [self loadShakData];
+    NSLog(@"Shak data trying to reload");
 }
 
 - (void)showCreateShakView {
