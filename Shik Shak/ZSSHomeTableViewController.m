@@ -145,11 +145,24 @@ static NSString *CELL_IDENTIFIER = @"cell";
     return [self.shaks count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *shak = self.shaks[indexPath.row];
-    cell.shakTextLabel.text = shak[@"shakText"];
+    
+//    [cell setNeedsDisplay];
+//    [cell setNeedsUpdateConstraints];
+    
+    
     return cell;
 }
+
+
+
+  
 
 @end

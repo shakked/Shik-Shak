@@ -14,11 +14,15 @@
     // Initialization code
 }
 - (IBAction)upVoteButtonPressed:(id)sender {
-    
+    self.upVoteButtonPressedBlock();
 }
 
 - (IBAction)downVoteButtonPressed:(id)sender {
+    self.downVoteButtonPressedBlock();
+}
 
+- (IBAction)pressAndHoldToPlayButtonPressed:(id)sender {
+    self.pressAndHoldeToPlayButtonPressedBlock();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,5 +30,14 @@
 
     // Configure the view for the selected state
 }
+
+//- (void)updateConstraints {
+////    if (self.handleLabel.text.length == 0) {
+////        self.handelLabelHeightContraint.constant = 0.0f;
+////    } else {
+////        self.handelLabelHeightContraint.constant = 21.0f;
+////    }
+//    [super updateConstraints];
+//}
 
 @end
