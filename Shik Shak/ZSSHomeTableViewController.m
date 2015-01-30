@@ -20,6 +20,10 @@
 #import "ZSSSettingsViewController.h"
 #import "AAPullToRefresh.h"
 #import "RKDropdownAlert.h"
+#import <KVNProgress/KVNProgress.h>
+//#import "NSDate+JSON.h"
+//#import "NSDate+DateTools.h"
+
 
 static NSString *MESSAGE_CELL_CLASS = @"ZSSShakCell";
 static NSString *CELL_IDENTIFIER = @"cell";
@@ -37,6 +41,9 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self loadShakData];
 }
 
@@ -114,7 +121,6 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (void)hotNewSegDidChange {
     [self loadShakData];
-    NSLog(@"Shak data trying to reload");
 }
 
 - (void)showCreateShakView {
@@ -153,13 +159,60 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *shak = self.shaks[indexPath.row];
+    cell.shak = shak;
     cell.handleLabel.text = shak[@"handle"];
+    cell.dateLabel.text = [shak[@"createdAt"] description];
+    cell.karmaLabel.text = [shak[@"karma"] stringValue];
+    __weak ZSSShakCell *weakCell = cell;
+    cell.upVoteButtonPressedBlock = ^{
+        ZSSShakCell *strongCell = weakCell;
+        strongCell.upVoteButton.enabled = NO;
+        strongCell.downVoteButton.enabled = NO;
+        
+        [[ZSSCloudQuerier sharedQuerier] upvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
+            if (!error && succeeded) {
+                int karma = [strongCell.karmaLabel.text intValue];
+                karma += 1;
+                strongCell.karmaLabel.text = [NSString stringWithFormat:@"%d", karma];
+                [strongCell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
+            } else {
+                [RKDropdownAlert title:@"Error Upvoting" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                strongCell.upVoteButton.enabled = YES;
+                strongCell.downVoteButton.enabled = YES;
+            }
+        }];
+    };
+    
+    cell.downVoteButtonPressedBlock = ^{
+        ZSSShakCell *strongCell = weakCell;
+        strongCell.upVoteButton.enabled = NO;
+        strongCell.downVoteButton.enabled = NO;
+        
+        [[ZSSCloudQuerier sharedQuerier] downvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
+            if (!error) {
+                int karma = [strongCell.karmaLabel.text intValue];
+                karma -= 1;
+                strongCell.karmaLabel.text = [NSString stringWithFormat:@"%d", karma];
+                [strongCell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
+            } else {
+                [RKDropdownAlert title:@"Error Upvoting" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                strongCell.upVoteButton.enabled = YES;
+                strongCell.downVoteButton.enabled = YES;
+            }
+        }];
+    };
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:cell.pressAndHoldButton action:@selector(playShak:)];
+
     
     return cell;
 }
 
+#warning REMEMBER TO ADD: didUserUpvote? didUserDownvote? keep track of shak id's that have been voted
 
+- (void)playShak:(id)sender {
+    NSLog(@"It wants to play..");
+}
 
-  
 
 @end

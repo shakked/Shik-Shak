@@ -27,7 +27,7 @@
                             <action selector="upVoteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ye3-lR-y3a"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73V-4q-NjI">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73V-4q-NjI">
                         <rect key="frame" x="391" y="42" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="42" id="Ji7-Aw-HQp"/>
@@ -39,7 +39,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJy-Gb-err">
                         <rect key="frame" x="8" y="8" width="294" height="21"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="1r1-4e-fg7"/>
                             <constraint firstAttribute="width" constant="294" id="LsN-Ce-iH9"/>
@@ -63,13 +62,12 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-I4-dP1">
                         <rect key="frame" x="8" y="33" width="294" height="45"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="294" id="auf-vS-4rO"/>
                             <constraint firstAttribute="height" constant="45" id="oWh-iu-qdF"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
-                        <state key="normal" title="PRESS AND HOLD TO PLAY SHAK">
+                        <state key="normal" title="TAP TO PLAY">
                             <color key="titleColor" red="0.41009256109999997" green="0.41009256109999997" blue="0.41009256109999997" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -82,7 +80,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4at-ow-FFs">
                                 <rect key="frame" x="26" y="0.0" width="151" height="15"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="kZX-jg-yNd"/>
                                     <constraint firstAttribute="width" constant="151" id="q2z-VN-AYS"/>
@@ -133,6 +130,7 @@
                 <outlet property="handelLabelHeightContraint" destination="1r1-4e-fg7" id="x9v-sU-UXF"/>
                 <outlet property="handleLabel" destination="TJy-Gb-err" id="apa-wR-Ot7"/>
                 <outlet property="karmaLabel" destination="73V-4q-NjI" id="eAB-E4-b0W"/>
+                <outlet property="pressAndHoldButton" destination="B0H-I4-dP1" id="uzA-ZK-eea"/>
                 <outlet property="upVoteButton" destination="PHx-CA-BlQ" id="TPI-lg-XW1"/>
             </connections>
             <point key="canvasLocation" x="285.5" y="355"/>

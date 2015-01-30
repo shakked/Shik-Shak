@@ -73,6 +73,8 @@
 		4AA0FF331A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */; };
 		4AA0FF361A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */; };
 		4AA0FF371A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */; };
+		4AA362B01A7B1F12001586A2 /* NSDate+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */; };
+		4AA362B31A7B1FAA001586A2 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */; };
 		4AC174DA1A77642300A68263 /* settings_filled-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D71A77642300A68263 /* settings_filled-90.png */; };
 		4AC174DB1A77642300A68263 /* settings_filled-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D81A77642300A68263 /* settings_filled-60.png */; };
 		4AC174DC1A77642300A68263 /* settings_filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D91A77642300A68263 /* settings_filled-30.png */; };
@@ -190,6 +192,10 @@
 		4AA0FF311A6D8503003EEC88 /* ZSSLocalQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalQuerier.m; sourceTree = "<group>"; };
 		4AA0FF341A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Shik_Shak_Colors.h"; sourceTree = "<group>"; };
 		4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Shik_Shak_Colors.m"; sourceTree = "<group>"; };
+		4AA362AE1A7B1F12001586A2 /* NSDate+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSON.h"; sourceTree = "<group>"; };
+		4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSON.m"; sourceTree = "<group>"; };
+		4AA362B11A7B1FAA001586A2 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		4AC174D71A77642300A68263 /* settings_filled-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-90.png"; sourceTree = "<group>"; };
 		4AC174D81A77642300A68263 /* settings_filled-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-60.png"; sourceTree = "<group>"; };
 		4AC174D91A77642300A68263 /* settings_filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-30.png"; sourceTree = "<group>"; };
@@ -364,6 +370,10 @@
 				4A6E45881A6D8D5C00C28755 /* RKDropdownAlert.m */,
 				4AA0FF341A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.h */,
 				4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */,
+				4AA362AE1A7B1F12001586A2 /* NSDate+JSON.h */,
+				4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */,
+				4AA362B11A7B1FAA001586A2 /* NSString+JSON.h */,
+				4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */,
 				4A6FD4041A78A31700EDE95A /* ActionSheets */,
 				4A8CDE211A6D7DF700044CF8 /* Info.plist */,
 				4A8CDE221A6D7DF700044CF8 /* main.m */,
@@ -686,7 +696,9 @@
 				4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */,
 				4A6E458D1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */,
 				4AC864A91A776A8100FE4C43 /* ZSSThemeColorEditorViewController.m in Sources */,
+				4AA362B31A7B1FAA001586A2 /* NSString+JSON.m in Sources */,
 				4A6FD4031A78A31000EDE95A /* SWActionSheet.m in Sources */,
+				4AA362B01A7B1F12001586A2 /* NSDate+JSON.m in Sources */,
 				4A6FD3FF1A78A31000EDE95A /* ActionSheetDistancePicker.m in Sources */,
 				4AC174E11A77665100A68263 /* ZSSSettingsViewController.m in Sources */,
 				4A6FD3FD1A78A31000EDE95A /* ActionSheetCustomPicker.m in Sources */,

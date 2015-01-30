@@ -25,4 +25,7 @@
 @property (nonatomic, strong) void (^upVoteButtonPressedBlock)(void);
 @property (nonatomic, strong) void (^downVoteButtonPressedBlock)(void);
 @property (nonatomic, strong) void (^pressAndHoldeToPlayButtonPressedBlock)(void);
+
+@property (weak, nonatomic) IBOutlet UIButton *pressAndHoldButton;
+@property (nonatomic, strong) NSDictionary *shak;
 @end

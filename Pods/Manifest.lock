@@ -22,18 +22,21 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DateTools (1.5.0)
+  - KVNProgress (2.1.7)
   - RKNotificationHub (1.0.2)
 
 DEPENDENCIES:
   - AAPullToRefresh
   - AFNetworking (~> 2.0)
   - DateTools
+  - KVNProgress
   - RKNotificationHub
 
 SPEC CHECKSUMS:
   AAPullToRefresh: 87c33c4e0527930ba7dcc698edce6c49c9a0b2af
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
+  KVNProgress: 4667d21831831f92e5877e123f98f75a205939b0
   RKNotificationHub: 0d468c504375f104709e3603f169d1d07c44e3f6
 
 COCOAPODS: 0.35.0
