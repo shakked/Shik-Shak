@@ -6,6 +6,7 @@ target 'Shik Shak' do
     pod 'RKNotificationHub'
     pod 'DateTools'
     pod 'AAPullToRefresh'
+    pod 'KVNProgress'
     
 end
 

@@ -216,6 +216,9 @@
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
+        if (range.location != 0 && range.length != 1) {
+            return NO;
+        }
     }
     
     return YES;

@@ -31,13 +31,14 @@
     // Configure the view for the selected state
 }
 
-//- (void)updateConstraints {
-////    if (self.handleLabel.text.length == 0) {
-////        self.handelLabelHeightContraint.constant = 0.0f;
-////    } else {
-////        self.handelLabelHeightContraint.constant = 21.0f;
-////    }
-//    [super updateConstraints];
-//}
+- (void)updateConstraints {
+    if (self.handleLabel.text.length == 0) {
+        self.handelLabelHeightContraint.constant = 0.0f;
+    } else {
+        self.handelLabelHeightContraint.constant = 21.0f;
+    }
+    
+    [super updateConstraints];
+}
 
 @end

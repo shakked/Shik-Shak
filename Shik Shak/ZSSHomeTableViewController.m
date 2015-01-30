@@ -153,10 +153,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *shak = self.shaks[indexPath.row];
-    
-//    [cell setNeedsDisplay];
-//    [cell setNeedsUpdateConstraints];
-    
+    cell.handleLabel.text = shak[@"handle"];
     
     return cell;
 }
