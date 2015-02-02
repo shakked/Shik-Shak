@@ -17,6 +17,10 @@
 - (ZSSShak *)createShak;
 - (ZSSUser *)user;
 - (NSArray *)shaks;
+
+- (ZSSShak *)fetchShakWithObjectId:(NSString *)objectId;
+
+
 - (BOOL)saveCoreDataChanges;
 - (void)logCoreDataStatus;
 - (void)deleteUser:(ZSSUser *)user;

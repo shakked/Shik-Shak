@@ -13,10 +13,9 @@
 		4A09FE2D1A75614200158152 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A09FE2B1A75614200158152 /* Keys.plist */; };
 		4A09FE321A75627200158152 /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE2F1A75627200158152 /* ZSSShak.m */; };
 		4A09FE331A75627200158152 /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE2F1A75627200158152 /* ZSSShak.m */; };
-		4A09FE341A75627200158152 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE311A75627200158152 /* ZSSUser.m */; };
-		4A09FE351A75627200158152 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FE311A75627200158152 /* ZSSUser.m */; };
 		4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */; };
 		4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B34981A6F538100D27143 /* UIWaveView.m */; };
+		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A67BF551A77756700601CA9 /* left-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF521A77756700601CA9 /* left-30.png */; };
 		4A67BF561A77756700601CA9 /* left-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF531A77756700601CA9 /* left-60.png */; };
 		4A67BF571A77756700601CA9 /* left-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF541A77756700601CA9 /* left-90.png */; };
@@ -82,6 +81,11 @@
 		4AC174E21A77665100A68263 /* ZSSSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174E01A77665100A68263 /* ZSSSettingsViewController.xib */; };
 		4AC864A91A776A8100FE4C43 /* ZSSThemeColorEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC864A71A776A8100FE4C43 /* ZSSThemeColorEditorViewController.m */; };
 		4AC864AA1A776A8100FE4C43 /* ZSSThemeColorEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AC864A81A776A8100FE4C43 /* ZSSThemeColorEditorViewController.xib */; };
+		4AC95C141A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC95C131A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m */; };
+		4AC95C1A1A7C41BF0085E1A7 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC95C191A7C41BF0085E1A7 /* ZSSUser.m */; };
+		4AC95C1B1A7C41BF0085E1A7 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC95C191A7C41BF0085E1A7 /* ZSSUser.m */; };
+		4AC95C1E1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC95C1D1A7C461F0085E1A7 /* ZSSLocalSyncer.m */; };
+		4AC95C1F1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC95C1D1A7C461F0085E1A7 /* ZSSLocalSyncer.m */; };
 		4AEC44591A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */; };
 		4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */; };
 		4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC446C1A6E1F54003E2D98 /* testZSSLocalStore.m */; };
@@ -121,11 +125,10 @@
 		4A09FE2B1A75614200158152 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = "Shik ShakTests/Keys.plist"; sourceTree = SOURCE_ROOT; };
 		4A09FE2E1A75627200158152 /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShak.h; sourceTree = "<group>"; };
 		4A09FE2F1A75627200158152 /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShak.m; sourceTree = "<group>"; };
-		4A09FE301A75627200158152 /* ZSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSUser.h; sourceTree = "<group>"; };
-		4A09FE311A75627200158152 /* ZSSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSUser.m; sourceTree = "<group>"; };
 		4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocationQuerier.m; sourceTree = "<group>"; };
 		4A3B34971A6F538100D27143 /* UIWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWaveView.h; sourceTree = "<group>"; };
 		4A3B34981A6F538100D27143 /* UIWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWaveView.m; sourceTree = "<group>"; };
+		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4A67BF521A77756700601CA9 /* left-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-30.png"; sourceTree = "<group>"; };
 		4A67BF531A77756700601CA9 /* left-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-60.png"; sourceTree = "<group>"; };
 		4A67BF541A77756700601CA9 /* left-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-90.png"; sourceTree = "<group>"; };
@@ -205,6 +208,12 @@
 		4AC864A61A776A8100FE4C43 /* ZSSThemeColorEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSThemeColorEditorViewController.h; sourceTree = "<group>"; };
 		4AC864A71A776A8100FE4C43 /* ZSSThemeColorEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSThemeColorEditorViewController.m; sourceTree = "<group>"; };
 		4AC864A81A776A8100FE4C43 /* ZSSThemeColorEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZSSThemeColorEditorViewController.xib; sourceTree = "<group>"; };
+		4AC95C121A7C33760085E1A7 /* AVSpeechUtterance+Shaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVSpeechUtterance+Shaks.h"; sourceTree = "<group>"; };
+		4AC95C131A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVSpeechUtterance+Shaks.m"; sourceTree = "<group>"; };
+		4AC95C181A7C41BF0085E1A7 /* ZSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSUser.h; sourceTree = "<group>"; };
+		4AC95C191A7C41BF0085E1A7 /* ZSSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSUser.m; sourceTree = "<group>"; };
+		4AC95C1C1A7C461F0085E1A7 /* ZSSLocalSyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocalSyncer.h; sourceTree = "<group>"; };
+		4AC95C1D1A7C461F0085E1A7 /* ZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4AEC44571A6E085F003E2D98 /* ZSSLocalFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSLocalFactory.h; sourceTree = "<group>"; };
 		4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSLocalFactory.m; sourceTree = "<group>"; };
 		4AEC446C1A6E1F54003E2D98 /* testZSSLocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalStore.m; sourceTree = "<group>"; };
@@ -278,6 +287,8 @@
 			children = (
 				4A09FE271A7557D500158152 /* ZSSCloudQuerier.h */,
 				4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */,
+				4AC95C1C1A7C461F0085E1A7 /* ZSSLocalSyncer.h */,
+				4AC95C1D1A7C461F0085E1A7 /* ZSSLocalSyncer.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -374,6 +385,8 @@
 				4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */,
 				4AA362B11A7B1FAA001586A2 /* NSString+JSON.h */,
 				4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */,
+				4AC95C121A7C33760085E1A7 /* AVSpeechUtterance+Shaks.h */,
+				4AC95C131A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m */,
 				4A6FD4041A78A31700EDE95A /* ActionSheets */,
 				4A8CDE211A6D7DF700044CF8 /* Info.plist */,
 				4A8CDE221A6D7DF700044CF8 /* main.m */,
@@ -391,6 +404,7 @@
 				4A98D8471A73610A00893961 /* testZSSLocalFactory.m */,
 				4A98D8491A73626800893961 /* testZSSLocalQuerier.m */,
 				4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */,
+				4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */,
 				4A8CDE3A1A6D7DF700044CF8 /* Supporting Files */,
 			);
 			path = "Shik ShakTests";
@@ -416,6 +430,8 @@
 		4AA0FF2F1A6D83D9003EEC88 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4AC95C181A7C41BF0085E1A7 /* ZSSUser.h */,
+				4AC95C191A7C41BF0085E1A7 /* ZSSUser.m */,
 				4AA0FF231A6D835C003EEC88 /* ZSSLocalStore.h */,
 				4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */,
 				4AA0FF301A6D8503003EEC88 /* ZSSLocalQuerier.h */,
@@ -424,8 +440,6 @@
 				4AEC44581A6E085F003E2D98 /* ZSSLocalFactory.m */,
 				4A09FE2E1A75627200158152 /* ZSSShak.h */,
 				4A09FE2F1A75627200158152 /* ZSSShak.m */,
-				4A09FE301A75627200158152 /* ZSSUser.h */,
-				4A09FE311A75627200158152 /* ZSSUser.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -676,8 +690,9 @@
 				4AA0FF251A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
 				4A6FD4011A78A31000EDE95A /* ActionSheetStringPicker.m in Sources */,
 				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
+				4AC95C1A1A7C41BF0085E1A7 /* ZSSUser.m in Sources */,
+				4AC95C141A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m in Sources */,
 				4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */,
-				4A09FE341A75627200158152 /* ZSSUser.m in Sources */,
 				4AA0FF211A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
 				4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
 				4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */,
@@ -689,6 +704,7 @@
 				4A6FD3FC1A78A31000EDE95A /* AbstractActionSheetPicker.m in Sources */,
 				4A6E459A1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 				4AA0FF361A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */,
+				4AC95C1E1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */,
 				4A98D8531A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
 				4A6FD4021A78A31000EDE95A /* DistancePickerView.m in Sources */,
 				4A6FD3FE1A78A31000EDE95A /* ActionSheetDatePicker.m in Sources */,
@@ -712,6 +728,7 @@
 				4A98D8541A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
 				4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */,
 				4AA0FF221A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
+				4AC95C1B1A7C41BF0085E1A7 /* ZSSUser.m in Sources */,
 				4A8CDE3D1A6D7DF700044CF8 /* Shik_ShakTests.m in Sources */,
 				4A09FE2A1A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
 				4A6E45931A6D915C00C28755 /* ZSSShakCell.m in Sources */,
@@ -722,12 +739,13 @@
 				4A98D84A1A73626800893961 /* testZSSLocalQuerier.m in Sources */,
 				4AA0FF331A6D8503003EEC88 /* ZSSLocalQuerier.m in Sources */,
 				4A98D8481A73610A00893961 /* testZSSLocalFactory.m in Sources */,
-				4A09FE351A75627200158152 /* ZSSUser.m in Sources */,
 				4A09FE331A75627200158152 /* ZSSShak.m in Sources */,
 				4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
 				4A6FD4061A78B05A00EDE95A /* testZSSCloudQuerier.m in Sources */,
 				4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
+				4AC95C1F1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */,
 				4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */,
+				4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */,
 				4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

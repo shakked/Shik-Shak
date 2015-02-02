@@ -2,7 +2,7 @@
 //  ZSSUser.m
 //  Shik Shak
 //
-//  Created by Zachary Shakked on 1/25/15.
+//  Created by Zachary Shakked on 1/30/15.
 //  Copyright (c) 2015 Shakked Inc. All rights reserved.
 //
 
@@ -14,5 +14,7 @@
 
 @dynamic themeColor;
 @dynamic createdShaks;
+@dynamic upvotedShaks;
+@dynamic downvotedShaks;
 
 @end

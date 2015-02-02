@@ -12,6 +12,7 @@
 #import "NSDate+DateTools.h"
 #import "ZSSShak.h"
 #import "ZSSUser.h"
+#import "ZSSLocalSyncer.h"
 
 static NSString * const BaseURLString = @" https://api.parse.com";
 
@@ -79,6 +80,7 @@ static NSString * const BaseURLString = @" https://api.parse.com";
             [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"%@", responseObject[@"results"]);
                 completion(responseObject[@"results"], nil);
+                [[ZSSLocalSyncer sharedSyncer] syncShaksIfNeededWithCloudShaks:responseObject[@"results"]];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 completion(nil,error);
             }];
@@ -117,6 +119,8 @@ static NSString * const BaseURLString = @" https://api.parse.com";
             [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"%@", responseObject[@"results"]);
                 completion(responseObject[@"results"], nil);
+                [[ZSSLocalSyncer sharedSyncer] syncShaksIfNeededWithCloudShaks:responseObject[@"results"]];
+                
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 completion(nil,error);
             }];

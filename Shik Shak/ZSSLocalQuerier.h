@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 @class ZSSUser;
-
+@class ZSSShak;
 @interface ZSSLocalQuerier : NSObject
 
 + (instancetype)sharedQuerier;
 - (BOOL)userExists;
+- (ZSSShak *)localShakForCloudShak:(NSDictionary *)cloudShak;
+
 - (ZSSUser *)currentUser;
+- (NSArray *)shaks;
+
+- (BOOL)didUpvoteShakWithObjectId:(NSString *)objectId;
+- (BOOL)didDownvoteShakWithObjectId:(NSString *)objectId;
+- (BOOL)shakIdExistsLocally:(NSString *)objectId;
 
 
 @end

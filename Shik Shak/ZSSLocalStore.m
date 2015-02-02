@@ -64,6 +64,15 @@
     return [self.privateShaks copy];
 }
 
+- (ZSSShak *)fetchShakWithObjectId:(NSString *)objectId {
+    for (ZSSShak *shak in [self shaks]) {
+        if ([shak.objectId isEqual:objectId]) {
+            return shak;
+        }
+    }
+    return nil;
+}
+
 - (BOOL)saveCoreDataChanges {
     
     NSError *error;
@@ -220,13 +229,6 @@
                                  userInfo:nil];
 }
 
-- (instancetype)init
-{
-    @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use + [ZSSLocalStore sharedStore]"
-                                 userInfo:nil];
-    return nil;
-}
 
 
 

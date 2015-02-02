@@ -11,7 +11,6 @@
 @interface ZSSShakCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *shakTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *clockImage;
 @property (weak, nonatomic) IBOutlet UIButton *upVoteButton;
 @property (weak, nonatomic) IBOutlet UIButton *downVoteButton;
@@ -24,8 +23,8 @@
 
 @property (nonatomic, strong) void (^upVoteButtonPressedBlock)(void);
 @property (nonatomic, strong) void (^downVoteButtonPressedBlock)(void);
-@property (nonatomic, strong) void (^pressAndHoldeToPlayButtonPressedBlock)(void);
+@property (nonatomic, strong) void (^tapToPlayButtonPressedBlock)(void);
 
-@property (weak, nonatomic) IBOutlet UIButton *pressAndHoldButton;
+@property (weak, nonatomic) IBOutlet UIButton *tapToPlayButton;
 @property (nonatomic, strong) NSDictionary *shak;
 @end

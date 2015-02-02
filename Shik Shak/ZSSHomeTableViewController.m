@@ -21,9 +21,10 @@
 #import "AAPullToRefresh.h"
 #import "RKDropdownAlert.h"
 #import <KVNProgress/KVNProgress.h>
-//#import "NSDate+JSON.h"
-//#import "NSDate+DateTools.h"
-
+#import "NSDate+JSON.h"
+#import "NSDate+DateTools.h"
+#import <AVFoundation/AVFoundation.h>
+#import "AVSpeechUtterance+Shaks.h"
 
 static NSString *MESSAGE_CELL_CLASS = @"ZSSShakCell";
 static NSString *CELL_IDENTIFIER = @"cell";
@@ -33,6 +34,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
 @property (nonatomic,strong) NSArray *shaks;
 @property (nonatomic, strong) AAPullToRefresh *pullToRefresh;
 @property (nonatomic, strong) UISegmentedControl *hotNewSegControl;
+
+@property (nonatomic, strong) AVSpeechSynthesizer *speaker;
 
 @end
 
@@ -160,8 +163,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *shak = self.shaks[indexPath.row];
     cell.shak = shak;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     cell.handleLabel.text = shak[@"handle"];
-    cell.dateLabel.text = [shak[@"createdAt"] description];
+    NSDate *createdAt = [NSDate dateFromString:shak[@"createdAt"]];
+    cell.dateLabel.text = createdAt.shortTimeAgoSinceNow;
     cell.karmaLabel.text = [shak[@"karma"] stringValue];
     __weak ZSSShakCell *weakCell = cell;
     cell.upVoteButtonPressedBlock = ^{
@@ -171,6 +177,9 @@ static NSString *CELL_IDENTIFIER = @"cell";
         
         [[ZSSCloudQuerier sharedQuerier] upvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
             if (!error && succeeded) {
+                
+                ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+                
                 int karma = [strongCell.karmaLabel.text intValue];
                 karma += 1;
                 strongCell.karmaLabel.text = [NSString stringWithFormat:@"%d", karma];
@@ -193,7 +202,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
                 int karma = [strongCell.karmaLabel.text intValue];
                 karma -= 1;
                 strongCell.karmaLabel.text = [NSString stringWithFormat:@"%d", karma];
-                [strongCell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
+                [strongCell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
             } else {
                 [RKDropdownAlert title:@"Error Upvoting" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
                 strongCell.upVoteButton.enabled = YES;
@@ -202,17 +211,27 @@ static NSString *CELL_IDENTIFIER = @"cell";
         }];
     };
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:cell.pressAndHoldButton action:@selector(playShak:)];
-
+    cell.tapToPlayButtonPressedBlock = ^{
+        ZSSShakCell *strongCell = weakCell;
+        [self.speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+        AVSpeechUtterance *shakUtterance = [AVSpeechUtterance utteranceForShakInfo:strongCell.shak];
+        [self.speaker speakUtterance:shakUtterance];
+    };
     
     return cell;
 }
 
+
 #warning REMEMBER TO ADD: didUserUpvote? didUserDownvote? keep track of shak id's that have been voted
 
-- (void)playShak:(id)sender {
-    NSLog(@"It wants to play..");
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _speaker = [[AVSpeechSynthesizer alloc] init];
+    }
+    return self;
 }
 
 
+ 
 @end
