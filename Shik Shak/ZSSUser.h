@@ -1,9 +1,9 @@
 //
 //  ZSSUser.h
-//  Shik Shak
+//  
 //
-//  Created by Zachary Shakked on 1/30/15.
-//  Copyright (c) 2015 Shakked Inc. All rights reserved.
+//  Created by Zachary Shakked on 2/2/15.
+//
 //
 
 #import <Foundation/Foundation.h>
@@ -15,8 +15,8 @@
 
 @property (nonatomic, retain) id themeColor;
 @property (nonatomic, retain) NSSet *createdShaks;
-@property (nonatomic, retain) NSSet *upvotedShaks;
 @property (nonatomic, retain) NSSet *downvotedShaks;
+@property (nonatomic, retain) NSSet *upvotedShaks;
 @end
 
 @interface ZSSUser (CoreDataGeneratedAccessors)
@@ -26,14 +26,14 @@
 - (void)addCreatedShaks:(NSSet *)values;
 - (void)removeCreatedShaks:(NSSet *)values;
 
-- (void)addUpvotedShaksObject:(ZSSShak *)value;
-- (void)removeUpvotedShaksObject:(ZSSShak *)value;
-- (void)addUpvotedShaks:(NSSet *)values;
-- (void)removeUpvotedShaks:(NSSet *)values;
-
 - (void)addDownvotedShaksObject:(ZSSShak *)value;
 - (void)removeDownvotedShaksObject:(ZSSShak *)value;
 - (void)addDownvotedShaks:(NSSet *)values;
 - (void)removeDownvotedShaks:(NSSet *)values;
+
+- (void)addUpvotedShaksObject:(ZSSShak *)value;
+- (void)removeUpvotedShaksObject:(ZSSShak *)value;
+- (void)addUpvotedShaks:(NSSet *)values;
+- (void)removeUpvotedShaks:(NSSet *)values;
 
 @end

@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Shik Shak/ZSSShak.h">
+   </FileRef>
+   <FileRef
+      location = "group:Shik Shak/ZSSShak.m">
+   </FileRef>
+   <FileRef
+      location = "group:Shik Shak/ZSSUser.h">
+   </FileRef>
+   <FileRef
+      location = "group:Shik Shak/ZSSUser.m">
+   </FileRef>
+   <FileRef
       location = "group:Shik Shak.xcodeproj">
    </FileRef>
    <FileRef

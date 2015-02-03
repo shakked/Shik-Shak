@@ -91,16 +91,27 @@ static NSString *CELL_IDENTIFIER = @"cell";
     [self.hotNewSegControl addTarget:self action:@selector(hotNewSegDidChange) forControlEvents:UIControlEventValueChanged];
     
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    settingsButton.bounds = CGRectMake(0, 0, 30, 30);
+    settingsButton.bounds = CGRectMake(0, 0, 25, 25);
     [settingsButton setBackgroundImage:[UIImage imageNamed:@"SettingsIcon"] forState:UIControlStateNormal];
     [settingsButton addTarget:self action:@selector(showSettingsView) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
-
+ 
+    UIView *karmaScoreView = [[UIView alloc] init];
+    karmaScoreView.bounds = CGRectMake(0, 0, 60, 30);
+    
+    UILabel *karmaScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    karmaScoreLabel.textColor = [UIColor whiteColor];
+    karmaScoreLabel.font = [UIFont fontWithName:@"Avenir" size:18.0];
+    karmaScoreLabel.text = @"99999";
+    
+    [karmaScoreView addSubview:karmaScoreLabel];
+    
+    UIBarButtonItem *karmaScoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:karmaScoreView];
     
     [self.hotNewSegControl setSelectedSegmentIndex:1];
     self.navigationItem.titleView = self.hotNewSegControl;
     self.navigationItem.rightBarButtonItem = createShakBarButton;
-    self.navigationItem.leftBarButtonItem = settingsBarButton;
+    self.navigationItem.leftBarButtonItems = @[settingsBarButton, karmaScoreBarButton];
 }
 
 - (void)configurePullToRefresh {
@@ -203,6 +214,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
                 ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
                 [user addUpvotedShaksObject:localShak];
+                [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                 
                 int karma = [strongCell.karmaLabel.text intValue];
                 karma += 1;
@@ -221,12 +233,14 @@ static NSString *CELL_IDENTIFIER = @"cell";
         strongCell.upVoteButton.enabled = NO;
         strongCell.downVoteButton.enabled = NO;
         
-        ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
-        [user addDownvotedShaksObject:localShak];
-        
         [[ZSSCloudQuerier sharedQuerier] downvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
             if (!error) {
+                
+                ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                [user addDownvotedShaksObject:localShak];
+                [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+                
                 int karma = [strongCell.karmaLabel.text intValue];
                 karma -= 1;
                 strongCell.karmaLabel.text = [NSString stringWithFormat:@"%d", karma];
@@ -247,6 +261,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
         
     };
     
+    [cell setNeedsUpdateConstraints];
+    
     return cell;
 }
 
@@ -254,6 +270,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shak[@"objectId"]];
     if (!shakIsPresentLocally) {
         cell.upVoteButton.enabled = YES;
+        cell.downVoteButton.enabled = YES;
         [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
         [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
     } else {
@@ -266,14 +283,17 @@ static NSString *CELL_IDENTIFIER = @"cell";
         if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
             [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
             [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+            
         } else if ([[currentUser.downvotedShaks allObjects] containsObject:localShak]) {
             [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
             [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
+            
         } else if ([[currentUser.createdShaks allObjects] containsObject:localShak]) {
             [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
             [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
             cell.upVoteButton.enabled = YES;
             cell.downVoteButton.enabled = YES;
+            
         }
     }
 }

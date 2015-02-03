@@ -1,9 +1,9 @@
 //
 //  ZSSShak.m
-//  Shik Shak
+//  
 //
-//  Created by Zachary Shakked on 1/25/15.
-//  Copyright (c) 2015 Shakked Inc. All rights reserved.
+//  Created by Zachary Shakked on 2/2/15.
+//
 //
 
 #import "ZSSShak.h"
@@ -13,11 +13,11 @@
 @implementation ZSSShak
 
 @dynamic createdAt;
-@dynamic objectId;
 @dynamic handle;
 @dynamic karma;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic objectId;
 @dynamic pitch;
 @dynamic rate;
 @dynamic shakText;
