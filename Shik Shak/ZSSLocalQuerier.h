@@ -18,6 +18,8 @@
 - (ZSSUser *)currentUser;
 - (NSArray *)shaks;
 
+- (int)calculateKarmaScore;
+
 - (BOOL)didUpvoteShakWithObjectId:(NSString *)objectId;
 - (BOOL)didDownvoteShakWithObjectId:(NSString *)objectId;
 - (BOOL)shakIdExistsLocally:(NSString *)objectId;

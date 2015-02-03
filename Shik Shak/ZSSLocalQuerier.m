@@ -80,6 +80,15 @@
     return [[ZSSLocalStore sharedStore] shaks];
 }
 
+- (int)calculateKarmaScore {
+    NSArray *shaks = [[[self currentUser] createdShaks] allObjects];
+    int score = 0;
+    for (ZSSShak *shak in shaks) {
+        score += 5 * [shak.karma intValue];
+    }
+    return score;
+}
+
 - (BOOL)didUpvoteShakWithObjectId:(NSString *)objectId {
     NSArray *upvotedShaks = [[[self currentUser] upvotedShaks] allObjects];
     for (ZSSShak *shak in upvotedShaks) {

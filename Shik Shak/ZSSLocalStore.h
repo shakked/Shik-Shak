@@ -17,7 +17,6 @@
 - (ZSSShak *)createShak;
 - (ZSSUser *)user;
 - (NSArray *)shaks;
-
 - (ZSSShak *)fetchShakWithObjectId:(NSString *)objectId;
 
 

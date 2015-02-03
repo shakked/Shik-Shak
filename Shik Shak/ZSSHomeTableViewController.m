@@ -34,8 +34,9 @@ static NSString *CELL_IDENTIFIER = @"cell";
 @property (nonatomic,strong) NSArray *shaks;
 @property (nonatomic, strong) AAPullToRefresh *pullToRefresh;
 @property (nonatomic, strong) UISegmentedControl *hotNewSegControl;
-
+    
 @property (nonatomic, strong) AVSpeechSynthesizer *speaker;
+@property (nonatomic, strong) UILabel *karmaScoreLabel;
 
 @end
 
@@ -48,24 +49,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadShakData];
-    
-    NSLog(@"/////CREATED SHAKS//////");
-    
-    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] createdShaks] allObjects]) {
-        NSLog(@"shak:%@", shak);
-    }
-    
-    NSLog(@"/////UPVOTED SHAKS//////");
-    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] upvotedShaks] allObjects]) {
-        NSLog(@"shak:%@", shak);
+    [self updateKarma];
+}
 
-    }
-    
-    NSLog(@"//////DOWNVOTED SHAKS//////");
-    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] downvotedShaks] allObjects]) {
-        NSLog(@"shak:%@", shak);
-
-    }
+- (void)updateKarma {
+    self.karmaScoreLabel.text = [NSString stringWithFormat:@"%d", [[ZSSLocalQuerier sharedQuerier] calculateKarmaScore]];
 }
 
 - (void)configureViews {
@@ -99,12 +87,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
     UIView *karmaScoreView = [[UIView alloc] init];
     karmaScoreView.bounds = CGRectMake(0, 0, 60, 30);
     
-    UILabel *karmaScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
-    karmaScoreLabel.textColor = [UIColor whiteColor];
-    karmaScoreLabel.font = [UIFont fontWithName:@"Avenir" size:18.0];
-    karmaScoreLabel.text = @"99999";
-    
-    [karmaScoreView addSubview:karmaScoreLabel];
+    self.karmaScoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    self.karmaScoreLabel.textColor = [UIColor whiteColor];
+    self.karmaScoreLabel.font = [UIFont fontWithName:@"Avenir" size:18.0];
+    self.karmaScoreLabel.text = [NSString stringWithFormat:@"%d",[[ZSSLocalQuerier sharedQuerier] calculateKarmaScore]];
+    [karmaScoreView addSubview:self.karmaScoreLabel];
     
     UIBarButtonItem *karmaScoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:karmaScoreView];
     
@@ -127,6 +114,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.pullToRefresh.borderWidth = 0.0f;
     self.pullToRefresh.threshold = 60.0f;
 }
+
+
 
 - (void)loadShakData {
     if (self.hotNewSegControl.selectedSegmentIndex == 0) {
