@@ -48,6 +48,24 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [self loadShakData];
+    
+    NSLog(@"/////CREATED SHAKS//////");
+    
+    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] createdShaks] allObjects]) {
+        NSLog(@"shak:%@", shak);
+    }
+    
+    NSLog(@"/////UPVOTED SHAKS//////");
+    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] upvotedShaks] allObjects]) {
+        NSLog(@"shak:%@", shak);
+
+    }
+    
+    NSLog(@"//////DOWNVOTED SHAKS//////");
+    for (ZSSShak *shak in [[[[ZSSLocalQuerier sharedQuerier] currentUser] downvotedShaks] allObjects]) {
+        NSLog(@"shak:%@", shak);
+
+    }
 }
 
 - (void)configureViews {
@@ -169,6 +187,10 @@ static NSString *CELL_IDENTIFIER = @"cell";
     NSDate *createdAt = [NSDate dateFromString:shak[@"createdAt"]];
     cell.dateLabel.text = createdAt.shortTimeAgoSinceNow;
     cell.karmaLabel.text = [shak[@"karma"] stringValue];
+    
+    [self configureVotingButtonsForCell:cell];
+    
+    
     __weak ZSSShakCell *weakCell = cell;
     cell.upVoteButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
@@ -179,6 +201,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
             if (!error && succeeded) {
                 
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                [user addUpvotedShaksObject:localShak];
                 
                 int karma = [strongCell.karmaLabel.text intValue];
                 karma += 1;
@@ -196,6 +220,10 @@ static NSString *CELL_IDENTIFIER = @"cell";
         ZSSShakCell *strongCell = weakCell;
         strongCell.upVoteButton.enabled = NO;
         strongCell.downVoteButton.enabled = NO;
+        
+        ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+        [user addDownvotedShaksObject:localShak];
         
         [[ZSSCloudQuerier sharedQuerier] downvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
             if (!error) {
@@ -216,9 +244,38 @@ static NSString *CELL_IDENTIFIER = @"cell";
         [self.speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
         AVSpeechUtterance *shakUtterance = [AVSpeechUtterance utteranceForShakInfo:strongCell.shak];
         [self.speaker speakUtterance:shakUtterance];
+        
     };
     
     return cell;
+}
+
+- (void)configureVotingButtonsForCell:(ZSSShakCell *)cell {
+    BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shak[@"objectId"]];
+    if (!shakIsPresentLocally) {
+        cell.upVoteButton.enabled = YES;
+        [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+        [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+    } else {
+        cell.upVoteButton.enabled = NO;
+        cell.downVoteButton.enabled = NO;
+        
+        ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
+        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shak];
+        
+        if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+        } else if ([[currentUser.downvotedShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
+        } else if ([[currentUser.createdShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+            cell.upVoteButton.enabled = YES;
+            cell.downVoteButton.enabled = YES;
+        }
+    }
 }
 
 

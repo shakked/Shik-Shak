@@ -11,10 +11,11 @@
 @implementation AVSpeechUtterance (Shaks)
 
 + (AVSpeechUtterance *)utteranceForShakInfo:(NSDictionary *)shakInfo {
+    
     AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:shakInfo[@"shakText"]];
     utterance.rate = [shakInfo[@"rate"] floatValue];
     utterance.pitchMultiplier = [shakInfo[@"pitch"] floatValue];
-    utterance.voice = shakInfo[@"voice"];
+    utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:shakInfo[@"voice"]];
     return utterance;
 }
 

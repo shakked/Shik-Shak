@@ -16,7 +16,6 @@
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     NSString *dateString = [dateFormatter stringFromDate:date];
-    NSLog(@"dateString: %@", dateString);
     return dateString;
 }
 

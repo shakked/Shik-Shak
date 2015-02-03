@@ -52,7 +52,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     
     [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *results  = responseObject[@"results"];
-        NSLog(@"%@", results);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error = %@", [error localizedDescription]);
     }];
@@ -78,7 +77,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
                                          @"limit" : @100};
             
             [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"%@", responseObject[@"results"]);
                 completion(responseObject[@"results"], nil);
                 [[ZSSLocalSyncer sharedSyncer] syncShaksIfNeededWithCloudShaks:responseObject[@"results"]];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -117,7 +115,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
                                          @"limit" : @100};
             
             [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"%@", responseObject[@"results"]);
                 completion(responseObject[@"results"], nil);
                 [[ZSSLocalSyncer sharedSyncer] syncShaksIfNeededWithCloudShaks:responseObject[@"results"]];
                 
@@ -206,7 +203,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     NSString *dateString = [dateFormatter stringFromDate:date];
-    NSLog(@"dateString: %@", dateString);
     return dateString;
 }
 

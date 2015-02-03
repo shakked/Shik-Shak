@@ -175,6 +175,7 @@
                                    withCompletion:^(NSError *error, BOOL succeeded) {
                                        if (!error && succeeded) {
                                            [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+                                           [[[ZSSLocalQuerier sharedQuerier] currentUser] addCreatedShaksObject:shak];
                                            [self dismissViewControllerAnimated:YES completion:nil];
                                        } else {
                                            [RKDropdownAlert title:@"Error sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];

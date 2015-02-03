@@ -17,4 +17,8 @@
 @dynamic upvotedShaks;
 @dynamic downvotedShaks;
 
+- (void)addUpvotedShaksObject:(ZSSShak *)value {
+    NSLog(@"wants to add one..");
+}
+
 @end

@@ -29,6 +29,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)tapToPlayButtonPressed:(id)sender {
+    self.tapToPlayButtonPressedBlock();
 }
 
 - (void)updateConstraints {
