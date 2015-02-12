@@ -19,6 +19,8 @@
 - (void)upvoteShakWithObjectId:(NSString *)objectId withCompletion:(void (^)(NSError *, BOOL))completion;
 - (void)downvoteShakWithObjectId:(NSString *)objectId withCompletion:(void (^)(NSError *, BOOL))completion;
 
+- (void)reportShak:(ZSSShak *)shak withCompletion:(void (^)(NSError *, BOOL))completion;
+
 + (instancetype)sharedQuerier;
 - (void)testQuery;
 @end
