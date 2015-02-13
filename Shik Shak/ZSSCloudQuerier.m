@@ -197,14 +197,14 @@ static NSString * const BaseURLString = @" https://api.parse.com";
 }
 #warning FINISHING IMPLEMENTING REPORT SHAK!!!!@!@!@#!@
 
-- (void)reportShak:(ZSSShak *)shak withCompletion:(void (^)(NSError *, BOOL))completion {
+- (void)reportShakwithObjectId:(NSString *)objectId withCompletion:(void (^)(NSError *, BOOL))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *parameters = @{@"karma":@{@"__op":@"Increment",@"amount":[NSNumber numberWithInt:-1]}};
+    NSDictionary *parameters = @{@"report":@{@"__op":@"Increment",@"amount":[NSNumber numberWithInt:-1]}};
     
     [manager PUT:[NSString stringWithFormat:@"https://api.parse.com/1/classes/ZSSShak/%@",objectId] parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
