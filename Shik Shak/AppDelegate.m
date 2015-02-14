@@ -28,6 +28,14 @@
     
     BOOL userExists = [[ZSSLocalQuerier sharedQuerier] userExists];
     
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+    
     if (userExists) {
         ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
@@ -40,6 +48,13 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Registered");
+    
+    NSLog(@"device token: %@", deviceToken);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

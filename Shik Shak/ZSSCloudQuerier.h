@@ -21,6 +21,8 @@
 
 - (void)reportShak:(ZSSShak *)shak withCompletion:(void (^)(NSError *, BOOL))completion;
 
+- (void)registerDeviceToken:(NSString *)deviceToken withCompletion:(void (^)(NSError *, BOOL))completion;
+
 + (instancetype)sharedQuerier;
 - (void)testQuery;
 @end

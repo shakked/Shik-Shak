@@ -215,6 +215,11 @@ static NSString * const BaseURLString = @" https://api.parse.com";
 }
 
 
+- (void)registerDeviceToken:(NSString *)deviceToken withCompletion:(void (^)(NSError *, BOOL))completion {
+    
+}
+
+
 - (NSString *)jsonDate:(NSDate *)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.'999Z'"];
