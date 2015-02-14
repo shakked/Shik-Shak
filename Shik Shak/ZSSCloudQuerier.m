@@ -204,7 +204,7 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *parameters = @{@"report":@{@"__op":@"Increment",@"amount":[NSNumber numberWithInt:-1]}};
+    NSDictionary *parameters = @{@"reportCount":@{@"__op":@"Increment",@"amount":[NSNumber numberWithInt:1]}};
     
     [manager PUT:[NSString stringWithFormat:@"https://api.parse.com/1/classes/ZSSShak/%@",objectId] parameters:parameters
          success:^(AFHTTPRequestOperation *operation, id responseObject) {

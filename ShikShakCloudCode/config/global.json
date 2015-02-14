@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "Shik Shak": {
+            "applicationId": "8VEInR7MYiUlmWSZl2Pl5c9UQK3C7bh57w16aXot", 
+            "masterKey": "eSVsxba0knIrMDrDjq2Qzd0iz3NzvLCk0weMa36N"
+        }, 
+        "_default": {
+            "link": "Shik Shak"
+        }
+    }
+}
