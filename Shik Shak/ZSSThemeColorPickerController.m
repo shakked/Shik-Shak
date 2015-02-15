@@ -14,6 +14,7 @@
 #import "ZSSUser.h"
 #import "ZSSLocalFactory.h"
 #import "ZSSLocalStore.h"
+#import "ZSSLocalQuerier.h"
 
 @interface ZSSThemeColorPickerController ()
 
@@ -34,14 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViews];
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-    
 }
 
 - (void)configureViews {
@@ -82,8 +75,8 @@
 }
 
 - (void)createAndConfigureUserWithThemeColor:(UIColor *)themeColor {
-    ZSSUser *newUser = [[ZSSLocalFactory sharedFactory] createUser];
-    newUser.themeColor = themeColor;
+    ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
+    currentUser.themeColor = themeColor;
     [[ZSSLocalStore sharedStore] saveCoreDataChanges];
 }
 

@@ -29,6 +29,19 @@
     
     BOOL userExists = [[ZSSLocalQuerier sharedQuerier] userExists];
     
+    if (userExists) {
+        ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
+        self.window.rootViewController = nav;
+    } else {
+        ZSSUser *newUser = [[ZSSLocalFactory sharedFactory] createUser];
+        [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+        ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
+        self.window.rootViewController = tcpc;
+    }
+
+    [self.window makeKeyAndVisible];
+    
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
                                                     UIUserNotificationTypeSound);
@@ -37,33 +50,32 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
-    if (userExists) {
-        ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
-        self.window.rootViewController = nav;
-    } else {
-        ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
-        self.window.rootViewController = tcpc;
-    }
-
-    [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     
-    NSString *deviceToken = @"";
-    [[ZSSCloudQuerier sharedQuerier] registerDeviceToken:deviceToken withCompletion:^(NSError *error, BOOL succeeded) {
-        if (!error && succeeded) {
-            ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
-            currentUser.devicetoken = deviceToken;
-        }
-    }];
+
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
+    NSString  *tokenString = [[[[deviceToken description]    stringByReplacingOccurrencesOfString:@"<"withString:@""]
+                                stringByReplacingOccurrencesOfString:@">" withString:@""]
+                               stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
+    if (currentUser.deviceToken) {
+        [[ZSSCloudQuerier sharedQuerier] updateInstallationId:currentUser.installationId
+                                              withDevicetoken:tokenString withCompletion:^(NSError *error, BOOL succeeded) {
+                                                  
+                                              }];
+    } else {
+        [[ZSSCloudQuerier sharedQuerier] registerDeviceToken:tokenString withCompletion:^(NSError *error, BOOL succeeded) {
+            
+        }];
+    }
+    
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

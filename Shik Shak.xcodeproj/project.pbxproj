@@ -855,12 +855,12 @@
 			baseConfigurationReference = AB7E0661D4B6F76FE5545B39 /* Pods-Shik Shak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zachary Shakked (48S2NJH7SH)";
 				INFOPLIST_FILE = "Shik Shak/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e31c81a5-2ab0-40b5-9e34-83ba7613c41e";
+				PROVISIONING_PROFILE = "370f3dd2-6d2c-4fe8-8c2c-ed871160c1f6";
 			};
 			name = Debug;
 		};
@@ -869,13 +869,13 @@
 			baseConfigurationReference = A0924EA5987E4D434A4C9A04 /* Pods-Shik Shak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zachary Shakked (48S2NJH7SH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zachary Shakked (48S2NJH7SH)";
 				INFOPLIST_FILE = "Shik Shak/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e31c81a5-2ab0-40b5-9e34-83ba7613c41e";
+				PROVISIONING_PROFILE = "370f3dd2-6d2c-4fe8-8c2c-ed871160c1f6";
 			};
 			name = Release;
 		};

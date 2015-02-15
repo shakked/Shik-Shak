@@ -13,6 +13,7 @@
 #import "ZSSShak.h"
 #import "ZSSUser.h"
 #import "ZSSLocalSyncer.h"
+#import "ZSSLocalQuerier.h"
 
 static NSString * const BaseURLString = @" https://api.parse.com";
 
@@ -137,7 +138,8 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
     [[ZSSLocationQuerier sharedQuerier] findCurrentLocaitonWithCompletion:^(CLLocation *location, NSError *error) {
-        NSDictionary *parameters = @{@"handle": shak.handle,
+        NSDictionary *parameters = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken,
+                                     @"handle": shak.handle,
                                      @"karma" : @0,
                                      @"pitch" : shak.pitch,
                                      @"rate" : shak.rate,
@@ -221,21 +223,44 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    [[ZSSLocationQuerier sharedQuerier] findCurrentLocaitonWithCompletion:^(CLLocation *location, NSError *error) {
-        NSDictionary *parameters = @{@"deviceType": @"ios",
-                                     @"deviceToken": deviceToken
+    NSDictionary *parameters = @{@"deviceType": @"ios",
+                                     @"deviceToken": deviceToken,
+                                     @"channels": @[],
+                                     @"badge" : @0,
+                                     @"timeZone" : [[NSTimeZone localTimeZone] name]
                                      };
-        [manager POST:@"https://api.parse.com/1/classes/installations" parameters: parameters
-              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                  completion(nil, YES);
-              }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  completion(error, NO);
-              }
-         ];
-    }];
+    [manager POST:@"https://api.parse.com/1/classes/_Installation" parameters: parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              completion(nil, YES);
+              NSDictionary *response = (NSDictionary *)responseObject;
+              ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
+              currentUser.installationId = response[@"objectId"];
+              currentUser.deviceToken = deviceToken;
+              
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              completion(error, NO);
+          }
+     ];
+}
 
+- (void)updateInstallationId:(NSString *)objectId withDevicetoken:(NSString *)deviceToken withCompletion:(void (^)(NSError *, BOOL))completion {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
+    [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *parameters = @{@"deviceToken": deviceToken};
+        
+    [manager PUT:[NSString stringWithFormat:@"https://api.parse.com/1/classes/_Installation/%@", objectId] parameters: parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              completion(nil, YES);
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              completion(error, NO);
+          }
+     ];
 }
 
 

@@ -10,9 +10,11 @@
 #import "ZSSShak.h"
 
 
+
 @implementation ZSSUser
 
-@dynamic devicetoken;
+@dynamic deviceToken;
+@dynamic installationId;
 @dynamic themeColor;
 @dynamic createdShaks;
 @dynamic downvotedShaks;
