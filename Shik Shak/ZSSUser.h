@@ -14,6 +14,8 @@
 @interface ZSSUser : NSManagedObject
 
 @property (nonatomic, retain) id themeColor;
+@property (nonatomic, retain) NSString * devicetoken;
+
 @property (nonatomic, retain) NSSet *createdShaks;
 @property (nonatomic, retain) NSSet *downvotedShaks;
 @property (nonatomic, retain) NSSet *upvotedShaks;

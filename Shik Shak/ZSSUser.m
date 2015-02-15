@@ -12,6 +12,7 @@
 
 @implementation ZSSUser
 
+@dynamic devicetoken;
 @dynamic themeColor;
 @dynamic createdShaks;
 @dynamic downvotedShaks;
