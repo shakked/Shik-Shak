@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) void (^upVoteButtonPressedBlock)(void);
 @property (nonatomic, strong) void (^downVoteButtonPressedBlock)(void);
+@property (nonatomic, strong) void (^reportUserButtonPressedBlock)(void);
 @property (nonatomic, strong) void (^tapToPlayButtonPressedBlock)(void);
 
 @property (weak, nonatomic) IBOutlet UIButton *tapToPlayButton;

@@ -171,16 +171,17 @@
         shak.shakText = self.shakTextView.text;
         shak.voice = self.voice;
         
-        [[ZSSCloudQuerier sharedQuerier] postShak:shak
-                                   withCompletion:^(NSError *error, BOOL succeeded) {
-                                       if (!error && succeeded) {
-                                           [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
-                                           [[[ZSSLocalQuerier sharedQuerier] currentUser] addCreatedShaksObject:shak];
-                                           [self dismissViewControllerAnimated:YES completion:nil];
-                                       } else {
-                                           [RKDropdownAlert title:@"Error sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
-                                       }
-                                   }];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[ZSSCloudQuerier sharedQuerier] postShak:shak
+                                       withCompletion:^(NSError *error, BOOL succeeded) {
+                                           if (!error && succeeded) {
+                                               [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+                                               [[[ZSSLocalQuerier sharedQuerier] currentUser] addCreatedShaksObject:shak];
+                                           } else {
+                                               [RKDropdownAlert title:@"Error Sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                                           }
+           }];
+        }];
     }
 }
 
@@ -195,7 +196,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-#warning MAKE MORE READABLE
+#warning MAKE MORE READABLEd
     if (textView.text.length == 0) {
         textView.text = @"What's on your mind?";
         textView.textColor = [UIColor grayColor];

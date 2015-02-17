@@ -16,6 +16,7 @@
 @property (nonatomic, retain) id themeColor;
 @property (nonatomic, retain) NSString * deviceToken;
 @property (nonatomic, retain) NSString * installationId;
+@property (nonatomic) BOOL didAgreeToEULA;
 
 @property (nonatomic, retain) NSSet *createdShaks;
 @property (nonatomic, retain) NSSet *downvotedShaks;

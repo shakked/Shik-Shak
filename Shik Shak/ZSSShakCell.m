@@ -21,6 +21,9 @@
     self.downVoteButtonPressedBlock();
 }
 
+- (IBAction)reportButtonPressed:(id)sender {
+    self.reportUserButtonPressedBlock();
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

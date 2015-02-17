@@ -129,6 +129,28 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     }];
 }
 
+- (void)isUserBannedWithCompletion:(void (^)(BOOL, NSError *))completion {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
+    [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSDictionary *parameters = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken};
+    
+    [manager POST:@"https://api.parse.com/1/classes/_Installation" parameters: parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              
+              NSDictionary *response = (NSDictionary *)responseObject;
+              NSArray *results = response[@"results"];
+              NSNumber *isUserBanned = [results[0] valueForKey:@"isBanned"];
+              completion([isUserBanned boolValue], nil);
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              completion(NO, error);
+          }
+     ];
+}
 
 - (void)postShak:(ZSSShak *)shak withCompletion:(void (^)(NSError *, BOOL))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

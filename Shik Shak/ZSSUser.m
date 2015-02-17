@@ -15,6 +15,7 @@
 
 @dynamic deviceToken;
 @dynamic installationId;
+@dynamic didAgreeToEULA;
 @dynamic themeColor;
 @dynamic createdShaks;
 @dynamic downvotedShaks;
