@@ -136,9 +136,12 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *parameters = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken};
+    NSDictionary *jsonDictionary = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken};
     
-    [manager POST:@"https://api.parse.com/1/classes/_Installation" parameters: parameters
+    NSString *json = [self getJSONfromDictionary:jsonDictionary];
+    NSDictionary *parameters = @{@"where" : json};
+    
+    [manager POST:@"https://api.parse.com/1/classes/installations" parameters: parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               
               NSDictionary *response = (NSDictionary *)responseObject;
