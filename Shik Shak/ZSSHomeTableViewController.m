@@ -48,9 +48,20 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [[ZSSCloudQuerier sharedQuerier] isUserBannedWithCompletion:^(BOOL isBanned, NSError *error) {
+        if (!error && isBanned) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been banned"
+                                                            message:@"You have been banned because you posted content that did not follow our guidelines."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }else if (!error && !isBanned) {
+            
+        }
+    }];
     [self loadShakData];
     [self updateKarma];
-    [self checkIfUserIsBanned];
 }
 
 - (void)loadShakData {
@@ -263,36 +274,46 @@ static NSString *CELL_IDENTIFIER = @"cell";
     
     cell.reportUserButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
-        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *report = [UIAlertAction actionWithTitle:@"Report Shak"
-                                                         style:UIAlertActionStyleDestructive
-                                                       handler:^(UIAlertAction *action) {
-                                                           [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shak[@"objectId"]
-                                                                                                    withCompletion:^(NSError *error, BOOL succeeded) {
-                                                                                                        if (!error && succeeded) {
-                                                                                                           [RKDropdownAlert title:@"Shak Reported"
-                                                                                                                  backgroundColor:[UIColor turquoiseColor]
-                                                                                                                        textColor:[UIColor whiteColor]];
-                                                                                                        } else if (!error & !succeeded) {
-                                                                                                            [RKDropdownAlert title:@"Error Reporting Shak" backgroundColor:[UIColor salmonColor]
-                                                                                                                         textColor:[UIColor whiteColor]];
-                                                                                                        } else {
-                                                                                                            [RKDropdownAlert title:@"No Internet Connection"
-                                                                                                                   backgroundColor:[UIColor salmonColor]
-                                                                                                                         textColor:[UIColor whiteColor]];
-                                                                                                        }
-                                                                                                        
-                                                                                                    }];
+        BOOL didReportShak = [[ZSSLocalQuerier sharedQuerier] didReportShakWithObjectId:strongCell.shak[@"objectId"]];
+        if (!didReportShak) {
+            UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *report = [UIAlertAction actionWithTitle:@"Report Shak"
+                                                             style:UIAlertActionStyleDestructive
+               handler:^(UIAlertAction *action) {
+                   [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shak[@"objectId"]
+                                                            withCompletion:^(NSError *error, BOOL succeeded) {
+                                                                if (!error && succeeded) {
+                                                                   [RKDropdownAlert title:@"Shak Reported"
+                                                                          backgroundColor:[UIColor turquoiseColor]
+                                                                                textColor:[UIColor whiteColor]];
+                                                                    ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+                                                                    ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                                                                    [user addReportedShaksObject:localShak];
+                                                                    [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+                                                                    
+                                                                } else if (!error & !succeeded) {
+                                                                    [RKDropdownAlert title:@"Error Reporting Shak" backgroundColor:[UIColor salmonColor]
+                                                                                 textColor:[UIColor whiteColor]];
+                                                                } else {
+                                                                    [RKDropdownAlert title:@"No Internet Connection"
+                                                                           backgroundColor:[UIColor salmonColor]
+                                                                                 textColor:[UIColor whiteColor]];
+                                                                }
+                                                                
+                                                            }];
 
-                                                       }];
-        UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Cancel"
-                                                          style:UIAlertActionStyleDefault
-                                                        handler:^(UIAlertAction *action) {
-                                                            
-                                                        }];
-        [actionSheet addAction:report];
-        [actionSheet addAction:dismiss];
-        [self presentViewController:actionSheet animated:YES completion:nil];
+                                                           }];
+            UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Cancel"
+                                                              style:UIAlertActionStyleDefault
+                                                            handler:^(UIAlertAction *action) {
+                                                                
+                                                            }];
+            [actionSheet addAction:report];
+            [actionSheet addAction:dismiss];
+            [self presentViewController:actionSheet animated:YES completion:nil];
+        } else {
+            [RKDropdownAlert title:@"You already reported this." backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+        }
     };
     
     cell.tapToPlayButtonPressedBlock = ^{

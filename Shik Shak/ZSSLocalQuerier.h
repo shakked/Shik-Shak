@@ -23,6 +23,6 @@
 - (BOOL)didUpvoteShakWithObjectId:(NSString *)objectId;
 - (BOOL)didDownvoteShakWithObjectId:(NSString *)objectId;
 - (BOOL)shakIdExistsLocally:(NSString *)objectId;
-
+- (BOOL)didReportShakWithObjectId:(NSString *)objectId;
 
 @end

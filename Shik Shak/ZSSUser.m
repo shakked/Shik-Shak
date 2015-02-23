@@ -2,7 +2,7 @@
 //  ZSSUser.m
 //  
 //
-//  Created by Zachary Shakked on 2/2/15.
+//  Created by Zachary Shakked on 2/20/15.
 //
 //
 
@@ -10,15 +10,15 @@
 #import "ZSSShak.h"
 
 
-
 @implementation ZSSUser
 
 @dynamic deviceToken;
-@dynamic installationId;
 @dynamic didAgreeToEULA;
+@dynamic installationId;
 @dynamic themeColor;
 @dynamic createdShaks;
 @dynamic downvotedShaks;
 @dynamic upvotedShaks;
+@dynamic reportedShaks;
 
 @end

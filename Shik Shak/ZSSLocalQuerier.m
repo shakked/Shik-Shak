@@ -109,6 +109,16 @@
     return NO;
 }
 
+- (BOOL)didReportShakWithObjectId:(NSString *)objectId {
+    NSArray *reportedShaks = [[[self currentUser] reportedShaks] allObjects];
+    for (ZSSShak *shak in reportedShaks) {
+        if ([shak.objectId isEqual:objectId]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)shakIdExistsLocally:(NSString *)objectId {
     NSArray *shaks = [self shaks];
     for (ZSSShak *shak in shaks) {

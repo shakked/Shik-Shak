@@ -141,12 +141,11 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     NSString *json = [self getJSONfromDictionary:jsonDictionary];
     NSDictionary *parameters = @{@"where" : json};
     
-    [manager POST:@"https://api.parse.com/1/classes/installations" parameters: parameters
+    [manager GET:[NSString stringWithFormat:@"https://api.parse.com/1/installations/%@",[[ZSSLocalQuerier sharedQuerier] currentUser].installationId] parameters: parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               
               NSDictionary *response = (NSDictionary *)responseObject;
-              NSArray *results = response[@"results"];
-              NSNumber *isUserBanned = [results[0] valueForKey:@"isBanned"];
+              NSNumber *isUserBanned = response[@"isBanned"];
               completion([isUserBanned boolValue], nil);
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -20,10 +20,11 @@
         <attribute name="themeColor" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
         <relationship name="createdShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="creator" inverseEntity="ZSSShak" syncable="YES"/>
         <relationship name="downvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
+        <relationship name="reportedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
         <relationship name="upvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
     </entity>
     <elements>
         <element name="ZSSShak" positionX="-54" positionY="-9" width="128" height="208"/>
-        <element name="ZSSUser" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="ZSSUser" positionX="-63" positionY="-18" width="128" height="163"/>
     </elements>
 </model>

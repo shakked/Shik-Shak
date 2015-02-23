@@ -16,8 +16,6 @@
 		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A459BD41A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
 		4A459BD51A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
-		4A459BD61A8050DD00C77CEA /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD31A8050DD00C77CEA /* ZSSUser.m */; };
-		4A459BD71A8050DD00C77CEA /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD31A8050DD00C77CEA /* ZSSUser.m */; };
 		4A67BF551A77756700601CA9 /* left-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF521A77756700601CA9 /* left-30.png */; };
 		4A67BF561A77756700601CA9 /* left-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF531A77756700601CA9 /* left-60.png */; };
 		4A67BF571A77756700601CA9 /* left-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF541A77756700601CA9 /* left-90.png */; };
@@ -76,6 +74,8 @@
 		4AA0FF371A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0FF351A6D86F3003EEC88 /* UIColor+Shik_Shak_Colors.m */; };
 		4AA362B01A7B1F12001586A2 /* NSDate+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */; };
 		4AA362B31A7B1FAA001586A2 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */; };
+		4AA4D47A1A9826810091F2D0 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4D4791A9826810091F2D0 /* ZSSUser.m */; };
+		4AA4D47B1A9826810091F2D0 /* ZSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4D4791A9826810091F2D0 /* ZSSUser.m */; };
 		4AC174DA1A77642300A68263 /* settings_filled-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D71A77642300A68263 /* settings_filled-90.png */; };
 		4AC174DB1A77642300A68263 /* settings_filled-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D81A77642300A68263 /* settings_filled-60.png */; };
 		4AC174DC1A77642300A68263 /* settings_filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC174D91A77642300A68263 /* settings_filled-30.png */; };
@@ -129,8 +129,6 @@
 		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4A459BD01A8050DD00C77CEA /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShak.h; sourceTree = "<group>"; };
 		4A459BD11A8050DD00C77CEA /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShak.m; sourceTree = "<group>"; };
-		4A459BD21A8050DD00C77CEA /* ZSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSUser.h; sourceTree = "<group>"; };
-		4A459BD31A8050DD00C77CEA /* ZSSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSUser.m; sourceTree = "<group>"; };
 		4A67BF521A77756700601CA9 /* left-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-30.png"; sourceTree = "<group>"; };
 		4A67BF531A77756700601CA9 /* left-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-60.png"; sourceTree = "<group>"; };
 		4A67BF541A77756700601CA9 /* left-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-90.png"; sourceTree = "<group>"; };
@@ -201,6 +199,8 @@
 		4AA362AF1A7B1F12001586A2 /* NSDate+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSON.m"; sourceTree = "<group>"; };
 		4AA362B11A7B1FAA001586A2 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
 		4AA362B21A7B1FAA001586A2 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		4AA4D4781A9826810091F2D0 /* ZSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSUser.h; sourceTree = "<group>"; };
+		4AA4D4791A9826810091F2D0 /* ZSSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSUser.m; sourceTree = "<group>"; };
 		4AC174D71A77642300A68263 /* settings_filled-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-90.png"; sourceTree = "<group>"; };
 		4AC174D81A77642300A68263 /* settings_filled-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-60.png"; sourceTree = "<group>"; };
 		4AC174D91A77642300A68263 /* settings_filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_filled-30.png"; sourceTree = "<group>"; };
@@ -430,10 +430,10 @@
 		4AA0FF2F1A6D83D9003EEC88 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4AA4D4781A9826810091F2D0 /* ZSSUser.h */,
+				4AA4D4791A9826810091F2D0 /* ZSSUser.m */,
 				4A459BD01A8050DD00C77CEA /* ZSSShak.h */,
 				4A459BD11A8050DD00C77CEA /* ZSSShak.m */,
-				4A459BD21A8050DD00C77CEA /* ZSSUser.h */,
-				4A459BD31A8050DD00C77CEA /* ZSSUser.m */,
 				4AA0FF231A6D835C003EEC88 /* ZSSLocalStore.h */,
 				4AA0FF241A6D835C003EEC88 /* ZSSLocalStore.m */,
 				4AA0FF301A6D8503003EEC88 /* ZSSLocalQuerier.h */,
@@ -707,7 +707,7 @@
 				4A98D8531A73689E00893961 /* ZSSLocationQuerier.m in Sources */,
 				4A6FD4021A78A31000EDE95A /* DistancePickerView.m in Sources */,
 				4A6FD3FE1A78A31000EDE95A /* ActionSheetDatePicker.m in Sources */,
-				4A459BD61A8050DD00C77CEA /* ZSSUser.m in Sources */,
+				4AA4D47A1A9826810091F2D0 /* ZSSUser.m in Sources */,
 				4AEC44591A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
 				4A6E45831A6D88DD00C28755 /* ZSSCreateShakViewController.m in Sources */,
 				4A6E458D1A6D8DC600C28755 /* ZSSHomeTableViewController.m in Sources */,
@@ -740,7 +740,7 @@
 				4A98D8481A73610A00893961 /* testZSSLocalFactory.m in Sources */,
 				4AEC445A1A6E085F003E2D98 /* ZSSLocalFactory.m in Sources */,
 				4A6FD4061A78B05A00EDE95A /* testZSSCloudQuerier.m in Sources */,
-				4A459BD71A8050DD00C77CEA /* ZSSUser.m in Sources */,
+				4AA4D47B1A9826810091F2D0 /* ZSSUser.m in Sources */,
 				4A459BD51A8050DD00C77CEA /* ZSSShak.m in Sources */,
 				4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
 				4AC95C1F1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */,
