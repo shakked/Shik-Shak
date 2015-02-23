@@ -12,6 +12,9 @@
 		4A09FE2C1A75614200158152 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A09FE2B1A75614200158152 /* Keys.plist */; };
 		4A09FE2D1A75614200158152 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A09FE2B1A75614200158152 /* Keys.plist */; };
 		4A1B592F1A736C190014A45A /* testZSSLocationQuerier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */; };
+		4A21C5E21A9B902100589809 /* Flag-33.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5DF1A9B902100589809 /* Flag-33.png */; };
+		4A21C5E31A9B902100589809 /* Flag-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E01A9B902100589809 /* Flag-66.png */; };
+		4A21C5E41A9B902100589809 /* Flag-99.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E11A9B902100589809 /* Flag-99.png */; };
 		4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B34981A6F538100D27143 /* UIWaveView.m */; };
 		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A459BD41A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
@@ -121,6 +124,9 @@
 		4A09FE281A7557D500158152 /* ZSSCloudQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSCloudQuerier.m; sourceTree = "<group>"; };
 		4A09FE2B1A75614200158152 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = "Shik ShakTests/Keys.plist"; sourceTree = SOURCE_ROOT; };
 		4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocationQuerier.m; sourceTree = "<group>"; };
+		4A21C5DF1A9B902100589809 /* Flag-33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-33.png"; path = "Shik Shak Images/Flag-33.png"; sourceTree = SOURCE_ROOT; };
+		4A21C5E01A9B902100589809 /* Flag-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-66.png"; path = "Shik Shak Images/Flag-66.png"; sourceTree = SOURCE_ROOT; };
+		4A21C5E11A9B902100589809 /* Flag-99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-99.png"; path = "Shik Shak Images/Flag-99.png"; sourceTree = SOURCE_ROOT; };
 		4A3B34971A6F538100D27143 /* UIWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWaveView.h; sourceTree = "<group>"; };
 		4A3B34981A6F538100D27143 /* UIWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWaveView.m; sourceTree = "<group>"; };
 		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
@@ -441,6 +447,9 @@
 		4AC174DD1A77642A00A68263 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A21C5DF1A9B902100589809 /* Flag-33.png */,
+				4A21C5E01A9B902100589809 /* Flag-66.png */,
+				4A21C5E11A9B902100589809 /* Flag-99.png */,
 				4AFB5E2A1A7A063D003E6186 /* clock-20.png */,
 				4AFB5E2B1A7A063D003E6186 /* clock-40.png */,
 				4AFB5E2C1A7A063D003E6186 /* clock-60.png */,
@@ -566,6 +575,7 @@
 				4A8CDE311A6D7DF700044CF8 /* LaunchScreen.xib in Resources */,
 				4A67BF571A77756700601CA9 /* left-90.png in Resources */,
 				4A67BF551A77756700601CA9 /* left-30.png in Resources */,
+				4A21C5E31A9B902100589809 /* Flag-66.png in Resources */,
 				4A8CBC731A78974600CE5EA6 /* play-30.png in Resources */,
 				4AFB5E261A7A03F8003E6186 /* up4-60-2.png in Resources */,
 				4A8CBC781A78974600CE5EA6 /* voice_recognition_scan-90.png in Resources */,
@@ -586,11 +596,13 @@
 				4AC174E21A77665100A68263 /* ZSSSettingsViewController.xib in Resources */,
 				4AC174DA1A77642300A68263 /* settings_filled-90.png in Resources */,
 				4AFB5E201A7A03F8003E6186 /* down4-60-2.png in Resources */,
+				4A21C5E41A9B902100589809 /* Flag-99.png in Resources */,
 				4AFB5E1E1A7A03F8003E6186 /* down4-30-2.png in Resources */,
 				4A8CBC761A78974600CE5EA6 /* voice_recognition_scan-30.png in Resources */,
 				4A6E45851A6D88DD00C28755 /* ZSSCreateShakViewController.xib in Resources */,
 				4AFB5E2F1A7A063D003E6186 /* clock-60.png in Resources */,
 				4A6E45941A6D915C00C28755 /* ZSSShakCell.xib in Resources */,
+				4A21C5E21A9B902100589809 /* Flag-33.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

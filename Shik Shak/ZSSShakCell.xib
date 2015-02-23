@@ -107,13 +107,13 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-DF-vHJ">
-                        <rect key="frame" x="362" y="67" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.68644569860000004" green="1" blue="0.72289364830000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="8" y="39" width="30" height="30"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="Ht6-UJ-EC4"/>
-                            <constraint firstAttribute="height" constant="30" id="sy2-nX-dvY"/>
+                            <constraint firstAttribute="width" constant="30" id="WSI-As-V6r"/>
+                            <constraint firstAttribute="height" constant="30" id="i65-JI-IzD"/>
                         </constraints>
-                        <state key="normal">
+                        <state key="normal" backgroundImage="FlagIcon">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -130,12 +130,12 @@
                     <constraint firstItem="B0H-I4-dP1" firstAttribute="top" secondItem="TJy-Gb-err" secondAttribute="bottom" constant="4" id="Lh7-9p-sNz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="uiP-53-pzx" secondAttribute="trailing" constant="8" id="Ozk-0Y-YIR"/>
                     <constraint firstItem="73V-4q-NjI" firstAttribute="top" secondItem="PHx-CA-BlQ" secondAttribute="bottom" constant="5" id="Sd6-ha-Mcv"/>
-                    <constraint firstItem="q6x-DF-vHJ" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="XmY-sX-qPC"/>
                     <constraint firstItem="73V-4q-NjI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ysf-Er-f79"/>
+                    <constraint firstItem="q6x-DF-vHJ" firstAttribute="top" secondItem="TJy-Gb-err" secondAttribute="bottom" constant="10" id="dC7-0M-G84"/>
                     <constraint firstAttribute="centerY" secondItem="73V-4q-NjI" secondAttribute="centerY" id="dKm-bq-A7l"/>
-                    <constraint firstItem="uiP-53-pzx" firstAttribute="leading" secondItem="q6x-DF-vHJ" secondAttribute="trailing" constant="8" id="f2Z-vy-P7b"/>
                     <constraint firstItem="6Bz-at-oSH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gLi-A1-Bsj"/>
                     <constraint firstItem="6Bz-at-oSH" firstAttribute="top" secondItem="B0H-I4-dP1" secondAttribute="bottom" constant="5" id="keZ-mM-ALw"/>
+                    <constraint firstItem="q6x-DF-vHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qJL-3b-c2n"/>
                     <constraint firstItem="B0H-I4-dP1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tGS-pN-IeM"/>
                 </constraints>
             </tableViewCellContentView>
@@ -155,6 +155,7 @@
     <resources>
         <image name="ClockIcon" width="20" height="20"/>
         <image name="DownvoteUnselected" width="30" height="30"/>
+        <image name="FlagIcon" width="33" height="33"/>
         <image name="UpvoteUnselected" width="30" height="30"/>
     </resources>
 </document>
