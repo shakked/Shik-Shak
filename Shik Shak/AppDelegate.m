@@ -15,6 +15,7 @@
 #import "ZSSLocalFactory.h"
 #import "ZSSLocalStore.h"
 #import "ZSSUser.h"
+#import "ZSSMyShaksTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,8 +32,15 @@
     
     if (userExists) {
         ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
+        ZSSMyShaksTableViewController *mstvc = [[ZSSMyShaksTableViewController alloc] init];
+        
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
-        self.window.rootViewController = nav;
+        UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:mstvc];
+        
+        UITabBarController *tbc = [[UITabBarController alloc] init];
+        tbc.viewControllers = @[nav, nav2];
+        self.window.rootViewController = tbc;
+        
     } else {
         ZSSUser *newUser = [[ZSSLocalFactory sharedFactory] createUser];
         [[ZSSLocalStore sharedStore] saveCoreDataChanges];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZSSShak;
 
 @interface ZSSShakCell : UITableViewCell
 
@@ -18,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *reportShakButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shakTextLabelTopContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *handelLabelHeightContraint;
 
@@ -27,5 +29,7 @@
 @property (nonatomic, strong) void (^tapToPlayButtonPressedBlock)(void);
 
 @property (weak, nonatomic) IBOutlet UIButton *tapToPlayButton;
-@property (nonatomic, strong) NSDictionary *shak;
+@property (nonatomic, strong) NSDictionary *shakDictionary;
+@property (nonatomic, strong) ZSSShak *shak;
+
 @end

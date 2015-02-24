@@ -170,6 +170,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     
     self.pullToRefresh.imageIcon = [UIImage imageNamed:@"ShikShakRefreshIcon"];
     self.pullToRefresh.borderColor = [UIColor whiteColor];
+    [[self.pullToRefresh layer] setCornerRadius:10.0];
     self.pullToRefresh.borderWidth = 0.0f;
     self.pullToRefresh.threshold = 60.0f;
 }
@@ -215,10 +216,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     NSDictionary *shak = self.shaks[indexPath.row];
-    cell.shak = shak;
+    cell.shakDictionary = shak;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.handleLabel.text = shak[@"handle"];
+    cell.handleLabel.textColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
     NSDate *createdAt = [NSDate dateFromString:shak[@"createdAt"]];
     cell.dateLabel.text = createdAt.shortTimeAgoSinceNow;
     cell.karmaLabel.text = [shak[@"karma"] stringValue];
@@ -232,11 +234,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
         strongCell.upVoteButton.enabled = NO;
         strongCell.downVoteButton.enabled = NO;
         
-        [[ZSSCloudQuerier sharedQuerier] upvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
+        [[ZSSCloudQuerier sharedQuerier] upvoteShakWithObjectId:strongCell.shakDictionary[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
             if (!error && succeeded) {
                 
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
                 [user addUpvotedShaksObject:localShak];
                 [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                 
@@ -257,11 +259,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
         strongCell.upVoteButton.enabled = NO;
         strongCell.downVoteButton.enabled = NO;
         
-        [[ZSSCloudQuerier sharedQuerier] downvoteShakWithObjectId:strongCell.shak[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
+        [[ZSSCloudQuerier sharedQuerier] downvoteShakWithObjectId:strongCell.shakDictionary[@"objectId"] withCompletion:^(NSError *error, BOOL succeeded) {
             if (!error) {
                 
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
                 [user addDownvotedShaksObject:localShak];
                 [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                 
@@ -279,20 +281,20 @@ static NSString *CELL_IDENTIFIER = @"cell";
     
     cell.reportUserButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
-        BOOL didReportShak = [[ZSSLocalQuerier sharedQuerier] didReportShakWithObjectId:strongCell.shak[@"objectId"]];
+        BOOL didReportShak = [[ZSSLocalQuerier sharedQuerier] didReportShakWithObjectId:strongCell.shakDictionary[@"objectId"]];
         if (!didReportShak) {
             UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *report = [UIAlertAction actionWithTitle:@"Report Shak"
                                                              style:UIAlertActionStyleDestructive
                handler:^(UIAlertAction *action) {
-                   [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shak[@"objectId"]
+                   [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shakDictionary[@"objectId"]
                                                             withCompletion:^(NSError *error, BOOL succeeded) {
                                                                 if (!error && succeeded) {
                                                                    [RKDropdownAlert title:@"Shak Reported"
                                                                           backgroundColor:[UIColor turquoiseColor]
                                                                                 textColor:[UIColor whiteColor]];
                                                                     ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                                                                    ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                                                                    ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
                                                                     [user addReportedShaksObject:localShak];
                                                                     [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                                                                     
@@ -324,7 +326,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     cell.tapToPlayButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
         [self.speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-        AVSpeechUtterance *shakUtterance = [AVSpeechUtterance utteranceForShakInfo:strongCell.shak];
+        AVSpeechUtterance *shakUtterance = [AVSpeechUtterance utteranceForShakInfo:strongCell.shakDictionary];
         [self.speaker speakUtterance:shakUtterance];
         
     };
@@ -335,7 +337,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)configureVotingButtonsForCell:(ZSSShakCell *)cell {
-    BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shak[@"objectId"]];
+    BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shakDictionary[@"objectId"]];
     if (!shakIsPresentLocally) {
         cell.upVoteButton.enabled = YES;
         cell.downVoteButton.enabled = YES;
@@ -346,7 +348,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
         cell.downVoteButton.enabled = NO;
         
         ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
-        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shak];
+        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shakDictionary];
         
         if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
             [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];

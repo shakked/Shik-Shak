@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSSet *downvotedShaks;
 @property (nonatomic, retain) NSSet *upvotedShaks;
 @property (nonatomic, retain) NSSet *reportedShaks;
+
 @end
 
 @interface ZSSUser (CoreDataGeneratedAccessors)
@@ -44,5 +45,7 @@
 - (void)removeReportedShaksObject:(ZSSShak *)value;
 - (void)addReportedShaks:(NSSet *)values;
 - (void)removeReportedShaks:(NSSet *)values;
+
+- (NSArray *)createdShaksOrdered;
 
 @end

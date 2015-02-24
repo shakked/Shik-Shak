@@ -21,4 +21,11 @@
 @dynamic upvotedShaks;
 @dynamic reportedShaks;
 
+- (NSArray *)createdShaksOrdered {
+    NSArray *createdShaks = [[self createdShaks] allObjects];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    NSArray *orderedArray = [createdShaks sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    return orderedArray;
+}
+
 @end

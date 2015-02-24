@@ -19,6 +19,7 @@
 		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A459BD41A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
 		4A459BD51A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
+		4A56ADE21A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A56ADE11A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m */; };
 		4A67BF551A77756700601CA9 /* left-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF521A77756700601CA9 /* left-30.png */; };
 		4A67BF561A77756700601CA9 /* left-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF531A77756700601CA9 /* left-60.png */; };
 		4A67BF571A77756700601CA9 /* left-90.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A67BF541A77756700601CA9 /* left-90.png */; };
@@ -132,6 +133,8 @@
 		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4A459BD01A8050DD00C77CEA /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShak.h; sourceTree = "<group>"; };
 		4A459BD11A8050DD00C77CEA /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShak.m; sourceTree = "<group>"; };
+		4A56ADE01A9C08AB008B28E7 /* ZSSMyShaksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSMyShaksTableViewController.h; sourceTree = "<group>"; };
+		4A56ADE11A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSMyShaksTableViewController.m; sourceTree = "<group>"; };
 		4A67BF521A77756700601CA9 /* left-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-30.png"; sourceTree = "<group>"; };
 		4A67BF531A77756700601CA9 /* left-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-60.png"; sourceTree = "<group>"; };
 		4A67BF541A77756700601CA9 /* left-90.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-90.png"; sourceTree = "<group>"; };
@@ -344,6 +347,8 @@
 			children = (
 				4AC174DD1A77642A00A68263 /* Images */,
 				4A8CDE2D1A6D7DF700044CF8 /* Images.xcassets */,
+				4A56ADE01A9C08AB008B28E7 /* ZSSMyShaksTableViewController.h */,
+				4A56ADE11A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m */,
 				4A8CDE241A6D7DF700044CF8 /* AppDelegate.h */,
 				4A8CDE251A6D7DF700044CF8 /* AppDelegate.m */,
 				4A6E458B1A6D8DC600C28755 /* ZSSHomeTableViewController.h */,
@@ -688,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA0FF251A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
+				4A56ADE21A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m in Sources */,
 				4A6FD4011A78A31000EDE95A /* ActionSheetStringPicker.m in Sources */,
 				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
 				4AC95C141A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m in Sources */,

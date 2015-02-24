@@ -146,6 +146,7 @@
                 <outlet property="handelLabelHeightContraint" destination="1r1-4e-fg7" id="x9v-sU-UXF"/>
                 <outlet property="handleLabel" destination="TJy-Gb-err" id="apa-wR-Ot7"/>
                 <outlet property="karmaLabel" destination="73V-4q-NjI" id="eAB-E4-b0W"/>
+                <outlet property="reportShakButton" destination="q6x-DF-vHJ" id="Z8S-Nm-Cw9"/>
                 <outlet property="tapToPlayButton" destination="B0H-I4-dP1" id="8oJ-rH-kE0"/>
                 <outlet property="upVoteButton" destination="PHx-CA-BlQ" id="TPI-lg-XW1"/>
             </connections>
