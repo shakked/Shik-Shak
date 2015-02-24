@@ -30,6 +30,8 @@
     UIColor *themeColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
     self.view.backgroundColor = themeColor;
     self.changeThemeColorButton.tintColor = themeColor;
+    self.changeThemeColorButton.layer.cornerRadius = 5.0f;
+    
     [self configureNavBar];
 }
 

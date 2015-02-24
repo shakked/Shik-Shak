@@ -137,7 +137,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZSSShakCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     ZSSShak *shak = self.shaks[indexPath.row];
-//    cell.shak = shak;
+    cell.shak = shak;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.handleLabel.text = shak.handle;
@@ -231,8 +231,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
         cell.downVoteButton.enabled = NO;
         
         ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
-        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shak];
-        
+
+        ZSSShak *localShak = cell.shak;
         if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
             [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
             [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
