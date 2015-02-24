@@ -29,21 +29,34 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     BOOL userExists = [[ZSSLocalQuerier sharedQuerier] userExists];
-    
-    if (userExists) {
+    BOOL userDidAgreeToEULA = [[ZSSLocalQuerier sharedQuerier] didUserAgreeToEULA];
+    if (userExists && userDidAgreeToEULA) {
         ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
         ZSSMyShaksTableViewController *mstvc = [[ZSSMyShaksTableViewController alloc] init];
         
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
+        UITabBarItem *home = [[UITabBarItem alloc] init];
+        home.title = @"Home";
+        home.image = [UIImage imageNamed:@"FridgeIcon"];
+        nav.tabBarItem = home;
+        
         UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:mstvc];
+        UITabBarItem *profile = [[UITabBarItem alloc] init];
+        profile.title = @"Profile";
+        profile.image = [UIImage imageNamed:@"ProfileIcon"];
+        nav2.tabBarItem = profile;
         
         UITabBarController *tbc = [[UITabBarController alloc] init];
         tbc.viewControllers = @[nav, nav2];
+        tbc.tabBar.tintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+
         self.window.rootViewController = tbc;
         
     } else {
-        ZSSUser *newUser = [[ZSSLocalFactory sharedFactory] createUser];
-        [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+        if (!userExists) {
+            ZSSUser *user = [[ZSSLocalFactory sharedFactory] createUser];
+            [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+        }
         ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];
         self.window.rootViewController = tcpc;
     }

@@ -13,8 +13,6 @@
 #import "ZSSLocalFactory.h"
 #import "NSDate+JSON.h"
 
-#warning You were making localShakForCloudShak so you could sync local shaks that need to be synced
-
 @implementation ZSSLocalQuerier
 
 + (instancetype)sharedQuerier {
@@ -33,6 +31,15 @@
     } else {
         return NO;
     }
+}
+
+- (BOOL)didUserAgreeToEULA {
+    if ([self userExists]) {
+        if ([[self currentUser].didAgreeToEULA boolValue]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (ZSSShak *)localShakForCloudShak:(NSDictionary *)cloudShak {

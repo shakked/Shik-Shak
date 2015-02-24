@@ -15,6 +15,7 @@
 #import "ZSSLocalFactory.h"
 #import "ZSSLocalStore.h"
 #import "ZSSLocalQuerier.h"
+#import "ZSSLicenseViewController.h"
 
 @interface ZSSThemeColorPickerController ()
 
@@ -65,16 +66,13 @@
 
 - (IBAction)continueButtonPressed:(id)sender {
     UIColor *themeColor = self.lastPressedColor;
-    
     [self createAndConfigureUserWithThemeColor:themeColor];
-    
-    ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
-    nav.navigationBar.barTintColor = themeColor;
-    [self presentViewController:nav animated:YES completion:nil];
+    ZSSLicenseViewController *lvc = [[ZSSLicenseViewController alloc] init];
+    [self presentViewController:lvc animated:YES completion:nil];
 }
 
 - (void)createAndConfigureUserWithThemeColor:(UIColor *)themeColor {
+
     ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
     currentUser.themeColor = themeColor;
     [[ZSSLocalStore sharedStore] saveCoreDataChanges];

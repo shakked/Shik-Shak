@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZSSLicenseViewController">
+            <connections>
+                <outlet property="agreeButton" destination="vgR-c9-Oki" id="EjY-SN-Rer"/>
+                <outlet property="licenseTextView" destination="0nY-UW-zFL" id="YGW-Gf-P2e"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nY-UW-zFL">
+                    <rect key="frame" x="8" y="40" width="584" height="503"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
+                    <string key="text">Shik Shak 1.01
+Copyright (c) 2015 Zachary Shakked
+
+*** END USER LICENSE AGREEMENT ***
+
+IMPORTANT: PLEASE READ THIS LICENSE CAREFULLY BEFORE USING THIS SOFTWARE.
+
+1. LICENSE
+
+By receiving, opening the file package, and/or using Shik Shak 1.01("Software") containing this software, you agree that this End User User License Agreement(EULA) is a legally binding and valid contract and agree to be bound by it. You agree to abide by the intellectual property laws and all of the terms and conditions of this Agreement.
+
+Unless you have a different license agreement signed by Zachary Shakked your use of Shik Shak 1.01 indicates your acceptance of this license agreement and warranty.
+
+Subject to the terms of this Agreement, Zachary Shakked grants to you a limited, non-exclusive, non-transferable license, without right to sub-license, to use Shik Shak 1.01 in accordance with this Agreement and any other written agreement with Zachary Shakked. Zachary Shakked does not transfer the title of Shik Shak 1.01 to you; the license granted to you is not a sale. This agreement is a binding legal agreement between Zachary Shakked and the purchasers or users of Shik Shak 1.01.
+
+If you do not agree to be bound by this agreement, remove Shik Shak 1.01 from your computer now and, if applicable, promptly return to Zachary Shakked by mail any copies of Shik Shak 1.01 and related documentation and packaging in your possession.
+
+2. DISTRIBUTION
+
+Shik Shak 1.01 and the license herein granted shall not be copied, shared, distributed, re-sold, offered for re-sale, transferred or sub-licensed in whole or in part except that you may make one copy for archive purposes only. For information about redistribution of Shik Shak 1.01 contact Zachary Shakked.
+
+3. USER AGREEMENT
+
+3.1 Use
+
+Your license to use Shik Shak 1.01 is limited to the number of licenses purchased by you. You shall not allow others to use, copy or evaluate copies of Shik Shak 1.01.
+
+3.2 Use Restrictions
+
+You shall use Shik Shak 1.01 in compliance with all applicable laws and not for any unlawful purpose. Without limiting the foregoing, use, display or distribution of Shik Shak 1.01 together with material that is pornographic, racist, vulgar, obscene, defamatory, libelous, abusive, promoting hatred, discriminating or displaying prejudice based on religion, ethnic heritage, race, sexual orientation or age is strictly prohibited.
+
+Each licensed copy of Shik Shak 1.01 may be used on one single computer location by one user. Use of Shik Shak 1.01 means that you have loaded, installed, or run Shik Shak 1.01 on a computer or similar device. If you install Shik Shak 1.01 onto a multi-user platform, server or network, each and every individual user of Shik Shak 1.01 must be licensed separately.
+
+You may make one copy of Shik Shak 1.01 for backup purposes, providing you only have one copy installed on one computer being used by one person. Other users may not use your copy of Shik Shak 1.01 . The assignment, sublicense, networking, sale, or distribution of copies of Shik Shak 1.01 are strictly forbidden without the prior written consent of Zachary Shakked. It is a violation of this agreement to assign, sell, share, loan, rent, lease, borrow, network or transfer the use of Shik Shak 1.01. If any person other than yourself uses Shik Shak 1.01 registered in your name, regardless of whether it is at the same time or different times, then this agreement is being violated and you are responsible for that violation!
+
+3.3 Copyright Restriction
+
+This Software contains copyrighted material, trade secrets and other proprietary material. You shall not, and shall not attempt to, modify, reverse engineer, disassemble or decompile Shik Shak 1.01. Nor can you create any derivative works or other works that are based upon or derived from Shik Shak 1.01 in whole or in part.
+
+Zachary Shakked's name, logo and graphics file that represents Shik Shak 1.01 shall not be used in any way to promote products developed with Shik Shak 1.01 . Zachary Shakked retains sole and exclusive ownership of all right, title and interest in and to Shik Shak 1.01 and all Intellectual Property rights relating thereto.
+
+Copyright law and international copyright treaty provisions protect all parts of Shik Shak 1.01, products and services. No program, code, part, image, audio sample, or text may be copied or used in any way by the user except as intended within the bounds of the single user program. All rights not expressly granted hereunder are reserved for Zachary Shakked.
+
+3.4 Limitation of Responsibility
+
+You will indemnify, hold harmless, and defend Zachary Shakked , its employees, agents and distributors against any and all claims, proceedings, demand and costs resulting from or in any way connected with your use of Zachary Shakked's Software.
+
+In no event (including, without limitation, in the event of negligence) will Zachary Shakked , its employees, agents or distributors be liable for any consequential, incidental, indirect, special or punitive damages whatsoever (including, without limitation, damages for loss of profits, loss of use, business interruption, loss of information or data, or pecuniary loss), in connection with or arising out of or related to this Agreement, Shik Shak 1.01 or the use or inability to use Shik Shak 1.01 or the furnishing, performance or use of any other matters hereunder whether based upon contract, tort or any other theory including negligence.
+
+Zachary Shakked's entire liability, without exception, is limited to the customers' reimbursement of the purchase price of the Software (maximum being the lesser of the amount paid by you and the suggested retail price as listed by Zachary Shakked ) in exchange for the return of the product, all copies, registration papers and manuals, and all materials that constitute a transfer of license from the customer back to Zachary Shakked.
+
+3.5 Warranties
+
+Except as expressly stated in writing, Zachary Shakked makes no representation or warranties in respect of this Software and expressly excludes all other warranties, expressed or implied, oral or written, including, without limitation, any implied warranties of merchantable quality or fitness for a particular purpose.
+
+3.6 Governing Law
+
+This Agreement shall be governed by the law of the United States applicable therein. You hereby irrevocably attorn and submit to the non-exclusive jurisdiction of the courts of United States therefrom. If any provision shall be considered unlawful, void or otherwise unenforceable, then that provision shall be deemed severable from this License and not affect the validity and enforceability of any other provisions.
+
+3.7 Termination
+
+Any failure to comply with the terms and conditions of this Agreement will result in automatic and immediate termination of this license. Upon termination of this license granted herein for any reason, you agree to immediately cease use of Shik Shak 1.01 and destroy all copies of Shik Shak 1.01 supplied under this Agreement. The financial obligations incurred by you shall survive the expiration or termination of this license.
+
+4. DISCLAIMER OF WARRANTY
+
+THIS SOFTWARE AND THE ACCOMPANYING FILES ARE SOLD "AS IS" AND WITHOUT WARRANTIES AS TO PERFORMANCE OR MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR IMPLIED. THIS DISCLAIMER CONCERNS ALL FILES GENERATED AND EDITED BY Shik Shak 1.01 AS WELL.
+
+5. CONSENT OF USE OF DATA
+
+You agree that Zachary Shakked may collect and use information gathered in any manner as part of the product support services provided to you, if any, related to Shik Shak 1.01. Zachary Shakked may also use this information to provide notices to you which may be of use or interest to you.
+
+</string>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgR-c9-Oki">
+                    <rect key="frame" x="240" y="552" width="120" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3yS-SF-Ggf"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Imr-hL-r5T"/>
+                        <constraint firstAttribute="width" constant="120" id="SbD-DL-uEQ"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="vgy-Ow-HCF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="I Agree">
+                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="agreeButtonPressed:" destination="-1" eventType="touchUpInside" id="nhL-um-Gae"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vgR-c9-Oki" secondAttribute="bottom" constant="8" id="410-IH-hvN"/>
+                <constraint firstAttribute="trailing" secondItem="0nY-UW-zFL" secondAttribute="trailing" constant="8" id="jqv-nR-lR6"/>
+                <constraint firstItem="vgR-c9-Oki" firstAttribute="top" secondItem="0nY-UW-zFL" secondAttribute="bottom" constant="9" id="kQ7-8C-EER"/>
+                <constraint firstItem="0nY-UW-zFL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qPw-LG-x9m"/>
+                <constraint firstItem="0nY-UW-zFL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="r4f-69-QsV"/>
+                <constraint firstAttribute="centerX" secondItem="vgR-c9-Oki" secondAttribute="centerX" id="yfr-tT-x0Y"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

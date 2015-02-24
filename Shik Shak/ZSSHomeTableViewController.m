@@ -65,6 +65,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
         }
     }];
     [self updateKarma];
+    [self updateViews];
 }
 
 - (void)loadShakData {
@@ -158,6 +159,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.navigationItem.titleView = self.hotNewSegControl;
     self.navigationItem.rightBarButtonItem = createShakBarButton;
     self.navigationItem.leftBarButtonItems = @[settingsBarButton, karmaScoreBarButton];
+}
+
+- (void)updateViews {
+    self.tabBarController.tabBar.tintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+    self.navigationController.navigationBar.barTintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
 }
 
 - (void)configurePullToRefresh {

@@ -64,6 +64,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
             [self.tableView reloadData];
         }
     }];
+    
+    [self updateViews];
 }
 
 - (void)loadShakData {
@@ -87,7 +89,6 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
     
-    
     UIView *karmaScoreView = [[UIView alloc] init];
     karmaScoreView.bounds = CGRectMake(0, 0, 60, 30);
     
@@ -102,6 +103,10 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.navigationItem.leftBarButtonItem = karmaScoreBarButton;
 }
 
+- (void)updateViews {
+    self.tabBarController.tabBar.tintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+    self.navigationController.navigationBar.barTintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+}
 
 - (void)updateKarma {
     self.karmaScoreLabel.text = [NSString stringWithFormat:@"%d", [[ZSSLocalQuerier sharedQuerier] calculateKarmaScore]];

@@ -13,6 +13,8 @@
 
 + (instancetype)sharedQuerier;
 - (BOOL)userExists;
+- (BOOL)didUserAgreeToEULA;
+
 - (ZSSShak *)localShakForCloudShak:(NSDictionary *)cloudShak;
 
 - (ZSSUser *)currentUser;
