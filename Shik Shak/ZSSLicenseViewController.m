@@ -11,6 +11,8 @@
 #import "ZSSUser.h"
 #import "ZSSHomeTableViewController.h"
 #import "ZSSLocalStore.h"
+#import "ZSSMyShaksTableViewController.h"
+#import "ZSSHomeTableViewController.h"
 
 @interface ZSSLicenseViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *licenseTextView;
@@ -25,10 +27,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.view.backgroundColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
-    self.agreeButton.titleLabel.textColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+    UIColor *themeColor = (UIColor *)[[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+    self.view.backgroundColor = themeColor;
     self.agreeButton.layer.cornerRadius = 5.0f;
-    
+    [self.agreeButton setTitleColor:themeColor forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,14 +39,30 @@
 }
 
 - (IBAction)agreeButtonPressed:(id)sender {
-    ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
     ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
     currentUser.didAgreeToEULA = @YES;
     [[ZSSLocalStore sharedStore] saveCoreDataChanges];
     
+    ZSSHomeTableViewController *htvc = [[ZSSHomeTableViewController alloc] init];
+    ZSSMyShaksTableViewController *mstvc = [[ZSSMyShaksTableViewController alloc] init];
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:htvc];
-    nav.navigationBar.barTintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
-    [self presentViewController:nav animated:YES completion:nil];
+    UITabBarItem *home = [[UITabBarItem alloc] init];
+    home.title = @"Home";
+    home.image = [UIImage imageNamed:@"FridgeIcon"];
+    nav.tabBarItem = home;
+    
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:mstvc];
+    UITabBarItem *profile = [[UITabBarItem alloc] init];
+    profile.title = @"Profile";
+    profile.image = [UIImage imageNamed:@"ProfileIcon"];
+    nav2.tabBarItem = profile;
+    
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+    tbc.viewControllers = @[nav, nav2];
+    tbc.tabBar.tintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
+    
+    [self presentViewController:tbc animated:YES completion:nil];
 }
 
 @end

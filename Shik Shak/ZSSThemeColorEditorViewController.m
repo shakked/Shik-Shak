@@ -28,6 +28,7 @@
 - (void)configureViews {
     UIColor *themeColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
     self.saveButton.tintColor = themeColor;
+    self.saveButton.layer.cornerRadius = 5.0f;
     self.view.backgroundColor = themeColor;
     self.lastPressedColor = themeColor;
     self.navigationController.navigationBar.translucent = NO;
