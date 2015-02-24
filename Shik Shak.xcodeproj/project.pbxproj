@@ -883,6 +883,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B5CAC1F5B4EED3E49374919 /* Pods-Shik ShakTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -892,8 +893,36 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"\"Users/zacharyshakked/Desktop/Jaguar F-Type/Shik Shak/usr/include\"",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AAPullToRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DateTools\"",
+					"\"${PODS_ROOT}/Headers/Public/KVNProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/RKNotificationHub\"",
+					"\"$(PROJECT_DIR)/Shik ShakTests/OCMock\"",
+				);
 				INFOPLIST_FILE = "Shik ShakTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.2/iOS,
+					/Volumes/OCMock,
+					3.1.2/iOS,
+					"$(PROJECT_DIR)/Shik",
+					ShakTests/lib,
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-Shik ShakTests-DateTools\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shik Shak.app/Shik Shak";
 			};
@@ -903,13 +932,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD0F88CD28C64AAE41A199D2 /* Pods-Shik ShakTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"<Multiple",
+					"values>",
+					"\"Users/zacharyshakked/Desktop/Jaguar F-Type/Shik Shak/usr/include\"",
+				);
 				INFOPLIST_FILE = "Shik ShakTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/OCMock,
+					3.1.2/iOS,
+					/Volumes/OCMock,
+					3.1.2/iOS,
+					"$(PROJECT_DIR)/Shik",
+					ShakTests/lib,
+					"$(PROJECT_DIR)/usr/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-Shik ShakTests-DateTools\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shik Shak.app/Shik Shak";
 			};

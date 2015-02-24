@@ -38,6 +38,8 @@ static NSString *CELL_IDENTIFIER = @"cell";
 @property (nonatomic, strong) AVSpeechSynthesizer *speaker;
 @property (nonatomic, strong) UILabel *karmaScoreLabel;
 
+@property (nonatomic) BOOL isUserBanned;
+
 @end
 
 @implementation ZSSHomeTableViewController
@@ -56,35 +58,37 @@ static NSString *CELL_IDENTIFIER = @"cell";
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil];
             [alert show];
-        }else if (!error && !isBanned) {
+            [self configureViewForBannedUser];
             
+        }else if (!error && !isBanned) {
+            [self loadShakData];
         }
     }];
-    [self loadShakData];
     [self updateKarma];
 }
 
 - (void)loadShakData {
-    if (self.hotNewSegControl.selectedSegmentIndex == 0) {
-        [[ZSSCloudQuerier sharedQuerier] getNewShaksWithCompletion:^(NSArray *newShaks, NSError *error) {
-            if (!error) {
-                self.shaks = newShaks;
-                [self.tableView reloadData];
-            } else {
-                [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
-            }
-        }];
-    } else {
-        [[ZSSCloudQuerier sharedQuerier] getHotShaksWithCompletion:^(NSArray *hotShaks, NSError *error) {
-            if (!error) {
-                self.shaks = hotShaks;
-                [self.tableView reloadData];
-            } else {
-                [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
-            }
-        }];
+    if (!self.isUserBanned) {
+        if (self.hotNewSegControl.selectedSegmentIndex == 0) {
+            [[ZSSCloudQuerier sharedQuerier] getNewShaksWithCompletion:^(NSArray *newShaks, NSError *error) {
+                if (!error) {
+                    self.shaks = newShaks;
+                    [self.tableView reloadData];
+                } else {
+                    [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                }
+            }];
+        } else {
+            [[ZSSCloudQuerier sharedQuerier] getHotShaksWithCompletion:^(NSArray *hotShaks, NSError *error) {
+                if (!error) {
+                    self.shaks = hotShaks;
+                    [self.tableView reloadData];
+                } else {
+                    [RKDropdownAlert title:@"Error Loading Shaks" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+                }
+            }];
+        }
     }
-    
 }
 
 - (void)updateKarma {
@@ -171,6 +175,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)hotNewSegDidChange {
+    
     [self loadShakData];
 }
 
@@ -362,7 +367,12 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 
-#warning REMEMBER TO ADD: didUserUpvote? didUserDownvote? keep track of shak id's that have been voted
+- (void)configureViewForBannedUser {
+    self.isUserBanned = YES;
+    [self.navigationItem.leftBarButtonItem setEnabled:NO];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    
+}
 
 - (instancetype)init {
     self = [super init];
