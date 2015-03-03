@@ -15,7 +15,6 @@
 		4A21C5E21A9B902100589809 /* Flag-33.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5DF1A9B902100589809 /* Flag-33.png */; };
 		4A21C5E31A9B902100589809 /* Flag-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E01A9B902100589809 /* Flag-66.png */; };
 		4A21C5E41A9B902100589809 /* Flag-99.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E11A9B902100589809 /* Flag-99.png */; };
-		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A459BD41A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
 		4A459BD51A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
 		4A56ADE21A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A56ADE11A9C08AB008B28E7 /* ZSSMyShaksTableViewController.m */; };
@@ -129,7 +128,6 @@
 		4A21C5DF1A9B902100589809 /* Flag-33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-33.png"; path = "Shik Shak Images/Flag-33.png"; sourceTree = SOURCE_ROOT; };
 		4A21C5E01A9B902100589809 /* Flag-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-66.png"; path = "Shik Shak Images/Flag-66.png"; sourceTree = SOURCE_ROOT; };
 		4A21C5E11A9B902100589809 /* Flag-99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-99.png"; path = "Shik Shak Images/Flag-99.png"; sourceTree = SOURCE_ROOT; };
-		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4A459BD01A8050DD00C77CEA /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShak.h; sourceTree = "<group>"; };
 		4A459BD11A8050DD00C77CEA /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShak.m; sourceTree = "<group>"; };
 		4A56ADE01A9C08AB008B28E7 /* ZSSMyShaksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSMyShaksTableViewController.h; sourceTree = "<group>"; };
@@ -412,7 +410,6 @@
 				4A98D8471A73610A00893961 /* testZSSLocalFactory.m */,
 				4A98D8491A73626800893961 /* testZSSLocalQuerier.m */,
 				4A1B592E1A736C190014A45A /* testZSSLocationQuerier.m */,
-				4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */,
 				4A8CDE3A1A6D7DF700044CF8 /* Supporting Files */,
 			);
 			path = "Shik ShakTests";
@@ -755,7 +752,6 @@
 				4AA0FF261A6D835C003EEC88 /* ZSSLocalStore.m in Sources */,
 				4AC95C1F1A7C461F0085E1A7 /* ZSSLocalSyncer.m in Sources */,
 				4AEC446D1A6E1F54003E2D98 /* testZSSLocalStore.m in Sources */,
-				4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */,
 				4A6E459B1A6D948900C28755 /* ZSSThemeColorPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

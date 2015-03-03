@@ -19,16 +19,6 @@
 
 @implementation testZSSLocalFactory
 
-- (void)setUp {
-    [super setUp];
-    [[ZSSLocalStore sharedStore] deleteAllObjects];
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testInit {
     XCTAssertNoThrow([ZSSLocalFactory sharedFactory]);
 }
@@ -46,12 +36,4 @@
     
     [[ZSSLocalStore sharedStore] deleteShak:shak];
 }
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
-
 @end
