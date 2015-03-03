@@ -172,7 +172,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     }
 }
 
-- (void)configureBlocksforCell:(ZSSShakCell *)cell {
+- (void)configureBlocksForCell:(ZSSShakCell *)cell {
     [self configureVotingBlocksForCell:cell];
     [self configureTapToPlayBlocksForCell:cell];
     
@@ -190,7 +190,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
             if (!error && succeeded) {
                 
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
                 [user addUpvotedShaksObject:localShak];
                 [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                 
@@ -215,7 +215,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
             if (!error) {
                 
                 ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shak];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
                 [user addDownvotedShaksObject:localShak];
                 [[ZSSLocalStore sharedStore] saveCoreDataChanges];
                 

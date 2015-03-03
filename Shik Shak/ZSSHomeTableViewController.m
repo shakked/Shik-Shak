@@ -52,12 +52,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (void)viewWillAppear:(BOOL)animated {
     [[ZSSCloudQuerier sharedQuerier] isUserBannedWithCompletion:^(BOOL isBanned, NSError *error) {
         if (!error && isBanned) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been banned"
-                                                            message:@"You have been banned because you posted content that did not follow our guidelines."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Dismiss"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showUserIsBannedAlert];
             [self configureViewForBannedUser];
             
         }else if (!error && !isBanned) {
@@ -98,19 +93,12 @@ static NSString *CELL_IDENTIFIER = @"cell";
 
 - (void)checkIfUserIsBanned {
     [[ZSSCloudQuerier sharedQuerier] isUserBannedWithCompletion:^(BOOL userIsBanned, NSError *error) {
-        if (!error && !userIsBanned) {
-            //Do nothing
-        } else if (!error && userIsBanned) {
+        if (!error && userIsBanned) {
             self.shaks = nil;
             [self.tableView reloadData];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been banned"
-                                                            message:@"You have been banned because you posted content that did not follow our guidelines."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Dismiss"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showUserIsBannedAlert];
             
-        } else {
+        } else if (error){
             [RKDropdownAlert title:@"No internet connection" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
         }
     }];
@@ -119,9 +107,14 @@ static NSString *CELL_IDENTIFIER = @"cell";
 - (void)configureViews {
     [self configureNavBar];
     [self configurePullToRefresh];
+    [self configureTableView];
+}
+
+- (void)configureTableView {
     self.tableView.estimatedRowHeight = 44.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerNib:[UINib nibWithNibName:MESSAGE_CELL_CLASS bundle:nil] forCellReuseIdentifier:CELL_IDENTIFIER];
+
 }
 
 - (void)configureNavBar {
@@ -132,18 +125,28 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
     
+    [self configureNavBarButtons];
+}
+
+- (void)configureSegControl {
+    self.hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
+    [self.hotNewSegControl addTarget:self action:@selector(hotNewSegDidChange) forControlEvents:UIControlEventValueChanged];
+    [self.hotNewSegControl setSelectedSegmentIndex:1];
+    self.navigationItem.titleView = self.hotNewSegControl;
+
+}
+
+- (void)configureNavBarButtons {
     UIBarButtonItem *createShakBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
                                                                                          target:self
                                                                                          action:@selector(showCreateShakView)];
-    self.hotNewSegControl = [[UISegmentedControl alloc] initWithItems:@[@" New  ", @" Hot  "]];
-    [self.hotNewSegControl addTarget:self action:@selector(hotNewSegDidChange) forControlEvents:UIControlEventValueChanged];
     
     UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
     settingsButton.bounds = CGRectMake(0, 0, 25, 25);
     [settingsButton setBackgroundImage:[UIImage imageNamed:@"SettingsIcon"] forState:UIControlStateNormal];
     [settingsButton addTarget:self action:@selector(showSettingsView) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
- 
+    
     UIView *karmaScoreView = [[UIView alloc] init];
     karmaScoreView.bounds = CGRectMake(0, 0, 60, 30);
     
@@ -155,8 +158,6 @@ static NSString *CELL_IDENTIFIER = @"cell";
     
     UIBarButtonItem *karmaScoreBarButton = [[UIBarButtonItem alloc] initWithCustomView:karmaScoreView];
     
-    [self.hotNewSegControl setSelectedSegmentIndex:1];
-    self.navigationItem.titleView = self.hotNewSegControl;
     self.navigationItem.rightBarButtonItem = createShakBarButton;
     self.navigationItem.leftBarButtonItems = @[settingsBarButton, karmaScoreBarButton];
 }
@@ -182,7 +183,6 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)hotNewSegDidChange {
-    
     [self loadShakData];
 }
 
@@ -197,20 +197,11 @@ static NSString *CELL_IDENTIFIER = @"cell";
     [self.navigationController pushViewController:svc animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return [self.shaks count];
 }
 
@@ -232,8 +223,52 @@ static NSString *CELL_IDENTIFIER = @"cell";
     cell.karmaLabel.text = [shak[@"karma"] stringValue];
     
     [self configureVotingButtonsForCell:cell];
+    [self configureBlocksForCell:cell];
     
+    [cell setNeedsUpdateConstraints];
     
+    return cell;
+}
+
+- (void)configureVotingButtonsForCell:(ZSSShakCell *)cell {
+    BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shakDictionary[@"objectId"]];
+    if (!shakIsPresentLocally) {
+        cell.upVoteButton.enabled = YES;
+        cell.downVoteButton.enabled = YES;
+        [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+        [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+    } else {
+        cell.upVoteButton.enabled = NO;
+        cell.downVoteButton.enabled = NO;
+        
+        ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
+        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shakDictionary];
+        
+        if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+            
+        } else if ([[currentUser.downvotedShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
+            
+        } else if ([[currentUser.createdShaks allObjects] containsObject:localShak]) {
+            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
+            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
+            cell.upVoteButton.enabled = YES;
+            cell.downVoteButton.enabled = YES;
+            
+        }
+    }
+}
+
+- (void)configureBlocksForCell:(ZSSShakCell *)cell {
+    [self configureVotingBlocksForCell:cell];
+    [self configureTapToPlayBlocksForCell:cell];
+    [self configureReportBlockForCell:cell];
+}
+
+- (void)configureVotingBlocksForCell:(ZSSShakCell *)cell {
     __weak ZSSShakCell *weakCell = cell;
     cell.upVoteButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
@@ -284,51 +319,10 @@ static NSString *CELL_IDENTIFIER = @"cell";
             }
         }];
     };
-    
-    cell.reportUserButtonPressedBlock = ^{
-        ZSSShakCell *strongCell = weakCell;
-        BOOL didReportShak = [[ZSSLocalQuerier sharedQuerier] didReportShakWithObjectId:strongCell.shakDictionary[@"objectId"]];
-        if (!didReportShak) {
-            UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-            UIAlertAction *report = [UIAlertAction actionWithTitle:@"Report Shak"
-                                                             style:UIAlertActionStyleDestructive
-               handler:^(UIAlertAction *action) {
-                   [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shakDictionary[@"objectId"]
-                                                            withCompletion:^(NSError *error, BOOL succeeded) {
-                                                                if (!error && succeeded) {
-                                                                   [RKDropdownAlert title:@"Shak Reported"
-                                                                          backgroundColor:[UIColor turquoiseColor]
-                                                                                textColor:[UIColor whiteColor]];
-                                                                    ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
-                                                                    ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
-                                                                    [user addReportedShaksObject:localShak];
-                                                                    [[ZSSLocalStore sharedStore] saveCoreDataChanges];
-                                                                    
-                                                                } else if (!error & !succeeded) {
-                                                                    [RKDropdownAlert title:@"Error Reporting Shak" backgroundColor:[UIColor salmonColor]
-                                                                                 textColor:[UIColor whiteColor]];
-                                                                } else {
-                                                                    [RKDropdownAlert title:@"No Internet Connection"
-                                                                           backgroundColor:[UIColor salmonColor]
-                                                                                 textColor:[UIColor whiteColor]];
-                                                                }
-                                                                
-                                                            }];
+}
 
-                                                           }];
-            UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Cancel"
-                                                              style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction *action) {
-                                                                
-                                                            }];
-            [actionSheet addAction:report];
-            [actionSheet addAction:dismiss];
-            [self presentViewController:actionSheet animated:YES completion:nil];
-        } else {
-            [RKDropdownAlert title:@"You already reported this." backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
-        }
-    };
-    
+- (void)configureTapToPlayBlocksForCell:(ZSSShakCell *)cell {
+    ZSSShakCell __weak *weakCell = cell;
     cell.tapToPlayButtonPressedBlock = ^{
         ZSSShakCell *strongCell = weakCell;
         [self.speaker stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
@@ -336,44 +330,77 @@ static NSString *CELL_IDENTIFIER = @"cell";
         [self.speaker speakUtterance:shakUtterance];
         
     };
-    
-    [cell setNeedsUpdateConstraints];
-    
-    return cell;
 }
 
-- (void)configureVotingButtonsForCell:(ZSSShakCell *)cell {
-    BOOL shakIsPresentLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cell.shakDictionary[@"objectId"]];
-    if (!shakIsPresentLocally) {
-        cell.upVoteButton.enabled = YES;
-        cell.downVoteButton.enabled = YES;
-        [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
-        [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
-    } else {
-        cell.upVoteButton.enabled = NO;
-        cell.downVoteButton.enabled = NO;
-        
-        ZSSUser *currentUser = [[ZSSLocalQuerier sharedQuerier] currentUser];
-        ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cell.shakDictionary];
-        
-        if ([[currentUser.upvotedShaks allObjects] containsObject:localShak]) {
-            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteSelected"] forState:UIControlStateNormal];
-            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
-            
-        } else if ([[currentUser.downvotedShaks allObjects] containsObject:localShak]) {
-            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
-            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteSelected"] forState:UIControlStateNormal];
-            
-        } else if ([[currentUser.createdShaks allObjects] containsObject:localShak]) {
-            [cell.upVoteButton setBackgroundImage:[UIImage imageNamed:@"UpvoteUnselected"] forState:UIControlStateNormal];
-            [cell.downVoteButton setBackgroundImage:[UIImage imageNamed:@"DownvoteUnselected"] forState:UIControlStateNormal];
-            cell.upVoteButton.enabled = YES;
-            cell.downVoteButton.enabled = YES;
-            
+- (void)configureReportBlockForCell:(ZSSShakCell *)cell {
+    ZSSShakCell __weak *weakCell = cell;
+    
+    cell.reportUserButtonPressedBlock = ^{
+        ZSSShakCell *strongCell = weakCell;
+        BOOL didReportShak = [[ZSSLocalQuerier sharedQuerier] didReportShakWithObjectId:strongCell.shakDictionary[@"objectId"]];
+        if (!didReportShak) {
+            [self configureAndShowReportShakActionSheetForCell:strongCell];
+        } else {
+            [RKDropdownAlert title:@"You already reported this." backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
         }
-    }
+    };
 }
 
+- (void)configureAndShowReportShakActionSheetForCell:(ZSSShakCell *)cell {
+    
+    void (^reportShakCompletionBlock)(void) = [self getReportCompletionBlockForCell:cell];
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *report = [UIAlertAction actionWithTitle:@"Report Shak"
+                                                     style:UIAlertActionStyleDestructive
+                                                   handler:^(UIAlertAction *action) {
+                                                       reportShakCompletionBlock();
+                                                   }];
+    UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Cancel"
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction *action) {
+                                                        
+                                                    }];
+    [actionSheet addAction:report];
+    [actionSheet addAction:dismiss];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+- (void (^)(void))getReportCompletionBlockForCell:(ZSSShakCell *)cell {
+    ZSSShakCell __weak *weakCell = cell;
+    return ^{
+        ZSSShakCell *strongCell = weakCell;
+        [[ZSSCloudQuerier sharedQuerier] reportShakwithObjectId:strongCell.shakDictionary[@"objectId"]  withCompletion:^(NSError *error, BOOL succeeded) {
+            if (!error && succeeded) {
+                [RKDropdownAlert title:@"Shak Reported"
+                       backgroundColor:[UIColor turquoiseColor]
+                             textColor:[UIColor whiteColor]];
+                ZSSUser *user = [[ZSSLocalQuerier sharedQuerier] currentUser];
+                ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:strongCell.shakDictionary];
+                [user addReportedShaksObject:localShak];
+                [[ZSSLocalStore sharedStore] saveCoreDataChanges];
+                
+            } else if (!error & !succeeded) {
+                [RKDropdownAlert title:@"Error Reporting Shak" backgroundColor:[UIColor salmonColor]
+                             textColor:[UIColor whiteColor]];
+            } else {
+                [RKDropdownAlert title:@"No Internet Connection"
+                       backgroundColor:[UIColor salmonColor]
+                             textColor:[UIColor whiteColor]];
+            }
+        }];
+    };
+
+}
+
+- (void)showUserIsBannedAlert {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been banned"
+                                                    message:@"You have been banned because you posted content that did not follow our guidelines."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 - (void)configureViewForBannedUser {
     self.isUserBanned = YES;
@@ -391,5 +418,5 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 
- 
+
 @end

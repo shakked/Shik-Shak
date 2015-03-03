@@ -35,29 +35,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     return sharedQuerier;
 }
 
-- (void)testQuery {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:parseApplicationId forHTTPHeaderField:@"X-Parse-Application-Id"];
-    [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    NSDate *date = [[NSDate date] dateBySubtractingMinutes:30];
-    NSDictionary *jsonDictionary = @{@"createdAt" :@{@"$gt" : @{@"__type" : @"Date",
-                                                               @"iso": [self jsonDate:date]
-                                                               }
-                                                     }
-                                     };
-    NSString *json = [self getJSONfromDictionary:jsonDictionary];
-    NSDictionary *parameters = @{@"where" : json,
-                                 @"order" : @"-createdAt",
-                                 @"limit" : @100};
-    
-    [manager GET:@"https://api.parse.com/1/classes/ZSSShak" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *results  = responseObject[@"results"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error = %@", [error localizedDescription]);
-    }];
-}
-
 - (void)getNewShaksWithCompletion:(void (^)(NSArray *, NSError *))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -221,7 +198,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
              completion(error, NO);
      }];
 }
-#warning FINISHING IMPLEMENTING REPORT SHAK!!!!@!@!@#!@
 
 - (void)reportShakwithObjectId:(NSString *)objectId withCompletion:(void (^)(NSError *, BOOL))completion {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

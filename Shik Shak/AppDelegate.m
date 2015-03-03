@@ -54,7 +54,7 @@
         
     } else {
         if (!userExists) {
-            ZSSUser *user = [[ZSSLocalFactory sharedFactory] createUser];
+            [[ZSSLocalFactory sharedFactory] createUser];
             [[ZSSLocalStore sharedStore] saveCoreDataChanges];
         }
         ZSSThemeColorPickerController *tcpc = [[ZSSThemeColorPickerController alloc] init];

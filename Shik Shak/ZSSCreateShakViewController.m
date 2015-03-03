@@ -196,7 +196,6 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-#warning MAKE MORE READABLEd
     if (textView.text.length == 0) {
         textView.text = @"What's on your mind?";
         textView.textColor = [UIColor grayColor];

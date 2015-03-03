@@ -26,7 +26,7 @@
     for (NSDictionary *cloudShak in cloudShaks) {
         BOOL shakIdExistsLocally = [[ZSSLocalQuerier sharedQuerier] shakIdExistsLocally:cloudShak[@"objectId"]];
         if (shakIdExistsLocally) {
-            ZSSShak *localShak = [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cloudShak];
+            [[ZSSLocalQuerier sharedQuerier] localShakForCloudShak:cloudShak];
         }
     }
     [[ZSSLocalStore sharedStore] saveCoreDataChanges];

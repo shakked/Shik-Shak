@@ -12,6 +12,9 @@
         <attribute name="shakText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="voice" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZSSUser" inverseName="createdShaks" inverseEntity="ZSSUser" syncable="YES"/>
+        <relationship name="userDownvotedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZSSUser" inverseName="downvotedShaks" inverseEntity="ZSSUser" syncable="YES"/>
+        <relationship name="userReportedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZSSUser" inverseName="reportedShaks" inverseEntity="ZSSUser" syncable="YES"/>
+        <relationship name="userUpvotedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZSSUser" inverseName="upvotedShaks" inverseEntity="ZSSUser" syncable="YES"/>
     </entity>
     <entity name="ZSSUser" representedClassName="ZSSUser" syncable="YES">
         <attribute name="deviceToken" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,12 +22,12 @@
         <attribute name="installationId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="themeColor" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
         <relationship name="createdShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="creator" inverseEntity="ZSSShak" syncable="YES"/>
-        <relationship name="downvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
-        <relationship name="reportedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
-        <relationship name="upvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" syncable="YES"/>
+        <relationship name="downvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="userDownvotedBy" inverseEntity="ZSSShak" syncable="YES"/>
+        <relationship name="reportedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="userReportedBy" inverseEntity="ZSSShak" syncable="YES"/>
+        <relationship name="upvotedShaks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZSSShak" inverseName="userUpvotedBy" inverseEntity="ZSSShak" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ZSSShak" positionX="-54" positionY="-9" width="128" height="208"/>
+        <element name="ZSSShak" positionX="-54" positionY="-9" width="128" height="253"/>
         <element name="ZSSUser" positionX="-63" positionY="-18" width="128" height="163"/>
     </elements>
 </model>

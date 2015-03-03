@@ -26,5 +26,5 @@
 - (void)updateInstallationId:(NSString *)objectId withDevicetoken:(NSString *)deviceToken withCompletion:(void (^)(NSError *, BOOL))completion;
     
 + (instancetype)sharedQuerier;
-- (void)testQuery;
+
 @end
