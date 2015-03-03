@@ -34,11 +34,7 @@
 
 
 - (instancetype)initPrivate {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
+    return [super init];
 }
 
 - (instancetype)init
