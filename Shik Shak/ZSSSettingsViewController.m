@@ -31,7 +31,6 @@
     self.view.backgroundColor = themeColor;
     self.changeThemeColorButton.tintColor = themeColor;
     self.changeThemeColorButton.layer.cornerRadius = 5.0f;
-    
     [self configureNavBar];
 }
 
@@ -47,6 +46,11 @@
     self.navigationItem.title = @"Settings";
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    [self configureNavItems];
+}
+
+- (void)configureNavItems {
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.bounds = CGRectMake(0, 0, 30, 30);
     [backButton setBackgroundImage:[UIImage imageNamed:@"BackIcon"] forState:UIControlStateNormal];
@@ -55,20 +59,13 @@
     self.navigationItem.leftBarButtonItem = backBarButton;
 }
 
-- (void)showPreviousView {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)changeThemeColorButtonPressed:(id)sender {
     ZSSThemeColorEditorViewController *tcevc = [[ZSSThemeColorEditorViewController alloc] init];
     [self presentViewController:tcevc animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showPreviousView {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 @end
