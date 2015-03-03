@@ -160,7 +160,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     self.navigationItem.rightBarButtonItem = createShakBarButton;
     self.navigationItem.leftBarButtonItems = @[settingsBarButton, karmaScoreBarButton];
 }
-
+ 
 - (void)updateViews {
     self.tabBarController.tabBar.tintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
     self.navigationController.navigationBar.barTintColor = [[[ZSSLocalQuerier sharedQuerier] currentUser] themeColor];
