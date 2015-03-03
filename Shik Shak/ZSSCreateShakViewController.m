@@ -42,7 +42,6 @@
 - (void)configureDelegates {
     self.shakTextView.delegate = self;
     self.handleTextField.delegate = self;
-    
 }
 
 
@@ -70,7 +69,6 @@
 }
 
 - (void)configureNavBar {
-    
     UIColor *themeColor = [UIColor themeColor];
     self.navigationItem.title = @"Shak";
     self.navigationController.navigationBar.translucent = NO;
@@ -79,13 +77,17 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:26.0],
                                                                     NSForegroundColorAttributeName : [UIColor whiteColor]};
     
+    [self configureNavBarItems];
+}
+
+- (void)configureNavBarItems {
     UIBarButtonItem *cancelBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                      target:self
                                                                                      action:@selector(dismissView)];
     
     UIBarButtonItem *sendBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(sendShak)];
+                                                                     target:self
+                                                                     action:@selector(sendShak)];
     self.navigationItem.leftBarButtonItem = cancelBarButton;
     self.navigationItem.rightBarButtonItem = sendBarButton;
 }
@@ -94,7 +96,6 @@
     [self configureShakTextView];
     [self configureSliders];
     [self configureHandleBar];
-    
 }
 
 - (void)configureShakTextView {
@@ -118,7 +119,6 @@
     self.handleTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Add A Handle" attributes:@{NSForegroundColorAttributeName : [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5]}];
     self.handleTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.handleBarView.backgroundColor = [UIColor themeColor];
-
 }
 
 
@@ -138,9 +138,9 @@
     NSString *messageText = self.shakTextView.text;
     AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:messageText];
     AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:self.voice];
-    [utterance setVoice:voice];
-    [utterance setPitchMultiplier:pitchMultiplier];
-    [utterance setRate:rate];
+    utterance.voice = voice;
+    utterance.pitchMultiplier = pitchMultiplier;
+    utterance.rate = rate;
     [self.speaker speakUtterance:utterance];
 }
 
@@ -156,10 +156,6 @@
                                           origin:sender];
 }
 
-- (IBAction)handleTextDidChange:(id)sender {
-    
-}
-
 - (void)sendShak {
     BOOL shakIsReadyToBeSent = [self shakIsReadyToBeSent];
     if (shakIsReadyToBeSent) {
@@ -170,19 +166,25 @@
         shak.rate = [NSNumber numberWithFloat:self.rateSlider.value];
         shak.shakText = self.shakTextView.text;
         shak.voice = self.voice;
+        void (^postShakBlock)(ZSSShak *) = [self getPostShakBlockForShak:shak];
         
         [self dismissViewControllerAnimated:YES completion:^{
-            [[ZSSCloudQuerier sharedQuerier] postShak:shak
-                                       withCompletion:^(NSError *error, BOOL succeeded) {
-                                           if (!error && succeeded) {
-                                               [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
-                                               [[[ZSSLocalQuerier sharedQuerier] currentUser] addCreatedShaksObject:shak];
-                                           } else {
-                                               [RKDropdownAlert title:@"Error Sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
-                                           }
-           }];
+            postShakBlock(shak);
         }];
     }
+}
+
+- (void (^)(ZSSShak *))getPostShakBlockForShak:(ZSSShak *)shak {
+    return ^(ZSSShak *shak){
+        [[ZSSCloudQuerier sharedQuerier] postShak:shak withCompletion:^(NSError *error, BOOL succeeded) {
+           if (!error && succeeded) {
+               [RKDropdownAlert title:@"Shak Sent Successfully!" backgroundColor:[UIColor turquoiseColor] textColor:[UIColor whiteColor]];
+               [[[ZSSLocalQuerier sharedQuerier] currentUser] addCreatedShaksObject:shak];
+           } else {
+               [RKDropdownAlert title:@"Error Sending Shak" backgroundColor:[UIColor salmonColor] textColor:[UIColor whiteColor]];
+           }
+       }];
+    };
 }
 
 - (BOOL)shakIsReadyToBeSent {
@@ -213,7 +215,6 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
@@ -221,7 +222,6 @@
             return NO;
         }
     }
-    
     return YES;
 }
 

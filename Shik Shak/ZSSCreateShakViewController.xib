@@ -79,9 +79,6 @@
                             </constraints>
                             <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="handleTextDidChange:" destination="-1" eventType="valueChanged" id="zxt-R6-9JQ"/>
-                            </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T90-mi-S8b">
                             <rect key="frame" x="8" y="5" width="25" height="25"/>
