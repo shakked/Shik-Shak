@@ -15,7 +15,6 @@
 		4A21C5E21A9B902100589809 /* Flag-33.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5DF1A9B902100589809 /* Flag-33.png */; };
 		4A21C5E31A9B902100589809 /* Flag-66.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E01A9B902100589809 /* Flag-66.png */; };
 		4A21C5E41A9B902100589809 /* Flag-99.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A21C5E11A9B902100589809 /* Flag-99.png */; };
-		4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B34981A6F538100D27143 /* UIWaveView.m */; };
 		4A459BCF1A80336700C77CEA /* testZSSLocalSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */; };
 		4A459BD41A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
 		4A459BD51A8050DD00C77CEA /* ZSSShak.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A459BD11A8050DD00C77CEA /* ZSSShak.m */; };
@@ -130,8 +129,6 @@
 		4A21C5DF1A9B902100589809 /* Flag-33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-33.png"; path = "Shik Shak Images/Flag-33.png"; sourceTree = SOURCE_ROOT; };
 		4A21C5E01A9B902100589809 /* Flag-66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-66.png"; path = "Shik Shak Images/Flag-66.png"; sourceTree = SOURCE_ROOT; };
 		4A21C5E11A9B902100589809 /* Flag-99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Flag-99.png"; path = "Shik Shak Images/Flag-99.png"; sourceTree = SOURCE_ROOT; };
-		4A3B34971A6F538100D27143 /* UIWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWaveView.h; sourceTree = "<group>"; };
-		4A3B34981A6F538100D27143 /* UIWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWaveView.m; sourceTree = "<group>"; };
 		4A459BCE1A80336700C77CEA /* testZSSLocalSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testZSSLocalSyncer.m; sourceTree = "<group>"; };
 		4A459BD01A8050DD00C77CEA /* ZSSShak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSShak.h; sourceTree = "<group>"; };
 		4A459BD11A8050DD00C77CEA /* ZSSShak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSShak.m; sourceTree = "<group>"; };
@@ -376,8 +373,6 @@
 				4A6E458F1A6D915C00C28755 /* ZSSShakCell.h */,
 				4A6E45901A6D915C00C28755 /* ZSSShakCell.m */,
 				4A6E45911A6D915C00C28755 /* ZSSShakCell.xib */,
-				4A3B34971A6F538100D27143 /* UIWaveView.h */,
-				4A3B34981A6F538100D27143 /* UIWaveView.m */,
 				4A98D8551A7368A700893961 /* Location */,
 				4AA0FF2F1A6D83D9003EEC88 /* CoreData */,
 				4A6E45961A6D919300C28755 /* Networking */,
@@ -707,7 +702,6 @@
 				4A56ADE61A9C2F4D008B28E7 /* ZSSLicenseViewController.m in Sources */,
 				4A6E45891A6D8D5C00C28755 /* RKDropdownAlert.m in Sources */,
 				4AC95C141A7C33760085E1A7 /* AVSpeechUtterance+Shaks.m in Sources */,
-				4A3B34991A6F538100D27143 /* UIWaveView.m in Sources */,
 				4AA0FF211A6D82BD003EEC88 /* ShikShak.xcdatamodeld in Sources */,
 				4A09FE291A7557D500158152 /* ZSSCloudQuerier.m in Sources */,
 				4A8CDE261A6D7DF700044CF8 /* AppDelegate.m in Sources */,
