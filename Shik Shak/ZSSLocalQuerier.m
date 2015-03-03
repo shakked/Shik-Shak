@@ -64,7 +64,6 @@
     shak.voice = cloudShak[@"voice"];
     shak.creator = [self currentUser];
     return shak;
-    
 }
 
 - (ZSSUser *)currentUser {
@@ -135,9 +134,6 @@
     }
     return NO;
 }
-
-
-
 
 - (instancetype)initPrivate {
     self = [super init];

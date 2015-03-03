@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class ZSSUser;
 @class ZSSShak;
+
 @interface ZSSLocalQuerier : NSObject
 
 + (instancetype)sharedQuerier;

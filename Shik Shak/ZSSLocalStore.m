@@ -26,7 +26,6 @@
 
 
 + (instancetype)sharedStore {
-    
     static ZSSLocalStore *sharedStore = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -134,22 +133,15 @@
                                                            URL:storeURL
                                                        options:options
                                                          error:&error] != nil;
-        if (successOfAdding == NO)
-        {
-            // Check if the database is there.
-            // If it is there, it most likely means that model has changed significantly.
-            if ([[NSFileManager defaultManager] fileExistsAtPath:storeURL.path])
-            {
-                // Delete the database
+        if (successOfAdding == NO) {
+            if ([[NSFileManager defaultManager] fileExistsAtPath:storeURL.path]) {
                 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
-                // Trying to add a database to the coordinator again
                 successOfAdding = [psc addPersistentStoreWithType: NSSQLiteStoreType
                                                     configuration:nil
                                                               URL:storeURL
                                                           options:nil
                                                             error:&error] != nil;
-                if (successOfAdding == NO)
-                {
+                if (successOfAdding == NO) {
                     NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
                     abort();
                 }

@@ -15,9 +15,8 @@
 
 
 + (instancetype)sharedFactory {
-    
     static ZSSLocalFactory *sharedFactory = nil;
-    static dispatch_once_t onceToken; // onceToken = 0
+    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedFactory = [[self alloc] initPrivate];
     });
@@ -25,17 +24,14 @@
 }
 
 - (ZSSUser *)createUser {
-    
     return [[ZSSLocalStore sharedStore] createUser];
 }
 
 - (ZSSShak *)createShak {
-    
     return [[ZSSLocalStore sharedStore] createShak];
 }
 
 - (instancetype)initPrivate {
-    
     self = [super init];
     if (self) {
         
@@ -44,7 +40,6 @@
 }
 
 - (instancetype)init {
-    
     @throw [NSException exceptionWithName:@"Singleton"
                                    reason:@"Use [ZSSLocalFactory sharedFactory]"
                                  userInfo:nil];

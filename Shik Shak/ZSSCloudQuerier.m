@@ -15,7 +15,7 @@
 #import "ZSSLocalSyncer.h"
 #import "ZSSLocalQuerier.h"
 
-static NSString * const BaseURLString = @" https://api.parse.com";
+static NSString * const BaseURLString = @"https://api.parse.com";
 
 @interface ZSSCloudQuerier () {
     NSString *parseApplicationId;
@@ -172,14 +172,14 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-        NSDictionary *parameters = @{@"karma":@{@"__op":@"Increment",@"amount":@1}};
+    NSDictionary *parameters = @{@"karma":@{@"__op":@"Increment",@"amount":@1}};
     
-        [manager PUT:[NSString stringWithFormat:@"https://api.parse.com/1/classes/ZSSShak/%@",objectId] parameters:parameters
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 completion(nil, YES);
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                completion(error, NO);
-        }];
+    [manager PUT:[NSString stringWithFormat:@"https://api.parse.com/1/classes/ZSSShak/%@",objectId] parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             completion(nil, YES);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            completion(error, NO);
+    }];
 }
 
 - (void)downvoteShakWithObjectId:(NSString *)objectId withCompletion:(void (^)(NSError *, BOOL))completion {
@@ -281,12 +281,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     return [dateFormatter dateFromString:string];
 }
 
-- (NSDictionary *)newShaksQueryJSON {
-    NSDictionary *parameters = @{@"score" : @{@"$lt" : @4}};
-    
-    return parameters;
-}
-
 - (NSString *)getJSONfromDictionary:(NSDictionary *)jsonDictionary {
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:&error];
@@ -297,11 +291,6 @@ static NSString * const BaseURLString = @" https://api.parse.com";
     NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return json;
 }
-
-- (void)hotShaksQueryParameters {
-    
-}
-
 
 - (void)setKeys {
     NSString *keyPath = [[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"];
@@ -328,7 +317,7 @@ static NSString * const BaseURLString = @" https://api.parse.com";
 
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use + [ZSSDownloader sharedDownloader]"
+                                   reason:@"Use + [ZSSCloudQuerier sharedDownloader]"
                                  userInfo:nil];
     return nil;
 }
