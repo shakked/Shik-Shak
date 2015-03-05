@@ -8,7 +8,6 @@
 
 #import "ZSSThemeColorPickerController.h"
 #import "ZSSHomeTableViewController.h"
-#import "UIWaveView.h"
 #import "ZSSLocationQuerier.h"
 #import <CoreLocation/CoreLocation.h>
 #import "ZSSUser.h"
@@ -25,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIView *colorPaletteView;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
-@property (weak, nonatomic) IBOutlet UIWaveView *sineWave;
 @property (nonatomic, strong) UIColor *lastPressedColor;
 
 @end

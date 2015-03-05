@@ -28,4 +28,14 @@
     return orderedArray;
 }
 
+- (NSString *)deviceToken {
+    [self willAccessValueForKey:@"deviceToken"];
+    NSString *deviceToken = [self primitiveValueForKey:@"deviceToken"];
+    [self didAccessValueForKey:@"deviceToken"];
+    if (!deviceToken) {
+        return @"SIMULATOR";
+    }
+    return deviceToken;
+}
+
 @end

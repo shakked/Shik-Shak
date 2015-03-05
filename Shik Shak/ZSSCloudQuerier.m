@@ -113,7 +113,8 @@ static NSString * const BaseURLString = @"https://api.parse.com";
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSDictionary *jsonDictionary = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken};
+    NSString *deviceToken = [ZSSLocalQuerier sharedQuerier].currentUser.deviceToken;
+    NSDictionary *jsonDictionary = @{@"deviceToken" : deviceToken};
     
     NSString *json = [self getJSONfromDictionary:jsonDictionary];
     NSDictionary *parameters = @{@"where" : json};
@@ -138,6 +139,7 @@ static NSString * const BaseURLString = @"https://api.parse.com";
     [manager.requestSerializer setValue:parseRestAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
+    
     [[ZSSLocationQuerier sharedQuerier] findCurrentLocaitonWithCompletion:^(CLLocation *location, NSError *error) {
         NSDictionary *parameters = @{@"deviceToken" : [[ZSSLocalQuerier sharedQuerier] currentUser].deviceToken,
                                      @"handle": shak.handle,
@@ -147,10 +149,12 @@ static NSString * const BaseURLString = @"https://api.parse.com";
                                      @"shakText" : shak.shakText,
                                      @"voice" : shak.voice,
                                      @"location" : @{@"__type": @"GeoPoint",
-                                                     @"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
-                                                     @"longitude": [NSNumber numberWithFloat:location.coordinate.longitude]},
+                                                     @"latitude": @(location.coordinate.latitude),
+                                                     @"longitude": @(location.coordinate.longitude)},
                                    
                                    };
+        
+
         [manager POST:@"https://api.parse.com/1/classes/ZSSShak" parameters: parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   completion(nil, YES);

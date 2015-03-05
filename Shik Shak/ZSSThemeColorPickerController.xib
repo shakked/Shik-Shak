@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="colorPaletteView" destination="QmS-Fr-1hu" id="c02-4P-h6Q"/>
                 <outlet property="continueButton" destination="8Dx-nC-uCY" id="1Fr-Iy-izY"/>
-                <outlet property="sineWave" destination="V1Q-Mz-m9a" id="OKz-5t-tVo"/>
                 <outlet property="themeTitleLabel" destination="wIL-dO-Koi" id="jWY-4w-j94"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -214,22 +213,13 @@
                         <action selector="continueButtonPressed:" destination="-1" eventType="touchUpInside" id="R6C-pG-2uf"/>
                     </connections>
                 </button>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1Q-Mz-m9a" customClass="UIWaveView">
-                    <rect key="frame" x="-200" y="496" width="862" height="86"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="86" id="u0L-g9-wpm"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.23137254900000001" green="0.23137254900000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="V1Q-Mz-m9a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-200" id="1d4-tO-hcy"/>
                 <constraint firstAttribute="centerY" secondItem="QmS-Fr-1hu" secondAttribute="centerY" id="4h7-5K-dLi"/>
                 <constraint firstAttribute="centerX" secondItem="8Dx-nC-uCY" secondAttribute="centerX" id="FgV-I4-WTv"/>
                 <constraint firstAttribute="centerX" secondItem="QmS-Fr-1hu" secondAttribute="centerX" id="OFT-BS-HYW"/>
                 <constraint firstItem="QmS-Fr-1hu" firstAttribute="top" secondItem="wIL-dO-Koi" secondAttribute="bottom" constant="8" id="cP6-sy-v7w"/>
-                <constraint firstItem="V1Q-Mz-m9a" firstAttribute="top" secondItem="8Dx-nC-uCY" secondAttribute="bottom" constant="3" id="cnu-Z8-35g"/>
-                <constraint firstAttribute="trailing" secondItem="V1Q-Mz-m9a" secondAttribute="trailing" constant="-62" id="ks0-JC-JAG"/>
                 <constraint firstAttribute="centerX" secondItem="wIL-dO-Koi" secondAttribute="centerX" id="p4V-M0-5GG"/>
                 <constraint firstItem="8Dx-nC-uCY" firstAttribute="top" secondItem="QmS-Fr-1hu" secondAttribute="bottom" constant="21" id="y6h-kF-MaH"/>
             </constraints>
