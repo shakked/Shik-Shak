@@ -108,6 +108,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
     [self configureNavBar];
     [self configurePullToRefresh];
     [self configureTableView];
+    [self configureSegControl];
 }
 
 - (void)configureTableView {

@@ -49,22 +49,7 @@ static NSString *CELL_IDENTIFIER = @"cell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[ZSSCloudQuerier sharedQuerier] isUserBannedWithCompletion:^(BOOL isBanned, NSError *error) {
-        if (!error && isBanned) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've been banned"
-                                                            message:@"You have been banned because you posted content that did not follow our guidelines."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Dismiss"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            [self configureViewForBannedUser];
-            
-        }else if (!error && !isBanned) {
-            [self loadShakData];
-            [self.tableView reloadData];
-        }
-    }];
-    
+    [self loadShakData];
     [self updateViews];
 }
 
